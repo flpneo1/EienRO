@@ -1,0 +1,48 @@
+//-------------------------------------------------------------
+//-     _________                                             -
+//-     \_   ___ \_______  ____   ____  __ __  ______         -
+//-     /    \  \/\_  __ \/    \ /    \|  |  \/  ___/         -
+//-     \     \____|  | \(  ( ) )   |  \  |  /\___ \          -
+//-      \______  /|__|   \____/|___|  /____//____  >         -
+//-             \/                   \/           \/          -
+//-                 www.cronus-emulator.com                   -
+//-------------------------------------------------------------
+//- Mapflag: Desativa ganho de Exp.                           -
+//-------------------------------------------------------------
+//- Por:                                                      -
+//- Hercules Dev Team                                         -
+//-------------------------------------------------------------
+//- Versão Atual:                                             -
+//- 1.8                                                       -
+//-------------------------------------------------------------
+//- Compatível Com:                                           -
+//- Cronus                                                    -
+//-------------------------------------------------------------
+//- Descrição:                                                -
+//- O mesmo que 'nobaseexp' e 'nojobexp' combinado.           -
+//-------------------------------------------------------------
+//- Comentários Adicionais:                                   -
+//- 1.2 [Lupus] 1.3 [massdriller] 1.4 Lupus 1.5 Lorky         -
+//- 1.6 Adicionado Lighthalzen (devido a missões) [Lupus]     -
+//- 1.7 Comentada as entradas.(Quests são oficiais)[L0ne_W0lf]-
+//- 1.8 Aplicada Tradução (PT-BR). [SkyHD]                    -
+//-------------------------------------------------------------
+
+// Locais de quests de classes ========================
+//job_thief1	mapflag	noexp
+//job_sword1	mapflag	noexp
+//in_moc_16	mapflag	noexp
+//job_hunte	mapflag	noexp
+//job_knt	mapflag	noexp
+//job_prist	mapflag	noexp
+//job_wiz	mapflag	noexp
+//job_cru	mapflag	noexp
+//monk_test	mapflag	noexp
+//in_rogue	mapflag	noexp
+//job_sage	mapflag	noexp
+//job_soul	mapflag	noexp
+//job_star	mapflag	noexp
+//que_ng	mapflag	noexp
+
+// Muests Variadas =======================
+// mosk_ship	mapflag	noexp

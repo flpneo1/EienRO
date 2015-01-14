@@ -1,0 +1,19 @@
+language: c
+compiler:
+  - clang
+  - gcc
+  
+before_script:
+  - uname -a
+
+script:
+  - chmod 777 configure
+  - ./configure
+  - make sql
+  
+notifications:
+  email: false
+  
+branches:
+  only:
+    - master

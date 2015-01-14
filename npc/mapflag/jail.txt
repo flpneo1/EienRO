@@ -1,0 +1,51 @@
+//-------------------------------------------------------------
+//-     _________                                             -
+//-     \_   ___ \_______  ____   ____  __ __  ______         -
+//-     /    \  \/\_  __ \/    \ /    \|  |  \/  ___/         -
+//-     \     \____|  | \(  ( ) )   |  \  |  /\___ \          -
+//-      \______  /|__|   \____/|___|  /____//____  >         -
+//-             \/                   \/           \/          -
+//-                 www.cronus-emulator.com                   -
+//-------------------------------------------------------------
+//- Mapflag: Prisão.                                          -
+//-------------------------------------------------------------
+//- Por:                                                      -
+//- Hercules Dev Team                                         -
+//-------------------------------------------------------------
+//- Versão Atual:                                             -
+//- 1.1                                                       -
+//-------------------------------------------------------------
+//- Compatível Com:                                           -
+//- Cronus                                                    -
+//-------------------------------------------------------------
+//- Descrição:                                                -
+//- Configuração Mapflag da Prisão.                           -
+//-------------------------------------------------------------
+//- Comentários Adicionais:                                   -
+//- 1.0 - Initial script.                                     -
+//- 1.1 Aplicada Tradução (PT_BR). [SkyHD]                    -
+//-------------------------------------------------------------
+
+// Não memorizar =============================
+sec_pri	mapflag	nomemo
+
+// Não salvar  ===============================
+sec_pri	mapflag	nosave	SavePoint
+
+// Não teletransportar ===========================
+sec_pri	mapflag	noteleport
+
+// Não usar Portal ===============================
+sec_pri	mapflag	nowarp
+
+// Não retornar: não deixa os jogadores serem puxados pelo Chamado Urgente ou por Grupo.
+sec_pri	mapflag	noreturn
+
+// PvP ===================================
+sec_pri	mapflag	pvp
+
+// Permite atacar membros do grupo ==============================
+sec_pri	mapflag	pvp_noparty
+
+//Equipamentos são dropados no modo pesadelo ==========
+sec_pri	mapflag	pvp_nightmaredrop	random,equip,300

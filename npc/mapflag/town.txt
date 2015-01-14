@@ -1,0 +1,56 @@
+//-------------------------------------------------------------
+//-     _________                                             -
+//-     \_   ___ \_______  ____   ____  __ __  ______         -
+//-     /    \  \/\_  __ \/    \ /    \|  |  \/  ___/         -
+//-     \     \____|  | \(  ( ) )   |  \  |  /\___ \          -
+//-      \______  /|__|   \____/|___|  /____//____  >         -
+//-             \/                   \/           \/          -
+//-                 www.cronus-emulator.com                   -
+//-------------------------------------------------------------
+//- Mapflag: Cidade.                                          -
+//-------------------------------------------------------------
+//- Por:                                                      -
+//- Epoque                                                    -
+//-------------------------------------------------------------
+//- Versão Atual:                                             -
+//- 1.1b                                                      -
+//-------------------------------------------------------------
+//- Compatível Com:                                           -
+//- Cronus                                                    -
+//-------------------------------------------------------------
+//- Descrição:                                                -
+//- Ponto de acesso à caixa postal.                           -
+//-------------------------------------------------------------
+//- Comentários Adicionais:                                   -
+//- 1.0 - Script Inicial.                                     -
+//- 1.1b Aplicada Tradução (PT-BR). [SkyHD]                   -
+//-------------------------------------------------------------
+
+prontera	mapflag	town
+izlude	mapflag	town
+moc_ruins	mapflag	town
+geffen	mapflag	town
+payon	mapflag	town
+pay_arche	mapflag	town
+alberta	mapflag	town
+aldebaran	mapflag	town
+yuno	mapflag	town
+lighthalzen	mapflag	town
+einbroch	mapflag	town
+einbech	mapflag	town
+comodo	mapflag	town
+umbala	mapflag	town
+amatsu	mapflag	town
+gonryun	mapflag	town
+ayothaya	mapflag	town
+louyang	mapflag	town
+hugel	mapflag	town
+rachel	mapflag	town
+veins	mapflag	town
+brasilis	mapflag	town
+dicastes01	mapflag	town
+mora	mapflag	town
+dewata	mapflag	town
+malangdo	mapflag	town
+malaya	mapflag	town
+eclage	mapflag	town

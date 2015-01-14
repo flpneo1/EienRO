@@ -1,0 +1,40 @@
+//-------------------------------------------------------------
+//-     _________                                             -
+//-     \_   ___ \_______  ____   ____  __ __  ______         -
+//-     /    \  \/\_  __ \/    \ /    \|  |  \/  ___/         -
+//-     \     \____|  | \(  ( ) )   |  \  |  /\___ \          -
+//-      \______  /|__|   \____/|___|  /____//____  >         -
+//-             \/                   \/           \/          -
+//-                 www.cronus-emulator.com                   -
+//-------------------------------------------------------------
+//- Mapflag: Desativar drops de monstro.                      -
+//-------------------------------------------------------------
+//- Por:                                                      -
+//- Epoque                                                    -
+//-------------------------------------------------------------
+//- Versão Atual:                                             -
+//- 1.1b                                                      -
+//-------------------------------------------------------------
+//- Compatível Com:                                           -
+//- Cronus                                                    -
+//-------------------------------------------------------------
+//- Descrição:                                                -
+//- O mesmo que 'nomobloot' e 'nomvploot' combinado.          -
+//-------------------------------------------------------------
+//- Comentários Adicionais:                                   -
+//- 1.0 - Script Inicial.                                     -
+//- 1.1b Aplicada Tradução (PT-BR). [SkyHD]                   -
+//-------------------------------------------------------------
+
+//hunte	mapflag	noloot
+//job_knt	mapflag	noloot
+//job_prist	mapflag	noloot
+//job_wiz	mapflag	noloot
+//job_cru	mapflag	noloot
+//monk_test	mapflag	noloot
+//in_rogue	mapflag	noloot
+//job_sage	mapflag	noloot
+//job_soul	mapflag	noloot
+//job_star	mapflag	noloot
+//que_ng	mapflag	noloot
+//job_thief1	mapflag	noloot
