@@ -33,7 +33,7 @@
 
 // Informaçao do NPC
 //============================================================
-prontera,149,193,4	script	Informação da woe	2_BOARD1,{
+prontera,156,195,4	script	Informação da woe	2_BOARD1,{
 	doevent "WOE_CONTROL::OnMenu";
 	end;
 OnAgitStart:

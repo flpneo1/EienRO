@@ -1,0 +1,13 @@
+party_share_level: 50
+sql.db_username: root
+sql.db_password: vertrigo
+sql.db_database: eiencronus
+char_server_id: root
+char_server_pw: vertrigo
+char_server_db: eiencronus
+map_server_id: root
+map_server_pw: vertrigo
+map_server_db: eiencronus
+log_db_id: root
+log_db_pw: vertrigo
+log_db_db: eiencronus

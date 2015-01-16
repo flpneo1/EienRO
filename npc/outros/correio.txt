@@ -12,17 +12,17 @@
 //- Por:                                                      -
 //- L0ne_W0lf                                                 -
 //-------------------------------------------------------------
-//- VersÃ£o Atual:                                             -
+//- Versão Atual:                                             -
 //- 1.8                                                       -
 //-------------------------------------------------------------
-//- CompatÃ­vel Com:                                           -
+//- Compatível Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- DescriÃ§Ã£o:                                                -
+//- Descrição:                                                -
 //- [Official Conversion]                                     -
 //- Pickup and write mail from/to players in game.            -
 //-------------------------------------------------------------
-//- ComentÃ¡rios Adicionais:                                   -
+//- Comentários Adicionais:                                   -
 //- 1.0 First version, place holders only. [L0ne_W0lf]        -
 //- 1.1 Dialog updated to Official. [L0ne_W0lf]               -
 //- 1.2 Swapped "atcommand" for "Openmail". [L0ne_W0lf]       -
@@ -40,17 +40,17 @@
 //-------------------------------------------------------------
 -	script	Caixa de Correio#dummy::Caixa de Correio	-1,{
 	mes "[Caixa de Correio]";
-	mes "Para usar o serviÃ§o da caixa de correio,";
-	mes "VocÃª precisa pagar uma quantia de 130 zeny.";
-	mes "VocÃª gostaria de usar o serviÃ§o?";
+	mes "Para usar o serviço da caixa de correio,";
+	mes "Você precisa pagar uma quantia de 130 zeny.";
+	mes "Você gostaria de usar o serviço?";
 	next;
 	switch(select("Sim.:Nao.")) {
 	case 1:
 		mes "[Caixa de Correio]";
 		if (Zeny < 130) {
-			mes "Eu sinto muito, mas vocÃª nÃ£o tem dinheiro suficiente.";
-			mes "Para usar o serviÃ§o da caixa de correio,";
-			mes "vocÃª precisa pagar uma quantia de 130 zeny.";
+			mes "Eu sinto muito, mas você não tem dinheiro suficiente.";
+			mes "Para usar o serviço da caixa de correio,";
+			mes "você precisa pagar uma quantia de 130 zeny.";
 			close;
 		}
 		mes "Obrigado, por favor, venha novamente.";

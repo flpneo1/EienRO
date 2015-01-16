@@ -1,0 +1,42 @@
+-	script	mapexit	-1,{
+
+	OnInit:	
+		bindatcmd "mexit",strnpcinfo(3)+"::OnAtcommand";//@mexit irá reiniciar o servidor dentro de 3 minutos
+	end;
+
+	OnAtcommand:
+		initnpctimer;
+		announce "ATENÇÃO!", bc_all;
+	end;
+	OnTimer3000:
+		announce "O servidor será reiniciado dentro de 3 minutos devido a manutenções. Por favor, aguarde alguns instantes para logar novamente.", bc_all;
+	end;
+	OnTimer123000:
+		announce "O servidor será reiniciado em 1 minuto.", bc_all;
+	end;
+	OnTimer153000:
+		announce "O servidor será reiniciado em 30 segundos.", bc_all;
+	end;
+	OnTimer173000:
+		announce "O servidor será reiniciado em 10 segundos.", bc_all;
+	end;
+	OnTimer178000:
+		announce "O servidor será reiniciado em 5 segundos.", bc_all;
+	end;
+	OnTimer179000:
+		announce "O servidor será reiniciado em 4 segundos.", bc_all;
+	end;
+	OnTimer180000:
+		announce "O servidor será reiniciado em 3 segundos.", bc_all;
+	end;
+	OnTimer181000:
+		announce "O servidor será reiniciado em 2 segundos.", bc_all;
+	end;
+	OnTimer182000:
+		announce "O servidor será reiniciado em 1 segundo.", bc_all;
+	end;
+	OnTimer183000:
+		stopnpctimer;
+		atcommand "@mapexit";
+	end;
+}

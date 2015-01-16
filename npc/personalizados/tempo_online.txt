@@ -1,0 +1,46 @@
+//== Autor: ===================================
+//== Neo
+//=============================================
+-	script	PointsTimer	-1,{
+	end;
+ 
+	OnPCLoginEvent:
+		//if( .modo )
+		//{
+			if( #ponto )
+				set #ponto,0;
+			attachnpctimer;
+			initnpctimer;
+		//}
+	end;
+ 
+	// A cada 3 minutos 180
+	//OnTimer3000:
+	// A cada 1 hora
+	OnTimer3600000:
+		
+		//if( .modo )
+			set #ponto, #ponto + 1;
+		//else
+		//	query_sql( "UPDATE `global_reg_value` SET `value`=`value`+1 WHERE `str`='#ponto' AND `char`.`char_id`=`char_id` AND `char`.`online`=1" );
+		if(#ponto==1)
+			dispbottom "Você está a 1 hora logado";
+		else
+			dispbottom "Você está a "+#ponto+" horas logado";
+		initnpctimer;
+	end;
+ 
+ 
+	// CONFIGURE AQUI EMBAIXO
+//	OnInit:
+		// Configure o modo de funcionamento do sistema
+		// Modo = 0 -> A cada 3 minutos, o servidor acrescenta um ponto para quem estiver online
+		// Modo = 1 -> O servidor acrescenta um ponto para o jogador a cada 3 minutos que ele passar online (quanto mais jogadores, mais pesado fica para o servidor executar neste modo!)
+		//set .modo, 1;
+ 
+		// NÃO MEXA DAQUI EM DIANTE
+ 
+		//if( !modo )
+		//	initnpctimer;
+//	end;
+}

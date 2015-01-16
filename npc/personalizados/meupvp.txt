@@ -1,0 +1,103 @@
+prontera,154,198,4	script	Gus::Arena PVP	734,2,2,{
+//dispbottom "São "+gettime(3)+":"+gettime(2)+" horas";
+//dispbottom ""+gettimestr("%H:%M:%S",21);
+if (getgmlevel()){mes "Você é GM!";}
+//set PCLoadMapEvent,1;
+//set PCDieEvent,1;
+//query_sql( "UPDATE `global_reg_value` SET `value`=0 WHERE `str`='PCDieEvent'" );
+//dispbottom "die "+PCDieEvent;
+//dispbottom "pontoL "+#ponto;
+mes "[Gus]";
+mes  "Olá "+strcharinfo(0)+" quer entrar na arena PvP?";
+next;
+
+switch (select("Quero ir para PvP","Quero sair, obrigado"))
+{
+	case 1:
+		mes "[Gus]";
+		mes "Nós temos ["+getmapusers("pvp_n_5-5")+"] jogadores na arena PvP";
+		next;
+		if(!@pontos)
+			set @pontos,0;
+		dispbottom "Seus pontos são: "+@pontos;
+		warp "pvp_n_5-5",0,0;
+		announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
+		close;
+	
+	case 2:
+		mes "[Gus]";
+		mes "Ok, volte quando quiser.";
+		close;
+}
+OnPCKillEvent:
+	getmapxy @map$,@x,@y,0;
+	if(@map$ == "pvp_n_5-5") {
+		set @pontos,@pontos+1;
+		dispbottom "Seus pontos: "+@pontos;
+	}
+	end;
+OnPCDieEvent:
+	getmapxy @map$,@x,@y,0;
+	if(@map$ == "pvp_n_5-5") {
+		set @die, @die +1;
+		dispbottom "Mortes "+@die;
+	}
+	end;
+OnPCLogoutEvent:
+	//set #ponto,#ponto+50;
+	end;
+OnTouch:
+	//set @x,@x+1;
+	//dispbottom "vc passou pelo npc "+@x+" vezes!";
+	end;
+OnPCLoadMapEvent:
+	getmapxy @map$,@x,@y,0;
+	if(@map$ == "pvp_n_5-5") {
+		dispbottom "Você saiu do PVP";
+	}
+	end;
+OnInit:
+	waitingroom "     PvP   ["+getmapusers("pvp_n_5-5")+"]",0;
+end;
+}
+
+//-	script	Arena#PCKill	-1,{
+//OnPCKillEvent:
+//	set @CID,getcharid(0);
+//	set @name$,"";
+//	set @points,0;
+//	query_sql "SELECT `kills` FROM `pvp` WHERE `char_id`="+@CID+"",@points;
+//	query_sql "SELECT `name` FROM `pvp` WHERE `char_id`="+@CID+"",@name$;
+//	if ( @name$ == "" ) 
+//	{
+//		query_sql "INSERT INTO `pvp` (`char_id`,`name`,`kills`) VALUES ("+@CID+",'"+strcharinfo(0)+"',1)",@esc$;
+//		dispbottom "Você Matou seu primeiro jogador";
+//		end;
+//	}
+//	query_sql "UPDATE `pvp` SET `kills` = `kills` +1 WHERE `char_id`="+@CID+"",@esc$;
+//	set points,points+1;
+//	announce "Você matou [ "+rid2name(killedrid)+" ] e chegou a "+@points+" jogadores mortos.",bc_self,0x90FFFF;
+//	end;
+//}
+//prontera,0,0,0	script	PCDieEvent	-1,{
+//set @PCDieEvent,0;
+//mapannounce "pvp_n_8-2",strcharinfo(0) + " foi derrotado na Death Arena!",16;
+//announce "MORREUUUU!!!";
+//dispbottom "vc morreu";
+//}
+//prontera,0,0,0	script	PCLoginEvent	-1,{
+//set @PCDieEvent,0;
+//announce strcharinfo(0) +"Logou!";
+//dispbottom "LOGOU";
+//}
+//prontera,0,0,0	script	Arena2#PCKill	-1,{
+//OnTouch:
+//	set @cliques,0;
+//	set @cliques,@cliques+1;
+//	dispbottom "vc clicou no npc "+cliques+" vezes!";
+//	end;
+//OnPCLoadMapEvent:
+//	dispbottom "Você mudou de mapa";
+//	warp "prontera",155,151;
+//	end;
+//}

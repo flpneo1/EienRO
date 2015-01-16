@@ -12,16 +12,16 @@
 //- Por:                                                      -
 //- Cronus, Hercules e rAthena.                               -
 //-------------------------------------------------------------
-//- Versão Atual:                                             -
+//- Vers�o Atual:                                             -
 //- 2.4a                                                      -
 //-------------------------------------------------------------
-//- Compatível Com:                                           -
+//- Compat�vel Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- Descrição:                                                -
-//- Mudanчa de classe para Espadachim                         -
+//- Descri��o:                                                -
+//- Mudan?a de classe para Espadachim                         -
 //-------------------------------------------------------------
-//- Comentários Adicionais:                                   -
+//- Coment�rios Adicionais:                                   -
 //- 1.0 Fully working.                                        -
 //- 1.1 Added instant job change for High Novice [Lupus]      -
 //- 1.3 Added Baby Class support [Lupus]                      -
@@ -51,30 +51,30 @@
 //- 2.1 Fixed mistake in condition check. [L0ne_W0lf]         -
 //- 2.2 Warp portals dont end with ; [Yommy]                  -
 //- 2.3 Added Quest Log commands. [L0ne_W0lf]                 -
-//- 2.4 Realizado a tradução PT-BR. [beckdeveloper]           -
-//- 2.4a Revisão e atualização das view_ids. [KyukE]          -
+//- 2.4 Realizado a tradu��o PT-BR. [beckdeveloper]           -
+//- 2.4a Revis�o e atualiza��o das view_ids. [KyukE]          -
 //-------------------------------------------------------------
 
 izlude_in,74,172,4	script	Chefe Espadachim#swd_1	2_M_SWORDMASTER,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
 			mes "Isso...";
-			mes "Nуo pode ser...";
-			mes "Vocъ renasceu, nуo foi?";
+			mes "N?o pode ser...";
+			mes "Voc? renasceu, n?o foi?";
 			next;
 			mes "[Chefe Espadachim]";
-			mes "Saiba que estс se entregando ao caminho dos Espadachins! Uma vez que vocъ se acostumou a brandir uma espada, vocъ nunca poderс voltar atrсs!!";
+			mes "Saiba que est? se entregando ao caminho dos Espadachins! Uma vez que voc? se acostumou a brandir uma espada, voc? nunca poder? voltar atr?s!!";
 			next;
 			if (getskilllv("NV_BASIC") < 9) {
 				mes "[Chefe Espadachim]";
-				mes "Hum? Ah, vocъ deve primeiro dominar as habilidades bсsicas antes de estar pronto para se tornar um Espadachim.";
+				mes "Hum? Ah, voc? deve primeiro dominar as habilidades b?sicas antes de estar pronto para se tornar um Espadachim.";
 				next;
 				mes "[Chefe Espadachim]";
-				mes "Volte aqui quando terminar de aprender as habilidades bсsicas de Aprendiz.";
+				mes "Volte aqui quando terminar de aprender as habilidades b?sicas de Aprendiz.";
 				close;
 			}
 			mes "[Chefe Espadachim]";
-			mes "Excelente! Deixe-me promovъ-lo a um Espadachim imediatamente!";
+			mes "Excelente! Deixe-me promov?-lo a um Espadachim imediatamente!";
 			next;
 			skill 143,0,0;
 			jobchange Job_Swordman_High;
@@ -82,59 +82,59 @@ izlude_in,74,172,4	script	Chefe Espadachim#swd_1	2_M_SWORDMASTER,{
 			skill 145,1,0;
 			skill 146,1,0;
 			mes "[Chefe Espadachim]";
-			mes "Hum... Vocъ parece um Espadachim bem experiente. Ainda assim, eu tenho certeza que vocъ deve treinar para melhorar suas habilidades e ganhar forчa!";
+			mes "Hum... Voc? parece um Espadachim bem experiente. Ainda assim, eu tenho certeza que voc? deve treinar para melhorar suas habilidades e ganhar for?a!";
 			close;
 		}
 		else {
 			mes "Hum...?";
-			mes "Vocъ щ um guerreiro";
-			mes "renascido, nуo щ?";
+			mes "Voc? ? um guerreiro";
+			mes "renascido, n?o ??";
 			next;
 			mes "[Chefe Espadachim]";
 			mes "Humm...";
 			mes "Parece que ser";
-			mes "um Espadachim nуo щ parte";
+			mes "um Espadachim n?o ? parte";
 			mes "do seu destino. Me desculpe,";
-			mes "mas nуo hс nada que eu possa";
-			mes "fazer por vocъ.";
+			mes "mas n?o h? nada que eu possa";
+			mes "fazer por voc?.";
 			close;
 		}
 	}
 	mes "[Chefe Espadachim]";
-	mes "Bem vindo р";
-	mes "Associaчуo dos Espadachins!";
+	mes "Bem vindo ?";
+	mes "Associa??o dos Espadachins!";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Em que posso ajudс-lo?";
+	mes "Em que posso ajud?-lo?";
 	next;
-	switch(select("Mudanчa de Classe:Sobre os Espadachins:Sobre os requisitos da Classe:Cancelar")) {
+	switch(select("Mudan?a de Classe:Sobre os Espadachins:Sobre os requisitos da Classe:Cancelar")) {
 	case 1:
 		if (BaseJob == Job_Swordman) {
 			mes "[Chefe Espadachim]";
-			mes "Hahahaha! Vocъ deve estar de brincadeira! Vocъ jс щ um Espadachim!";
+			mes "Hahahaha! Voc? deve estar de brincadeira! Voc? j? ? um Espadachim!";
 			close;
 		}
 		else if (BaseJob != Job_Novice) {
 			mes "[Chefe Espadachim]";
-			mes "Hahaha! Vejamos... eu recuso sua oferta em nome da Associaчуo dos Espadachins.";
-			mes "Vocъ jс pertence a outra classe, nуo щ?";
+			mes "Hahaha! Vejamos... eu recuso sua oferta em nome da Associa??o dos Espadachins.";
+			mes "Voc? j? pertence a outra classe, n?o ??";
 			close;
 		}
 		if (job_sword_q == 0) {
 			mes "[Chefe Espadachim]";
-			mes "Entуo vocъ deseja se tornar um orgulhoso espadachim? Certamente, por favor inscreva-se!";
+			mes "Ent?o voc? deseja se tornar um orgulhoso espadachim? Certamente, por favor inscreva-se!";
 			next;
 			if (select("Inscrever-se.:Cancelar.") == 1) {
 				savepoint "izlude_in",65,165;
 				set job_sword_q,1;
 				setquest 1014;
 				mes "[Chefe Espadachim]";
-				mes "Ah, sim. Sua aplicaчуo serс registrada assim que possэvel.";
+				mes "Ah, sim. Sua aplica??o ser? registrada assim que poss?vel.";
 				next;
 				mes "[Chefe Espadachim]";
-				mes "Se vocъ jс possui os requisitos, vocъ pode ser entrevistado agora. Deseja fazer a entrevista?";
+				mes "Se voc? j? possui os requisitos, voc? pode ser entrevistado agora. Deseja fazer a entrevista?";
 				next;
-				if (select("Sim.:Nуo.") == 1) {
+				if (select("Sim.:N?o.") == 1) {
 					mes "[Chefe Espadachim]";
 					mes "Bom, bom.";
 					mes "Agora, vejamos...";
@@ -142,7 +142,7 @@ izlude_in,74,172,4	script	Chefe Espadachim#swd_1	2_M_SWORDMASTER,{
 				}
 				else {
 					mes "[Chefe Espadachim]";
-					mes "Ok entуo. Sinta-se livre para voltar quando estiver pronto. Tudo que vocъ precisa fazer щ possuir nossos requisitos. Boa sorte para vocъ.";
+					mes "Ok ent?o. Sinta-se livre para voltar quando estiver pronto. Tudo que voc? precisa fazer ? possuir nossos requisitos. Boa sorte para voc?.";
 					close;
 				}
 			}
@@ -154,61 +154,61 @@ izlude_in,74,172,4	script	Chefe Espadachim#swd_1	2_M_SWORDMASTER,{
 		}
 		mes "[Chefe Espadachim]";
 		if (getskilllv("NV_BASIC") < 9) {
-			mes "Hm, vocъ ainda nуo aprendeu todas as Habilidade Bсsicas. Vocъ precisa fazъ-lo antes de se tornar Espadachim.";
+			mes "Hm, voc? ainda n?o aprendeu todas as Habilidade B?sicas. Voc? precisa faz?-lo antes de se tornar Espadachim.";
 			next;
 			mes "[Chefe Espadachim]";
-			mes "Verifique os requisitos para mudanчa de profissуo novamente e volte quando estiver pronto.";
+			mes "Verifique os requisitos para mudan?a de profiss?o novamente e volte quando estiver pronto.";
 			close;
 		}
 		else if (job_sword_q <= 3) {
-			mes "Hm, vocъ aprendeu todas as Habilidade Bсsicas, mas nуo fez o teste ainda. Vocъ precisa, inicialmente, passar no exame antes de poder mudar sua profissуo para Espadachim.";
+			mes "Hm, voc? aprendeu todas as Habilidade B?sicas, mas n?o fez o teste ainda. Voc? precisa, inicialmente, passar no exame antes de poder mudar sua profiss?o para Espadachim.";
 			next;
 			mes "[Chefe Espadachim]";
-			mes "Entre na sala a minha direita para que possa fazer o teste. Vocъ precisarс falar com a pessoa a minha direita para que possa entrar na sala de exames.";
+			mes "Entre na sala a minha direita para que possa fazer o teste. Voc? precisar? falar com a pessoa a minha direita para que possa entrar na sala de exames.";
 			close;
 		}
 		else if (job_sword_q == 4) {
-			mes "Hahaha! Parabщns! Agora vocъ estс completamente qualificado para ser um verdadeiro Espadachim! Eu irei transformс-lo imediatamente!";
+			mes "Hahaha! Parab?ns! Agora voc? est? completamente qualificado para ser um verdadeiro Espadachim! Eu irei transform?-lo imediatamente!";
 			next;
 			callfunc "Job_Change",Job_Swordman;
 			set job_sword_q,0;
 			completequest 1014;
 			mes "[Chefe Espadachim]";
-			mes "Novamente, parabщns. Eu espero que vocъ se torne um excelente representante da Associaчуo de Espadachins.";
+			mes "Novamente, parab?ns. Eu espero que voc? se torne um excelente representante da Associa??o de Espadachins.";
 			close;
 		}
 	case 2:
 		mes "[Chefe Espadachim]";
-		mes "Entуo vocъ desenha saber mais sobre a poderosa profissуo dos Espadachins? Bem, entуo...";
+		mes "Ent?o voc? desenha saber mais sobre a poderosa profiss?o dos Espadachins? Bem, ent?o...";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "Entre as profissѕes de Primeiras Classes, a profissуo Espadachim щ a melhor combatente corpo-a-corpo por trъs razѕes.";
-		mes "E sуo elas:";
+		mes "Entre as profiss?es de Primeiras Classes, a profiss?o Espadachim ? a melhor combatente corpo-a-corpo por tr?s raz?es.";
+		mes "E s?o elas:";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "Primeiro, Espadachins tem o benefэcio de HP adicional. Segundo, Espadachins geralmente tem acesso a uma seleчуo mais ampla armas do que outras profissѕes de Primeira Classe.";
+		mes "Primeiro, Espadachins tem o benef?cio de HP adicional. Segundo, Espadachins geralmente tem acesso a uma sele??o mais ampla armas do que outras profiss?es de Primeira Classe.";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "E terceira, a maioria das habilidade do Espadachim sуo ataques fэsicos esmagadores! Na minha opiniуo, ser um Espadachim щ a melhor profissуo que existe!";
+		mes "E terceira, a maioria das habilidade do Espadachim s?o ataques f?sicos esmagadores! Na minha opini?o, ser um Espadachim ? a melhor profiss?o que existe!";
 		close;
 	case 3:
 		mes "[Chefe Espadachim]";
 		mes "Hmmm...";
 		if (BaseJob != Job_Novice) {
 			if (BaseJob == Job_Swordman)
-				mes "Mas nуo existe necessidade de lhe dizer os requisitos. Vocъ os conhece e jс se tornou um Espadachim! Bem, de qualquer maneira...";
+				mes "Mas n?o existe necessidade de lhe dizer os requisitos. Voc? os conhece e j? se tornou um Espadachim! Bem, de qualquer maneira...";
 			else
-				mes "Щ tarde demais para vocъ se tornar um Espadachim. Vocъ jс possui outra profissуo. Ainda sim, nуo hс mal nenhum em lhe dizer...";
+				mes "? tarde demais para voc? se tornar um Espadachim. Voc? j? possui outra profiss?o. Ainda sim, n?o h? mal nenhum em lhe dizer...";
 		}
 		next;
 		mes "[Chefe Espadachim]";
-		mes "Primeiro, vocъ precisa aprender todos os nove pontos de Habilidades Bсsicas. Se vocъ nуo for capaz de completar este requisito, vocъ nуo serс capaz de mudar para nenhuma profissуo.";
+		mes "Primeiro, voc? precisa aprender todos os nove pontos de Habilidades B?sicas. Se voc? n?o for capaz de completar este requisito, voc? n?o ser? capaz de mudar para nenhuma profiss?o.";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "Segundo, vocъ precisa passar no Exame de Espadachins. Pergunte ao Guia de Teste localizado na sala de espera do Teste de Espadachim.";
+		mes "Segundo, voc? precisa passar no Exame de Espadachins. Pergunte ao Guia de Teste localizado na sala de espera do Teste de Espadachim.";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "Se vocъ puder concluir essas duas exigъncias, entуo vocъ pode mudar para um Espadachim a qualquer momento que deseje.";
+		mes "Se voc? puder concluir essas duas exig?ncias, ent?o voc? pode mudar para um Espadachim a qualquer momento que deseje.";
 		close;
 	case 4:
 		mes "[Chefe Espadachim]";
@@ -221,26 +221,26 @@ izlude_in,74,172,4	script	Chefe Espadachim#swd_1	2_M_SWORDMASTER,{
 izlude_in,62,170,6	script	Chefe Espadachim#swd_2	4_M_03,{
 	mes "[Chefe Espadachim]";
 	if (BaseJob == Job_Swordman) {
-		mes "Desculpe jovem, mas eu sѓ posso permitir Novatos a entrar no Salуo de Exames.";
+		mes "Desculpe jovem, mas eu s? posso permitir Novatos a entrar no Sal?o de Exames.";
 		close;
 	}
 	else if (BaseJob != Job_Novice) {
-		mes "Quem diabos щ vocъ?! Ninguщm, excepto Novatos, щ permitido a vir aqui!";
+		mes "Quem diabos ? voc??! Ningu?m, excepto Novatos, ? permitido a vir aqui!";
 		close;
 	}
 	else if (getskilllv("NV_BASIC") < 9) {
-		mes "Pare! Eu nуo posso permitir sua entrada atщ que vocъ aprenda todas as Habilidades Bсsicas. O Salуo de Exames nуo щ lugar para vadiagem!";
+		mes "Pare! Eu n?o posso permitir sua entrada at? que voc? aprenda todas as Habilidades B?sicas. O Sal?o de Exames n?o ? lugar para vadiagem!";
 		close;
 	}
 	else if (job_sword_q == 4) {
-		mes "Opa! Vocъ precisa falar com o Chefe Espadachim no centro da sala, nуo comigo.";
+		mes "Opa! Voc? precisa falar com o Chefe Espadachim no centro da sala, n?o comigo.";
 		close;
 	}
 	else if (job_sword_q == 0) {
-		mes "Pare! Se vocъ quer fazer o Exame de Espadachim vocъ precisarс preencher uma aplicaчуo primeiro.";
+		mes "Pare! Se voc? quer fazer o Exame de Espadachim voc? precisar? preencher uma aplica??o primeiro.";
 		next;
 		mes "[Chefe Espadachim]";
-		mes "O Espadachim no centro da sala poderс lhe ajudar com isso, entendeu?";
+		mes "O Espadachim no centro da sala poder? lhe ajudar com isso, entendeu?";
 		close;
 	}
 	else {
@@ -252,54 +252,54 @@ izlude_in,62,170,6	script	Chefe Espadachim#swd_2	4_M_03,{
 
 izlude_in,30,175,4	script	Chefe Espadachim#swd_3	4_F_03,{
 	mes "[Chefe Espadachim]";
-	mes "Eu irei lhe contar sobre o Exame! Ouчa com atenчуo, eu nуo irei repetir.";
+	mes "Eu irei lhe contar sobre o Exame! Ou?a com aten??o, eu n?o irei repetir.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "A proposta desse exame щ confirmar se vocъ щ qualificado ou nуo para se tornar um Espadachim. Como vocъ sabe, um Espadachim necessita de forчa fэsica e espiritual!";
+	mes "A proposta desse exame ? confirmar se voc? ? qualificado ou n?o para se tornar um Espadachim. Como voc? sabe, um Espadachim necessita de for?a f?sica e espiritual!";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Sem isso, vocъ nуo serс apto a se tornar um Espadachim. Agora, as condiчѕes para completar esse teste sуo bem simples.";
+	mes "Sem isso, voc? n?o ser? apto a se tornar um Espadachim. Agora, as condi??es para completar esse teste s?o bem simples.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Vocъ terс que atravessar trъs percursos e chegar no ponto de controle (checkpoint) final em ^FF000010 minutos^000000.";
+	mes "Voc? ter? que atravessar tr?s percursos e chegar no ponto de controle (checkpoint) final em ^FF000010 minutos^000000.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Se vocъ escolher 'Render-se,' ou se vocъ ultrapassar o tempo mсximo, vocъ nуo irс passar no exame.";
+	mes "Se voc? escolher 'Render-se,' ou se voc? ultrapassar o tempo m?ximo, voc? n?o ir? passar no exame.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Se vocъ achar que nуo estс forte o suficiente para completar o teste, fale com o funcionсrio da equipe de teste no inэcio do percurso.";
+	mes "Se voc? achar que n?o est? forte o suficiente para completar o teste, fale com o funcion?rio da equipe de teste no in?cio do percurso.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "Durante o percurso, vocъ poderс cair em um subterrтneo. Mais vocъ ainda poderс voltar ao percurso.";
+	mes "Durante o percurso, voc? poder? cair em um subterr?neo. Mais voc? ainda poder? voltar ao percurso.";
 	next;
 	mes "[Chefe Espadachim]";
-	mes "No entanto, tenha cuidado, vocъ vai perder tempo! Boa sorte.";
+	mes "No entanto, tenha cuidado, voc? vai perder tempo! Boa sorte.";
 	close;
 }
 
 izlude_in,30,163,0	script	Equipe de Teste#swd_1	8W_SOLDIER,{
 	mes "[Test Hall Staff]";
 	if (BaseJob == Job_Swordman) {
-		mes "Hm? Como conseguiu entrar aqui? Vocъ nуo deveria estar aqui, por favor saia agora.";
+		mes "Hm? Como conseguiu entrar aqui? Voc? n?o deveria estar aqui, por favor saia agora.";
 		close2;
 		warp "izlude_in",66,170;
 		end;
 	}
 	else if (BaseJob != Job_Novice) {
-		mes "Quem щ vocъ?! Este lugar щ para o teste de Espadachim! Vocъ nуo tem autorizaчуo para estar aqui! Saia agora!";
+		mes "Quem ? voc??! Este lugar ? para o teste de Espadachim! Voc? n?o tem autoriza??o para estar aqui! Saia agora!";
 		close2;
 		warp "izlude_in",66,170;
 		end;
 	}
 	if (job_sword_q == 1) {
-		mes "Entуo vocъ deseja se tornar Espadachim? Muito bem! Me parece confiсvel!";
+		mes "Ent?o voc? deseja se tornar Espadachim? Muito bem! Me parece confi?vel!";
 		next;
 		mes "[Test Hall Staff]";
-		mes "Tente relaxar e dъ o seu melhor. O percurso nуo щ tуo difэcil assim.";
+		mes "Tente relaxar e d? o seu melhor. O percurso n?o ? t?o dif?cil assim.";
 		set job_sword_q,2;
 	}
 	else if (job_sword_q == 2) {
-		mes "Nova tentativa? Tente nуo se preocupar. Vejo que vocъ nуo desiste, isso щ bom! Aqui, tome isso e vamos lс!";
+		mes "Nova tentativa? Tente n?o se preocupar. Vejo que voc? n?o desiste, isso ? bom! Aqui, tome isso e vamos l?!";
 		getitem 512,5; //Apple
 		set job_sword_q,3;
 	}
@@ -313,24 +313,24 @@ izlude_in,30,163,0	script	Equipe de Teste#swd_1	8W_SOLDIER,{
 // Examination Courses NPCs
 //============================================================ 
 // 1-1
-job_sword1,230,245,2	script	Mщdico#swd_1	8W_SOLDIER,{
+job_sword1,230,245,2	script	M?dico#swd_1	8W_SOLDIER,{
 	callfunc "F_JobSwdMedic","1st";
 }
 job_sword1,230,242,2	script	Equipe de Teste#swd_2	8W_SOLDIER,{
 	callfunc "F_JobSwdStaff",1;
 }
-job_sword1,230,207,2	script	Mщdico#2swd_2	8W_SOLDIER,{
+job_sword1,230,207,2	script	M?dico#2swd_2	8W_SOLDIER,{
 	callfunc "F_JobSwdMedic","2nd";
 }
 job_sword1,230,204,2	script	Equipe de Teste#2swd_3	8W_SOLDIER,{
 	callfunc "F_JobSwdStaff",1;
 }
 job_sword1,223,167,2	script	Mae#swd_1_success	4_F_03,{
-	mapannounce "job_sword1","Candidato " + strcharinfo(0) + ". Vocъ passou no teste com sucesso.",bc_map;
+	mapannounce "job_sword1","Candidato " + strcharinfo(0) + ". Voc? passou no teste com sucesso.",bc_map;
 	set job_sword_q,4;
 	mes "[Mae]";
-	mes "Eu te dou meus sinceros parabщns, vocъ passou nos testes!";
-	mes "Jс estou enviando o resultado para o Departamento do trabalho. Por favor fale com o funcionсrio no centro. Obrigado.";
+	mes "Eu te dou meus sinceros parab?ns, voc? passou nos testes!";
+	mes "J? estou enviando o resultado para o Departamento do trabalho. Por favor fale com o funcion?rio no centro. Obrigado.";
 	close2;
 	warp "izlude_in",66,173;
 	end;
@@ -340,8 +340,8 @@ job_sword1,223,167,2	script	Mae#swd_1_success	4_F_03,{
 //============================================================ 
 function	script	F_JobSwdMedic	{
 	percentheal 100,0;
-	mes "[Mщdico]";
-	mes "Este щ o "+getarg(0)+" ponto de checagem! Anime-se!";
+	mes "[M?dico]";
+	mes "Este ? o "+getarg(0)+" ponto de checagem! Anime-se!";
 	close;
 }
 
@@ -349,7 +349,7 @@ function	script	F_JobSwdStaff	{
 	mes "[Equipe de Teste]";
 	mes "Quer desistir?";
 	next;
-	if (select("Sim.:Nуo.") == 1) {
+	if (select("Sim.:N?o.") == 1) {
 		mapannounce "job_sword1","O canditato " + strcharinfo(0) + " desistiu do teste.",bc_map;
 		warp "izlude_in",65,165;
 		end;
@@ -362,9 +362,9 @@ function	script	F_JobSwdStaff	{
 function	script	F_JobSwdTestStaff	{
 OnTouch:
 	mes "[Equipe de Teste]";
-	mes "Candidato " + strcharinfo(0) + ". Vocъ se rende???";
+	mes "Candidato " + strcharinfo(0) + ". Voc? se rende???";
 	next;
-	if (select("Sim.:Nуo.") == 1) {
+	if (select("Sim.:N?o.") == 1) {
 		mapannounce "job_sword1","O candidato " + strcharinfo(0) + " desistiu do teste.",bc_map;
 		warp "izlude_in",65,165;
 		end;

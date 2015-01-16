@@ -1,0 +1,98 @@
+//exp.conf------------------------
+base_exp_rate: 10000
+job_exp_rate: 10000
+multi_level_up: yes
+exp_bonus_attacker: 100
+mvp_exp_rate: 500
+
+//drops.conf----------------------
+item_rate_common: 1000
+item_rate_common_boss: 1000
+item_drop_common_min: 1000
+
+item_rate_heal: 1000
+item_rate_heal_boss: 1000
+item_drop_heal_min: 1000
+
+item_rate_use: 1000
+item_rate_use_boss: 1000
+item_drop_use_min: 1000
+
+item_rate_equip: 1000
+item_rate_equip_boss: 1000
+item_drop_equip_min: 1000
+
+item_rate_card: 1000
+item_rate_card_boss: 1000
+item_drop_card_min: 1
+
+item_rate_mvp: 1000
+item_drop_mvp_min: 1000
+
+item_rate_adddrop: 1000
+item_drop_add_min: 1000
+
+item_rate_treasure: 1000
+item_drop_treasure_min: 1000
+
+rare_drop_announce: 100
+
+//client.conf---------------------
+min_hair_style: 0
+max_hair_style: 50
+min_hair_color: 0
+max_hair_color: 263
+min_cloth_color: 0 
+max_cloth_color: 553
+
+max_lv: 99
+
+display_version: no
+area_size: 24
+max_walk_path: 30
+area_size: 24
+
+//homunc.conf---------------------
+homunculus_S_max_level: 99//150
+
+//itens.conf----------------------
+ignore_items_gender: no
+item_use_interval: 100
+gtb_sc_immunity: 100
+
+//misc.conf-----------------------
+duel_only_on_same_map: no
+mail_show_status: 2
+
+//monster.conf--------------------
+mob_count_rate: 150
+show_mob_info: 5
+ksprotection: 0
+mob_slave_keep_target: no
+
+//party.conf----------------------
+party_even_share_bonus: 100
+party_update_interval: 500
+
+//player.conf---------------------
+player_skillfree: yes
+player_skillup_limit: no
+
+natural_healhp_interval: 3000
+natural_healsp_interval: 4000
+natural_heal_skill_interval: 5000
+
+max_aspd: 193
+max_third_aspd: 193
+max_walk_speed: 350
+max_hp: 2000000
+max_sp: 2000000
+max_parameter: 99
+max_third_parameter: 130
+max_baby_parameter: 80
+max_baby_third_parameter: 108
+max_def: 99
+over_def_bonus: 100
+max_cart_weight: 8000
+show_hp_sp_drain: yes
+bone_drop: 2

@@ -1,0 +1,10 @@
+userid: user123
+passwd: pass123
+server_name: EienRO
+wisp_server_name: Bem vindo ao EienRO
+login_ip: neo.redirectme.net
+char_ip: neo.redirectme.net
+start_point: prontera,150,150
+start_zeny: 200
+char_name_letters: abcdefghijklmnopqrstuvwxyzç _ABCDEFGHIJKLMNOPQRSTUVWXYZÇ1234567890áÁéÉíÍóÓúÚâÂêÊîÎôÔûÛàÀèÈìÌòÒùÙãÃõÕüÜ
+pincode_enabled: 0

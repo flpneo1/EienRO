@@ -8,6 +8,6 @@
 //---------------------------------------------------------
 //  Este Script é executado quando seu personagem acessa o servidor.
 -	script	CronusMOTD	-1,{
-	message strcharinfo(0),"Bem Vindo ao Cronus. Reporte todos os problemas que encontrar";
+	message strcharinfo(0),"Bem vindo ao EienRO!";
 	end;
 }

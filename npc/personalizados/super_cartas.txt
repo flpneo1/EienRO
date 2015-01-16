@@ -1,0 +1,36 @@
+//= Super Cartas
+//===== Por: ================================================= 
+//= _Neo_
+//===== Versão Atual: ======================================== 
+//= 1.0
+prontera,129,191,7	script	Haruka	532,{
+mes "[Haruka]";
+mes  "Olá! Eu posso trocar 5 cartas iguais por uma super carta ^^";
+next;
+mes "[Haruka]";
+mes  "Qual carta deseja trocar?";
+switch (select("Poring","Lunatico"))
+{
+	case 1:
+		mes "5 Cartas Poring por 1 Super Carta Poring";
+		next;
+		if(countitem(4001)<5) goto NoItem;
+		mes "Prontinho ^^";
+		delitem 4001,5;
+		getitem 24001,1;
+		close;
+	
+	case 2:
+		mes "5 Cartas Lunatico por 1 Super Carta Lunatico";
+		next;
+		if(countitem(4002)<5) goto NoItem;
+		mes "Prontinho ^^";
+		delitem 4002,5;
+		getitem 24002,1;
+		close;
+}
+NoItem:
+	mes "[Haruka]";
+	mes "Infelizmente você não tem as cartas necessárias";
+	close;
+}

@@ -12,19 +12,19 @@
 //- Por:                                                      -
 //- Euphy                                                     -
 //-------------------------------------------------------------
-//- Vers√£o Atual:                                             -
+//- Vers„o Atual:                                             -
 //- 1.1                                                       -
 //-------------------------------------------------------------
-//- Compat√≠vel Com:                                           -
+//- CompatÌvel Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- Descri√ß√£o:                                                -
+//- DescriÁ„o:                                                -
 //- Misc. Message Boards for:                                 -
 //- Izlude                                                    -
 //-------------------------------------------------------------
-//- Coment√°rios Adicionais:                                   -
+//- Coment·rios Adicionais:                                   -
 //- 1.0 Moved Izlude NPCs to Pre-RE path.                     -
-//- 1.1 Aplicado Tradu√ß√£o para (PT_BR). [SkyHD]               -
+//- 1.1 Aplicado TraduÁ„o para (PT_BR). [SkyHD]               -
 //-------------------------------------------------------------
 
 // Izlude

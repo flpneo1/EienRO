@@ -1,0 +1,21 @@
+-	script	reloadscript	-1,{
+
+	OnInit:	
+		bindatcmd "rscript",strnpcinfo(3)+"::OnAtcommand";
+	end;
+
+	OnAtcommand:
+		initnpctimer;
+		announce "O servidor irá recarregar os scripts em 15 segundos. Por favor, vá para um local seguro devido ao atraso que irá ocorrer.", bc_all;
+	end;
+	
+	OnTimer10000:
+		announce "O servidor irá recarregar os scripts em 5 segundos.", bc_all;
+	end; 
+	
+	OnTimer15000:
+		stopnpctimer;
+		atcommand "@reloadscript";
+		announce "Scripts recarregados.", bc_all;
+	end;
+}

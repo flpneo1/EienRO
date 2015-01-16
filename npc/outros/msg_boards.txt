@@ -23,13 +23,13 @@
 //= 1.5 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
 //= 1.6 Commented out conflicting npcs. (bugreport:4093) [L0ne_W0lf]
 //= 1.7 Moved Izlude NPCs to Pre-RE path. [Euphy]
-//= 1.8 Tradu√ß√£o para PT-BR Feita com sucesso. [Mihael]
+//= 1.8 TraduÁ„o para PT-BR Feita com sucesso. [Mihael]
 //============================================================
 
 // Prontera
 //============================================================
 prontera,158,213,1	script	Quadro#Prt1	HIDDEN_NPC,{
-	mes "^993300- Quadro de dire√ß√µes -^000000";
+	mes "^993300- Quadro de direÁıes -^000000";
 	mes "Castelo de Prontera para o Norte";
 	mes "Aldebaran para o Norte";
 	mes "Geffen para o Noroeste";
@@ -46,7 +46,7 @@ prontera,156,197,1	script	Avisos de Prontera#Prt2	HIDDEN_NPC,{
 	mes "^993300- Avisos de Prontera -^000000";
 	mes "Procura-se: Duas Presilhas";
 	mes "Por favor, entre em contato...";
-	mes "-O nome est√° um pouco apagado -";
+	mes "-O nome est· um pouco apagado -";
 	mes "Vende-se: Espada bastarda usada";
 	mes "Aceito qualquer oferta!";
 	mes "Entrar em contato com Abramulious";
@@ -63,16 +63,16 @@ prontera,278,212,1	script	Sinal#Prt3	HIDDEN_NPC,{
 /*
 prontera,150,326,1	script	Sinal#Prt4	HIDDEN_NPC,{
 	mes "^993300- Comunicado -^000000";
-	mes "Cidad√£os de Prontera s√£o bem-vindos no Castelo de Prontera.";
+	mes "Cidad„os de Prontera s„o bem-vindos no Castelo de Prontera.";
 	close;
 }
 */
 prontera,31,212,1	script	Comunicado#Prt5	HIDDEN_NPC,{
-	mes "^993300- L√™-se no letreiro -^000000";
+	mes "^993300- LÍ-se no letreiro -^000000";
 	mes "~Procurado~";
 	mes "iROGM01";
 	mes "Vivo ou Morto";
-	mes "*Ladr√£o assassino de Glast Heim*";
+	mes "*Ladr„o assassino de Glast Heim*";
 	mes "~Recompensa~";
 	mes "50,000 Zeny ";
 	mes "Contactar: iROGM02";
@@ -81,14 +81,14 @@ prontera,31,212,1	script	Comunicado#Prt5	HIDDEN_NPC,{
 
 prontera,165,305,1	script	Comunicado#Prt6	HIDDEN_NPC,{
 	mes "^993300- Comunicado -^000000";
-	mes "N√≥s esperamos que voc√™ tenha uma √≥tima estadia em Prontera.";
+	mes "NÛs esperamos que vocÍ tenha uma Ûtima estadia em Prontera.";
 	close;
 }
 
 prontera,145,304,1	script	Quadro#Prt7	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
 	mes "Nota:";
-	mes "Eu perdi meu carrinho de m√£o no Mt. Mjolnir, se alguem encontrar, por favor, me diga. Toda minha vida est√° nesse carrinho!";
+	mes "Eu perdi meu carrinho de m„o no Mt. Mjolnir, se alguem encontrar, por favor, me diga. Toda minha vida est· nesse carrinho!";
 	close;
 }
 
@@ -104,7 +104,7 @@ morocc,144,84,1	script	Quadro#Moc1	HIDDEN_NPC,{
 morocc,145,83,1	script	Quadro#Moc2	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
 	mes "Vendo, Peco Peco bem preparado!";
-	mes "Esse √© um belo exemplar que foi montado somente por mim, ele vem com uma sela, um arreio, e...";
+	mes "Esse È um belo exemplar que foi montado somente por mim, ele vem com uma sela, um arreio, e...";
 	close;
 }
 
@@ -113,16 +113,16 @@ morocc,32,174,1	script	Comunicado#Moc3	HIDDEN_NPC,{
 	mes "^0099FFMulheres de Morroc revoltadas!^000000";
 	mes "Um rescente estudo demonstrou que a maioria dos homens em";
 	mes "Morroc preferem as mulheres de Geffen. Sendo que 90 dos 100 hemens em";
-	mes "Morroc alegaram que tiveram rela√ß√µes com as mulheres";
-	mes "de Geffen fora da regi√£o de Morroc.";
+	mes "Morroc alegaram que tiveram relaÁıes com as mulheres";
+	mes "de Geffen fora da regi„o de Morroc.";
 	next;
-	mes "^993300- Continua√ß√£o do comunicado -^000000";
-	mes "-Eu prefiro a companhia delas, isso √© tudo... disse um homem de Morroc.";
-	mes "-n√£o √© que eu n√£o goste das mulheres de Morroc, ent√£o n√£o sei qual √© o problema...";
+	mes "^993300- ContinuaÁ„o do comunicado -^000000";
+	mes "-Eu prefiro a companhia delas, isso È tudo... disse um homem de Morroc.";
+	mes "-n„o È que eu n„o goste das mulheres de Morroc, ent„o n„o sei qual È o problema...";
 	mes "Existem problemas emocionais que estressam no que diz respeito";
 	mes "as atividades desses homens.";
-	mes "Ca√ßar parece ser a primeira prioridade deles,";
-	mes "mais do que se relacionar com mulheres da regi√£o.";
+	mes "CaÁar parece ser a primeira prioridade deles,";
+	mes "mais do que se relacionar com mulheres da regi„o.";
 	close;
 }
 
@@ -135,8 +135,8 @@ morocc,168,266,1	script	Quadro#Moc5	HIDDEN_NPC,{
 morocc,168,264,1	script	Quadro#Moc6	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
 	mes "^CC0033Guerreiro Leal!^000000";
-	mes "Se voc√™ √© alguem que gosta de uma batalha e sente que n√£o pode ser parado, jogador contra jogador at√© a morte!";
-	mes "Apresente-se em Prontera se acha que tem o que √© necess√°rio!";
+	mes "Se vocÍ È alguem que gosta de uma batalha e sente que n„o pode ser parado, jogador contra jogador atÈ a morte!";
+	mes "Apresente-se em Prontera se acha que tem o que È necess·rio!";
 	close;
 }
 
@@ -150,7 +150,7 @@ morocc,298,211,1	script	Sign#Moc7	HIDDEN_NPC,{
 //============================================================
 geffen,116,58,1	script	Avisos de Geffen#Gef1	HIDDEN_NPC,{
 	mes "^993300- Avisos de Geffen -^000000";
-	mes "Lembrem-se Bruxos... O que importa n√£o s√£o todas suas habilidades, mas √© o mago que as usa que conta!";
+	mes "Lembrem-se Bruxos... O que importa n„o s„o todas suas habilidades, mas È o mago que as usa que conta!";
 	close;
 }
 /*
@@ -163,11 +163,11 @@ geffen,61,174,1	script	Quadro#Gef2	HIDDEN_NPC,{
 geffen,113,104,1	script	Aviso#Gef3	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
 	mes "Vende-se: Novo boneco de Chon Chon!";
-	mes "Um √≥timo presente para dar a pessoa amada, entre em contado comigo!";
+	mes "Um Ûtimo presente para dar a pessoa amada, entre em contado comigo!";
 	mes "- Nome parece estar borrado -";
 	mes " ";
 	mes "Compra-se: Manto!";
-	mes "Eu estou congelando e n√£o tenho zeny, por favor, me ajude!";
+	mes "Eu estou congelando e n„o tenho zeny, por favor, me ajude!";
 	mes "Contatar Edionyus";
 	close;
 }
@@ -188,7 +188,7 @@ geffen,119,190,1	script	Quadro#Gef4	HIDDEN_NPC,{
 
 geffen,168,175,1	script	Sign#Gef5	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
-	mes "''Voc√™ sempre ser√° bem vindo em Geffen''";
+	mes "''VocÍ sempre ser· bem vindo em Geffen''";
 	close;
 }
 
@@ -203,8 +203,8 @@ geffen,183,61,1	script	Sign#Gef6	HIDDEN_NPC,{
 aldebaran,181,172,1	script	Aviso#Alde1	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
 	mes "Procura-se:";
-	mes "Eu perdi meu Bongun de estima√ß√£o, n√£o tive culpa, ele simplesmente fugiu...";
-	mes "Se voc√™ ver ele, por favor, me avise. Recompensa para quem encontrar ele!";
+	mes "Eu perdi meu Bongun de estimaÁ„o, n„o tive culpa, ele simplesmente fugiu...";
+	mes "Se vocÍ ver ele, por favor, me avise. Recompensa para quem encontrar ele!";
 	close;
 }
 
@@ -217,22 +217,22 @@ aldebaran,133,104,1	script	Comunicado de Alebaran#Al2	HIDDEN_NPC,{
 aldebaran,54,223,1	script	Billboard#Alde3	HIDDEN_NPC,{
 	mes "^993300- Comunicado -^000000";
 	mes "Preciso de ajuda:";
-	mes "¬¥N√≥s observamos os jovens, s√£o fortes e atl√©ticos que";
-	mes "est√£o interessados em uma profiss√£o est√°vel com tempo integral para ferreiro. Se voc√™ est√° interessado, entre em contato com Altiregen";
+	mes "¥NÛs observamos os jovens, s„o fortes e atlÈticos que";
+	mes "est„o interessados em uma profiss„o est·vel com tempo integral para ferreiro. Se vocÍ est· interessado, entre em contato com Altiregen";
 	mes "em Geffen!";
 	close;
 }
 
 aldebaran,197,228,1	script	#Alde4	-1,1,1,{
 OnTouch:
-	mes "[Propriet√°rio da casa]";
+	mes "[Propriet·rio da casa]";
 	mes "Saia de cima do meu telhado seu parasita!";
 	close;
 }
 
 aldebaran,217,222,1	script	Quadro#Alde5	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
-	mes "E a√≠ Papai Nel de Lutie!";
+	mes "E aÌ Papai Nel de Lutie!";
 	mes "- Isso parece um rebisco -";
 	close;
 }
@@ -253,17 +253,17 @@ alberta,37,39,1	script	Avisos#Alb2	HIDDEN_NPC,{
 
 alberta,99,151,1	script	Quadro#Alb3	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
-	mes "Ferramentas completas para carrinho de m√£o!";
-	mes "Voc√™ precisa de ferramentas? N√≥s temos!";
-	mes "Venha, n√≥s nunca fechamos!";
+	mes "Ferramentas completas para carrinho de m„o!";
+	mes "VocÍ precisa de ferramentas? NÛs temos!";
+	mes "Venha, nÛs nunca fechamos!";
 	close;
 }
 
 alberta,196,152,1	script	Quadro#Alb4	HIDDEN_NPC,{
 	mes "^993300- Quadro de avisos -^000000";
-	mes "Atracabem e envio de cargas. Para informa√ß√µes relativas";
+	mes "Atracabem e envio de cargas. Para informaÁıes relativas";
 	mes "ao envio e recebimento, por favor...";
-	mes "- Voc√™ n√£o pode ler o resto -";
+	mes "- VocÍ n„o pode ler o resto -";
 	close;
 }
 

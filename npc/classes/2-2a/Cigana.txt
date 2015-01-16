@@ -13,20 +13,20 @@
 //- Nana                                                      -
 //- finished, optimized and tested by Lupus                   -
 //-------------------------------------------------------------
-//- Vers√£o Atual:                                             -
+//- Vers„o Atual:                                             -
 //- 1.4                                                       -
 //-------------------------------------------------------------
-//- Compat√≠vel Com:                                           -
+//- CompatÌvel Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- Descri√ß√£o:                                                -
+//- DescriÁ„o:                                                -
 //= Advance Class jobchanger after kRO Normals.               -
 //-------------------------------------------------------------
-//- Coment√°rios Adicionais:                                   -
+//- Coment·rios Adicionais:                                   -
 //- 1.1 Made all into functions,additional checks,etc.[Lupus] -
 //- 1.2 Made numbers into constants. [Vicious]                -
 //- 1.3 Now saves/restores all the quest skills [Lupus]       -
-//- 1.4 Aplicada Tradu√ß√£o (PT-BR). [SkyHD]                    -
+//- 1.4 Aplicada TraduÁ„o (PT-BR). [SkyHD]                    -
 //-------------------------------------------------------------
 
 valkyrie,53,56,3	script	Cigana#Valkyrie	4W_F_01,{
@@ -34,33 +34,33 @@ valkyrie,53,56,3	script	Cigana#Valkyrie	4W_F_01,{
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Cigana]";
-			mes "Parab√©ns.";
+			mes "ParabÈns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		mes "[Cigana]";
 		mes "Mover para a esquerda,";
 		mes "mover para a direita ~!";
-		mes "E d√™ um passo...!";
-		mes "Dan√ßar pode ser";
+		mes "E dÍ um passo...!";
+		mes "DanÁar pode ser";
 		mes "mais que um passatempo.";
-		mes "Para mim, isso √© um modo de vida~";
+		mes "Para mim, isso È um modo de vida~";
 		close;
 	}
 	else if (ADVJOB == Job_Gypsy && Class == Job_Archer_High && JobLevel > 39) {
 		mes "[Cigana]";
 		mes "A terra de Rune-Midgard";
-		mes "est√° precisando de mulheres talentosas";
-		mes "para mudar sutilmente o balan√ßo";
+		mes "est· precisando de mulheres talentosas";
+		mes "para mudar sutilmente o balanÁo";
 		mes "nas batalhas entre o bem";
 		mes "e o mal.";
 		next;
 		mes "[Cigana]";
-		mes "Voc√™ est√° pronta";
+		mes "VocÍ est· pronta";
 		mes "para pegar esse cargo,";
 		mes "e se tornar uma Cigana?";
 		next;
-		if (select("N√£o.:Sim.") == 1) {
+		if (select("N„o.:Sim.") == 1) {
 			mes "[Cigana]";
 			mes "Quando estiver pronta,";
 			mes "sinta-se livre para voltar.";
@@ -69,28 +69,28 @@ valkyrie,53,56,3	script	Cigana#Valkyrie	4W_F_01,{
 		}
 		if (SkillPoint) {
 			mes "[Cigana]";
-			mes "Voc√™ ainda tem pontos de habilidades. Por favor,";
+			mes "VocÍ ainda tem pontos de habilidades. Por favor,";
 			mes "use todos os seus pontos de habilidade restantes, e depois volte aqui.";
 			close;
 		}
 		jobchange Job_Gypsy;
 		set ADVJOB,0;
 		mes "[Cigana]";
-		mes "Parab√©ns!";
+		mes "ParabÈns!";
 		mes "Como Cigana, eu sei";
 		mes "que suas performances";
-		mes "ir√£o abalar os cora√ß√µes de todos";
-		mes "aqueles que estar√£o assistindo...";
+		mes "ir„o abalar os coraÁıes de todos";
+		mes "aqueles que estar„o assistindo...";
 		close;
 	}
 	mes "[Cigana]";
 	mes "Bem-vindo";
 	mes "a Valhalla,";
-	mes "o Sal√£o da Honra.";
+	mes "o Sal„o da Honra.";
 	next;
 	mes "[Cigana]";
 	mes "Por favor sinta-se";
-	mes "confort√°vel enquanto";
+	mes "confort·vel enquanto";
 	mes "estiver aqui.";
 	mes "Honra aos guerreiros!";
 	close;

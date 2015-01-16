@@ -1,0 +1,79 @@
+//===== Hercules Script ======================================
+//= Healer
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= Hercules
+//===== Description: =========================================
+//= Basic healer script.
+//===== Additional Comments: =================================
+//= 1.0 Initial script.
+//= 1.1 Aligned coordinates with @go.
+//============================================================
+
+-	script	Healer	-1,{
+
+	set .@Price,0;	// Zeny required for heal
+	set .@Buffs,1;	// Also buff players? (1: yes / 0: no)
+	set .@Delay,3;	// Heal delay, in seconds
+
+	if (@HD > gettimetick(2)) end;
+	if (.@Price) {
+		message strcharinfo(0),"Healing costs "+.@Price+" Zeny.";
+		if (Zeny < .@Price) end;
+		if(select("^0055FFHeal^000000:^777777Cancel^000000") == 2) end;
+		set Zeny, Zeny-.@Price;
+	}
+	specialeffect2 EF_HEAL2; percentheal 100,100;
+	if (.@Buffs) {
+		specialeffect2 EF_INCAGILITY; sc_start SC_INC_AGI,240000,10;
+		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,240000,10;
+	}
+	if (.@Delay) set @HD, gettimetick(2)+.@Delay;
+	end;
+}
+
+
+// Duplicates
+//============================================================
+alberta,25,240,6	duplicate(Healer)	Curandeira#alb	861
+aldebaran,135,118,6	duplicate(Healer)	Curandeira#alde	861
+amatsu,200,79,4	duplicate(Healer)	Curandeira#ama	861
+ayothaya,207,169,6	duplicate(Healer)	Curandeira#ayo	861
+comodo,184,158,6	duplicate(Healer)	Curandeira#com	861
+einbech,57,36,6	duplicate(Healer)	Curandeira#einbe	861
+einbroch,57,202,6	duplicate(Healer)	Curandeira#einbr	861
+geffen,115,72,6	duplicate(Healer)	Curandeira#gef	861
+gonryun,156,122,6	duplicate(Healer)	Curandeira#gon	861
+hugel,89,150,6	duplicate(Healer)	Curandeira#hug	861
+izlude,125,118,5	duplicate(Healer)	Curandeira#izl	861
+jawaii,250,139,4	duplicate(Healer)	Curandeira#jaw	861
+lighthalzen,152,100,6	duplicate(Healer)	Curandeira#lhz	861
+louyang,226,103,4	duplicate(Healer)	Curandeira#lou	861
+manuk,272,144,6	duplicate(Healer)	Curandeira#man	861
+mid_camp,203,289,6	duplicate(Healer)	Curandeira#mid	861
+moc_ruins,72,164,4	duplicate(Healer)	Curandeira#moc	861
+morocc,153,97,6	duplicate(Healer)	Curandeira#mor	861
+moscovia,220,191,4	duplicate(Healer)	Curandeira#mos	861
+niflheim,212,182,5	duplicate(Healer)	Curandeira#nif	861
+payon,179,106,4	duplicate(Healer)	Curandeira#pay	861
+prontera,153,193,5	duplicate(Healer)	Curandeira#prt	861
+rachel,125,116,6	duplicate(Healer)	Curandeira#rac	861
+splendide,201,153,4	duplicate(Healer)	Curandeira#spl	861
+thor_camp,249,74,4	duplicate(Healer)	Curandeira#thor	861
+umbala,105,148,3	duplicate(Healer)	Curandeira#umb	861
+veins,217,121,4	duplicate(Healer)	Curandeira#ve	861
+xmas,143,136,4	duplicate(Healer)	Curandeira#xmas	861
+yuno,164,45,4	duplicate(Healer)	Curandeira#yuno	861
+
+// Duplicates (Renewal)
+//============================================================
+brasilis,194,221,6	duplicate(Healer)	Curandeira#bra	861
+dewata,195,187,4	duplicate(Healer)	Curandeira#dew	861
+dicastes01,201,194,4	duplicate(Healer)	Curandeira#dic	861
+ecl_in01,45,60,4	duplicate(Healer)	Curandeira#ecl	861
+malangdo,132,114,6	duplicate(Healer)	Curandeira#mal	861
+malaya,205,205,6	duplicate(Healer)	Curandeira#ma	861
+mora,55,152,4	duplicate(Healer)	Curandeira#mora	861

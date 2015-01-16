@@ -7,23 +7,23 @@
 //-             \/                   \/           \/          -
 //-                 www.cronus-emulator.com                   -
 //-------------------------------------------------------------
-//- Reino da ValquÃ­ria                                        -
+//- Reino da Valquíria                                        -
 //-------------------------------------------------------------
 //- Por:                                                      -
 //- Nana, fixes by Poki                                       -
 //- finished, optimized and tested by Lupus                   -
 //- L0ne_W0lf                                                 -
 //-------------------------------------------------------------
-//- VersÃ£o Atual                                              -
+//- Versão Atual                                              -
 //- 3.3                                                       -
 //-------------------------------------------------------------
-//- CompatÃ­vel Com:                                           -
+//- Compatível Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- DescriÃ§Ã£o:                                                -
+//- Descrição:                                                -
 //- [Official Conversion]                                     -
 //- Quest to become a Tranceded Class. (Advanced/Rebirthed)   -
-//- ComentÃ¡rios Adicionais:                                   -
+//- Comentários Adicionais:                                   -
 //- 1.1 Made all into functions,additional checks,quest       -
 //-   skills,now Valhallana can return you back.              -
 //-   She also makes reborn process only when you got         -
@@ -63,48 +63,48 @@
 //- 2.9b Fixed Verdandi typo, fixed resetting vars [Lupus]    -
 //- 3.0 Added quest log commands. [L0ne_W0lf]                 -
 //- 3.1 Added Izlude Renewal coordinates.                     -
-//- 1.1 Aplicada TraduÃ§Ã£o (PT-BR). [SkyHD]                    -
+//- 1.1 Aplicada Tradução (PT-BR). [SkyHD]                    -
 //--------------------------------------------------------------
 
-valkyrie,48,86,4	script	ValquÃ­ria#	4_F_VALKYRIE,{
+valkyrie,48,86,4	script	Valquíria#	4_F_VALKYRIE,{
 	if (ADVJOB != 0 || Upper == 1) {
-		mes "[ValquÃ­ria]";
+		mes "[Valquíria]";
 		mes "Bem-vindo";
 		mes "a Valhalla,";
-		mes "o SalÃ£o da Honra.";
+		mes "o Salão da Honra.";
 		next;
-		mes "[ValquÃ­ria]";
+		mes "[Valquíria]";
 		mes "Por favor, sinta-se";
-		mes "confortÃ¡vel enquanto";
+		mes "confortável enquanto";
 		mes "estiver aqui.";
 		mes "Honra aos guerreiros.";
 		close;
 	}
 	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
-		mes "[ValquÃ­ria]";
+		mes "[Valquíria]";
 		mes "Bem-vindo";
 		mes "a Valhalla,";
-		mes "o SalÃ£o da Honra.";
+		mes "o Salão da Honra.";
 		next;
-		mes "[ValquÃ­ria]";
+		mes "[Valquíria]";
 		mes "Por favor, sinta-se";
-		mes "confortÃ¡vel enquanto";
+		mes "confortável enquanto";
 		mes "estiver aqui.";
 		mes "Honra aos guerreiros.";
 		next;
 		if (Weight > 0 || Zeny > 0 || checkcart() != 0 || checkfalcon() != 0 || checkriding() != 0) {
-			mes "[ValquÃ­ria]";
-				mes "HÃ¡ algumas coisas que vocÃª deve fazer";
-			mes "antes de iniciarmos. VocÃª deve";
+			mes "[Valquíria]";
+				mes "Há algumas coisas que você deve fazer";
+			mes "antes de iniciarmos. Você deve";
 			mes "primeiramente, esvaziar sua mente e seu corpo.";
-			mes "A honra virÃ¡, quando vocÃª abandonar";
-			mes "todos seus desejos egoÃ­stas...";
+			mes "A honra virá, quando você abandonar";
+			mes "todos seus desejos egoístas...";
 			next;
-			mes "[ValquÃ­ria]";
-			mes "VocÃª nÃ£o pode levar nada com vocÃª para a prÃ³xima vida. Todos seus itens, zenys, bichinhos de estimaÃ§Ã£o e carrinho tÃªm de ser deixados para trÃ¡s.";
+			mes "[Valquíria]";
+			mes "Você não pode levar nada com você para a próxima vida. Todos seus itens, zenys, bichinhos de estimação e carrinho têm de ser deixados para trás.";
 			next;
-			mes "[ValquÃ­ria]";
-			mes "Quando vocÃª estiver pronto,";
+			mes "[Valquíria]";
+			mes "Quando você estiver pronto,";
 			mes "por favor volte aqui,";
 			mes "bravo aventureiro.";
 			close2;
@@ -112,19 +112,19 @@ valkyrie,48,86,4	script	ValquÃ­ria#	4_F_VALKYRIE,{
 			end;
 		}
 		else {
-			mes "[ValquÃ­ria]";
-			mes "Vejo que vocÃª";
-			mes "jÃ¡ se libertou de";
-			mes "todas as ''ligaÃ§Ãµes com o mundo'',";
+			mes "[Valquíria]";
+			mes "Vejo que você";
+			mes "já se libertou de";
+			mes "todas as ''ligações com o mundo'',";
 			mes ""+ strcharinfo(0) +".";
 			next;
-			mes "[ValquÃ­ria]";
-			mes "Essa Ã© uma atitude admirÃ¡vel para um aventureiro como vocÃª. A honra vem quando vocÃª abandona todos seus desejos pessoais para o bem da humanidade.";
+			mes "[Valquíria]";
+			mes "Essa é uma atitude admirável para um aventureiro como você. A honra vem quando você abandona todos seus desejos pessoais para o bem da humanidade.";
 			next;
 			if (SkillPoint) {
-				mes "[ValquÃ­ria]";
-				mes "Hmm... Sinto que vocÃª tem";
-				mes "algum vÃ­nculo prolongado ou";
+				mes "[Valquíria]";
+				mes "Hmm... Sinto que você tem";
+				mes "algum vínculo prolongado ou";
 				mes "um trabalho inacabado em";
 				mes "sua vida atual. Cuide disso,";
 				mes "para encerrar sua vida presente.";
@@ -132,45 +132,45 @@ valkyrie,48,86,4	script	ValquÃ­ria#	4_F_VALKYRIE,{
 				warp "yuno_in02",93,205;
 				end;
 			}
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 				mes "Agora, deixe-me remover";
-			mes "todas as suas memÃ³rias presentes...";
-			mes "No entando, vocÃª serÃ¡ capaz de";
+			mes "todas as suas memórias presentes...";
+			mes "No entando, você será capaz de";
 			mes "lembrar-se dos momentos mais";
 			mes "honrosos de sua vida.";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Primeiro,";
-			mes "vou perdir Ã ";
+			mes "vou perdir à";
 			mes "deusa Urd para remover";
-			mes "todas as suas memÃ³rias";
+			mes "todas as suas memórias";
 			mes "presentes.";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Segundo,";
 			mes "vou perdir ao";
 			mes "deus Verdandi para manter";
-			mes "as recordaÃ§Ãµes dos momentos mais honrosos de sua vida presente.";
+			mes "as recordações dos momentos mais honrosos de sua vida presente.";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Terceiro,";
 			mes "vou pedir ao";
 			mes "deus Skuld para";
-			mes "guiar vocÃª para a";
-			mes "prÃ³xima vida.";
+			mes "guiar você para a";
+			mes "próxima vida.";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Um...";
 			callfunc "F_ClearJobVar";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Um...";
 			mes "Dois......";
 			next;
-			mes "[ValquÃ­ria]";
+			mes "[Valquíria]";
 			mes "Um...";
 			mes "Dois......";
-			mes "e TrÃªs.";
+			mes "e Três.";
 			set ADVJOB, Class+Job_Novice_High; //memo the target 3rd Job ID
 			if(ADVJOB == Job_Lord_Knight2) set ADVJOB,Job_Lord_Knight;
 			if(ADVJOB == Job_Paladin2) set ADVJOB,Job_Paladin;
@@ -181,20 +181,20 @@ valkyrie,48,86,4	script	ValquÃ­ria#	4_F_VALKYRIE,{
 			skill 143,1,0;
 			completequest 1000;
 			next;
-			mes "[ValquÃ­ria]";
-			mes "ParabÃ©ns.";
-			mes "VocÃª agora renasceu";
+			mes "[Valquíria]";
+			mes "Parabéns.";
+			mes "Você agora renasceu";
 			mes "em uma nova vida.";
 			mes "Por favor, tome estes pequenos presentes";
-			mes "em preparaÃ§Ã£o para suas novas aventuras.";
+			mes "em preparação para suas novas aventuras.";
 			getitem 1202,1; //Knife_
 			getitem 2302,1; //Cotton_Shirt_
 			next;
-			mes "[ValquÃ­ria]";
-			mes "Desejo que a libertaÃ§Ã£o da deusa Urd lhe concedeu prove ser uma BenÃ§Ã£o. Espero que as memÃ³rias que Verdandi deixou gravadas sempre te honrarÃ£o.";
+			mes "[Valquíria]";
+			mes "Desejo que a libertação da deusa Urd lhe concedeu prove ser uma Benção. Espero que as memórias que Verdandi deixou gravadas sempre te honrarão.";
 			next;
-			mes "[ValquÃ­ria]";
-			mes "E peÃ§o que em sua nova vida a deusa Skuld oriente-o, e serÃ¡ mais honroso que em sua Ãºltima vida.";
+			mes "[Valquíria]";
+			mes "E peço que em sua nova vida a deusa Skuld oriente-o, e será mais honroso que em sua última vida.";
 			close2;
 			switch (ADVJOB) {
 			case 4008:
@@ -225,13 +225,13 @@ valkyrie,48,86,4	script	ValquÃ­ria#	4_F_VALKYRIE,{
 		}
 	}
 	else {
-		mes "[ValquÃ­ria]";
+		mes "[Valquíria]";
 		mes "Bem-vindo";
 		mes "a Valhalla,";
-		mes "o SalÃ£o da Honra.";
+		mes "o Salão da Honra.";
 		next;
-		mes "[ValquÃ­ria]";
-		mes "Infelizmente, vocÃª nÃ£o foi convidado aqui. PeÃ§o que se retire imediatamente. Honra aos guerreiros!";
+		mes "[Valquíria]";
+		mes "Infelizmente, você não foi convidado aqui. Peço que se retire imediatamente. Honra aos guerreiros!";
 		close2;
 		warp "yuno_in02",93,205;
 		end;
@@ -242,19 +242,19 @@ yuno_in02,88,164,5	script	Metheus Sylphe#Library	2_M_SAGE_B,{
 	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q == 0) {
 			mes "[Metheus Sylphe]";
-			mes "Bem-vindo Ã  Biblioteca AcadÃªmica de Magia em Schweicherbil.";
+			mes "Bem-vindo à Biblioteca Acadêmica de Magia em Schweicherbil.";
 			mes "Suponho que veio aqui";
 			mes "para ler o 'Livro de Ymir.'";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "Infelizmente, a cÃ³pia original do livro foi danificada ao longo do tempo. NÃ³s geralmente, autorizamos o pÃºblico para ver a cÃ³pia do livro.";
+			mes "Infelizmente, a cópia original do livro foi danificada ao longo do tempo. Nós geralmente, autorizamos o público para ver a cópia do livro.";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "AlÃ©m disso, a fim de preservar o original 'Livro de Ymir,' nÃ³s decidimos aceitar doaÃ§Ãµes de pessoas que desejam ler a cÃ³pia que temos fornecido.";
+			mes "Além disso, a fim de preservar o original 'Livro de Ymir,' nós decidimos aceitar doações de pessoas que desejam ler a cópia que temos fornecido.";
 			next;
 			mes "[Metheus Sylphe]";
-			mes "A doaÃ§Ã£o";
-			mes "sugerida Ã©:";
+			mes "A doação";
+			mes "sugerida é:";
 			mes "1,285,000 zeny.";
 			next;
 			if (select("Donate.:Cancel.") == 1) {
@@ -262,42 +262,42 @@ yuno_in02,88,164,5	script	Metheus Sylphe#Library	2_M_SAGE_B,{
 					Zeny -= 1285000;
 					set valkyrie_Q,1;
 					mes "[Metheus Sylphe]";
-					mes "Obrigado, sua doaÃ§Ã£o serÃ¡ utilizada para uma boa causa. Agora vocÃª";
+					mes "Obrigado, sua doação será utilizada para uma boa causa. Agora você";
 					mes "pode ir e ler o livro.";
 					close;
 				}
 				mes "[Metheus Sylphe]";
-				mes "Infelizmente, vocÃª parece nÃ£o possuir zeny suficiente nesse momento. Por favor, verifique seus fundos e volte novamente.";
+				mes "Infelizmente, você parece não possuir zeny suficiente nesse momento. Por favor, verifique seus fundos e volte novamente.";
 				close;
 			}
 			mes "[Metheus Sylphe]";
-			mes "NÃ£o tenha pressa, e";
+			mes "Não tenha pressa, e";
 			mes "aprecie suas viagens.";
 			close;
 		}
 		mes "[Metheus Sylphe]";
-		mes "Mais uma vez, obrigado pela sua generosa doaÃ§Ã£o. Sinta-se livre para ler a cÃ³pia em papel carbono do 'Livro de Ymir' para o seu lazer.";
+		mes "Mais uma vez, obrigado pela sua generosa doação. Sinta-se livre para ler a cópia em papel carbono do 'Livro de Ymir' para o seu lazer.";
 		close;
 	}
 	mes "[Metheus Sylphe]";
-	mes "Bem-vindo Ã  Biblioteca AcadÃªmica de Magia em Schweicherbil.";
-	mes "Aqui, nÃ³s temos inÃºmeros livros. Por favor, tome seu tempo e olhe Ã  sua volta";
+	mes "Bem-vindo à Biblioteca Acadêmica de Magia em Schweicherbil.";
+	mes "Aqui, nós temos inúmeros livros. Por favor, tome seu tempo e olhe à sua volta";
 	close;
 }
 
 yuno_in02,93,207,1	script	Livro de Ymir	HIDDEN_NPC,{
 	if (ADVJOB != 0 || Upper == 1) {
 		mes "[Livro de Ymir]";
-		mes "...A entrada ao SalÃ£o da Honra";
-		mes "estÃ¡ aberta a todos que irÃ£o se mudar na sua prÃ³xima vida.";
-		mes "Isso estÃ¡ lÃ¡ para ajudar os herÃ³is Ã  decidir-se o que querem fazer,";
-		mes "e pode levÃ¡-los para qualquer lugar nesse mundo.";
+		mes "...A entrada ao Salão da Honra";
+		mes "está aberta a todos que irão se mudar na sua próxima vida.";
+		mes "Isso está lá para ajudar os heróis à decidir-se o que querem fazer,";
+		mes "e pode levá-los para qualquer lugar nesse mundo.";
 		next;
 		mes "[Livro de Ymir]";
-		mes "No SalÃ£o da Honra, tudo Ã© preparado perfeitamente para herÃ³is.";
+		mes "No Salão da Honra, tudo é preparado perfeitamente para heróis.";
 		mes "Espalha-se boatos que todo o desejo que";
-		mes "nÃ£o puder ser cumprido em nossa realidade";
-		mes "pode ser realizado no SalÃ£o da Honra.";
+		mes "não puder ser cumprido em nossa realidade";
+		mes "pode ser realizado no Salão da Honra.";
 		next;
 		if(select("Parar de ler.:Continuar lendo.") == 1) {
 			mes "[Livro de Ymir]";
@@ -305,75 +305,75 @@ yuno_in02,93,207,1	script	Livro de Ymir	HIDDEN_NPC,{
 			close;
 		}
 		mes "[Livro de Ymir]";
-		mes "HÃ¡ um trajeto esquecido que leva";
-		mes "ao SalÃ£o da Honra, o lugar o mais prÃ³ximo aos cÃ©us. As pessoas comuns";
-		mes "nunca descobrirÃ£o esse lugar...";		close2;
+		mes "Há um trajeto esquecido que leva";
+		mes "ao Salão da Honra, o lugar o mais próximo aos céus. As pessoas comuns";
+		mes "nunca descobrirão esse lugar...";		close2;
 		warp "valkyrie",48,8;
 		end;
 	}
 	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q != 0) {
 			mes "[Livro de Ymir]";
-			mes "...Portanto, os herÃ³is antigos estavam";
-			mes "sempre na angÃºstia, sabendo que";
+			mes "...Portanto, os heróis antigos estavam";
+			mes "sempre na angústia, sabendo que";
 			mes "eventualmente, eram mortais e";
 			mes "passariam deste reino...";
 			next;
 			mes "[Livro de Ymir]";
-			mes "NÃ£o havia nenhum documento, canÃ§Ã£o";
+			mes "Não havia nenhum documento, canção";
 			mes "ou folclore restante que";
-			mes "teve qualquer informaÃ§Ã£o da vida";
-			mes "apÃ³s a morte. Entretanto, eu recentemente";
+			mes "teve qualquer informação da vida";
+			mes "após a morte. Entretanto, eu recentemente";
 			mes "descobri um pergaminho velho sobre";
-			mes "ValquÃ­ria...";
+			mes "Valquíria...";
 			next;
 			mes "[Livro de Ymir]";
-			mes "ValquÃ­ria...";
-			mes "O lendÃ¡rio anjo guardiÃ£o.";
+			mes "Valquíria...";
+			mes "O lendário anjo guardião.";
 			mes "Anjo do Ragnarok.";
 			next;
 			mes "[Livro de Ymir]";
-			mes "Aventureiros de grande forÃ§a";
-			mes "e braveza serÃ£o liderados por";
-			mes "ValquÃ­ria atÃ© Valhalla, o SalÃ£o";
-			mes "da Honra. LÃ¡, serÃ£o";
-			mes "entregados Ã  uma nova vida.";
+			mes "Aventureiros de grande força";
+			mes "e braveza serão liderados por";
+			mes "Valquíria até Valhalla, o Salão";
+			mes "da Honra. Lá, serão";
+			mes "entregados à uma nova vida.";
 			next;
 			mes "[Livro de Ymir]";
-			mes "Renascido, viverÃ£o novamente";
-			mes "como grande herÃ³is que";
+			mes "Renascido, viverão novamente";
+			mes "como grande heróis que";
 			mes "iluminam o mundo. Os corpos";
-			mes "que foram desgastados se encherÃ£o";
+			mes "que foram desgastados se encherão";
 			mes "de energia...";
 			next;
 			mes "[Livro de Ymir]";
-			mes "E Ã s suas almas serÃ£o dadas";
-			mes "habilidades com o coraÃ§Ã£o de Ymir.";
-			mes "Entretando, o coraÃ§Ã£o de Ymir foi";
-			mes "totalmente destruÃ­do e despresado";
-			mes "pelo mundo inteiro, apÃ³s a batalha de Rune-Midgard.";
+			mes "E às suas almas serão dadas";
+			mes "habilidades com o coração de Ymir.";
+			mes "Entretando, o coração de Ymir foi";
+			mes "totalmente destruído e despresado";
+			mes "pelo mundo inteiro, após a batalha de Rune-Midgard.";
 			next;
 			mes "[Livro de Ymir]";
-			mes "Eu havia encontrado alguns pedaÃ§os";
-			mes "do coraÃ§Ã£o de Ymir a muito...";
-			mes "...muito tempo atrÃ¡s. Mas eu nÃ£o posso";
-			mes "confirmar se a histÃ³ria de ValquÃ­ria";
-			mes "e Valhalla Ã© verdadeira ou nÃ£o";
-			mes "atravÃ©s de testes cientÃ­ficos.";
+			mes "Eu havia encontrado alguns pedaços";
+			mes "do coração de Ymir a muito...";
+			mes "...muito tempo atrás. Mas eu não posso";
+			mes "confirmar se a história de Valquíria";
+			mes "e Valhalla é verdadeira ou não";
+			mes "através de testes científicos.";
 			next;
 			mes "[Livro de Ymir]";
 			mes "Assim, eu estou deixando esse registro";
-			mes "e espero que alguÃ©m no futuro";
-			mes "possa confirmar se ValquÃ­ria e Valhalla";
-			mes "existiam atravÃ©s de meus registros.";
+			mes "e espero que alguém no futuro";
+			mes "possa confirmar se Valquíria e Valhalla";
+			mes "existiam através de meus registros.";
 			set valkyrie_Q,2;
 			if(checkquest(1000) == -1) {
 				setquest 1000;
 			}
 			mes "[Livro de Ymir]";
-			mes "Deixe as vidas, novas vidas dos herÃ³is";
+			mes "Deixe as vidas, novas vidas dos heróis";
 			mes "assim para protegerem a terra do perigo.";
-			mes "E entÃ£o......";
+			mes "E então......";
 			mes "...........";
 			close;
 		}
@@ -386,7 +386,7 @@ yuno_in02,93,207,1	script	Livro de Ymir	HIDDEN_NPC,{
 	close;
 }
 
-yuno_in05,49,43,1	script	CoraÃ§Ã£o de Ymir	HIDDEN_NPC,{
+yuno_in05,49,43,1	script	Coração de Ymir	HIDDEN_NPC,{
 	if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
 		if (valkyrie_Q == 2) warp "valkyrie",48,8;
 	}
@@ -398,21 +398,21 @@ valkyrie,44,33,5	script	Teleportador	4_F_TELEPORTER,{
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Teleportador]";
-			mes "ParabÃ©ns.";
+			mes "Parabéns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
 		mes "[Teleportador]";
 		mes "Por favor, evite";
 		mes "de tocar em qualquer";
-		mes "uma das exposiÃ§Ãµes.";
+		mes "uma das exposições.";
 		mes "..........";
 		close;
 	}
 	else {
 		mes "[Teleportador]";
-		mes "HonorÃ¡vel,";
-		mes "qual lugar vocÃª deseja ir?";
+		mes "Honorável,";
+		mes "qual lugar você deseja ir?";
 		next;
 		switch(select("Prontera:Morroc:Payon:Geffen:Alberta:Izlude:Al De Baran:Comodo:Juno")) {
 		case 1: callsub S_Warpchar,"prontera",116,72;

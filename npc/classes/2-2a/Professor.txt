@@ -13,19 +13,19 @@
 //- Nana                                                      -
 //- finished, optimized and tested by Lupus                   -
 //-------------------------------------------------------------
-//- VersÃ£o Atual:                                             -
+//- Versão Atual:                                             -
 //- 1.4                                                       -
 //-------------------------------------------------------------
-//- CompatÃ­vel Com:                                           -
+//- Compatível Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- DescriÃ§Ã£o:                                                -
+//- Descrição:                                                -
 //- Advance Class jobchanger after kRO Normals.               -
-//- ComentÃ¡rios Adicionais:                                   -
+//- Comentários Adicionais:                                   -
 //- 1.1 Made all into functions,additional checks, etc.[Lupus]-
 //- 1.2 Made numbers into constants. [Vicious]                -
 //- 1.3 Now saves/restores all the quest skills [Lupus]       -
-//- 1.4 Aplicada TraduÃ§Ã£o (PT-BR). [SkyHD]                    -
+//- 1.4 Aplicada Tradução (PT-BR). [SkyHD]                    -
 //-------------------------------------------------------------
 
 valkyrie,53,47,3	script	Professor#Valkyrie	2_M_SAGE_OLD,{
@@ -33,7 +33,7 @@ valkyrie,53,47,3	script	Professor#Valkyrie	2_M_SAGE_OLD,{
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Professor]";
-			mes "ParabÃ©ns.";
+			mes "Parabéns.";
 			mes "Honra aos guerreiros!";
 			close;
 		}
@@ -41,33 +41,33 @@ valkyrie,53,47,3	script	Professor#Valkyrie	2_M_SAGE_OLD,{
 		mes "Isso leva uma vida toda...";
 		mes "Literalmente uma vida toda";
 		mes "para acumular o conhecimento";
-		mes "necessÃ¡rio para se tornar";
+		mes "necessário para se tornar";
 		mes "um Professor...";
 		next;
 		mes "[Professor]";
-		mes "Isso Ã© esmagador.";
-		mes "Quanto mais vocÃª aprende,";
-		mes "mais vocÃª descobre";
-		mes "aquilo que ainda nÃ£o sabe.";
-		mes "NÃ£o existe fim no";
+		mes "Isso é esmagador.";
+		mes "Quanto mais você aprende,";
+		mes "mais você descobre";
+		mes "aquilo que ainda não sabe.";
+		mes "Não existe fim no";
 		mes "processo de aprendizagem...";
 		close;
 	}
 	else if (ADVJOB == Job_Professor && Class == Job_Mage_High && JobLevel > 39) {
 		mes "[Professor]";
-		mes "Rune-Midgard nÃ£o";
+		mes "Rune-Midgard não";
 		mes "tem Professores suficientes";
 		mes "para ajudar o povo nessa nova era";
 		mes "de prosperidade. O";
-		mes "mundo precisa de vocÃª...";
+		mes "mundo precisa de você...";
 		next;
 		mes "[Professor]";
-		mes "VocÃª aceitarÃ¡ essa";
-		mes "incrÃ­vel responsabilidade?";
-		mes "VocÃª servirÃ¡ Rune-Midgard";
+		mes "Você aceitará essa";
+		mes "incrível responsabilidade?";
+		mes "Você servirá Rune-Midgard";
 		mes "como um Professor?";
 		next;
-			if (select("NÃ£o.:Sim.") == 1) {
+			if (select("Não.:Sim.") == 1) {
 			mes "[Professor]";
 			mes "Quando estiver pronto,";
 			mes "sinta-se livre para voltar.";
@@ -76,29 +76,29 @@ valkyrie,53,47,3	script	Professor#Valkyrie	2_M_SAGE_OLD,{
 		}
 		if (SkillPoint) {
 			mes "[Professor]";
-			mes "Ainda Ã© possÃ­vel para vocÃª aprender mais algumas habilidades. Por favor";
+			mes "Ainda é possível para você aprender mais algumas habilidades. Por favor";
 			mes "use todos seus pontos de habilidade restantes antes de voltar aqui.";
 			close;
 		}
 		jobchange Job_Professor;
 		set ADVJOB,0;
 		mes "[Professor]";
-		mes "ParabÃ©ns!";
+		mes "Parabéns!";
 		mes "Como Professor, eu espero";
-		mes "que vocÃª farÃ¡ sua parte";
+		mes "que você fará sua parte";
 		mes "ativa trazendo";
 		mes "a luz da sabedoria";
-		mes "onde hÃ¡ escuridÃ£o.";
+		mes "onde há escuridão.";
 		close;
 	}
 	mes "[Professor]";
 	mes "Bem-vindo";
 	mes "a Valhalla,";
-	mes "o SalÃ£o da Honra.";
+	mes "o Salão da Honra.";
 	next;
 	mes "[Professor]";
 	mes "Por favor sinta-se";
-	mes "confortÃ¡vel enquanto";
+	mes "confortável enquanto";
 	mes "estiver aqui.";
 	mes "Honra aos guerreiros!";
 	close;

@@ -12,17 +12,17 @@
 //- Por:                                                      -
 //- Euphy                                                     -
 //-------------------------------------------------------------
-//- Vers√£o Atual:                                             -
+//- Vers„o Atual:                                             -
 //- 1.0                                                       -
 //-------------------------------------------------------------
-//- Compat√≠vel Com:                                           -
+//- CompatÌvel Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- Descri√ß√£o:                                                -
+//- DescriÁ„o:                                                -
 //- PvP NPCs that are found in the Inns in major cities.      -
 //- Includes Yoyo Mode, Nightmare Mode, and Event Mode.       -
 //-------------------------------------------------------------
-//- Coment√°rios Adicionais:                                   -
+//- Coment·rios Adicionais:                                   -
 //- 1.0 First version, Pre-Renewal.                           -
 //-------------------------------------------------------------
 

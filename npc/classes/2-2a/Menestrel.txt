@@ -13,22 +13,22 @@
 //- Nana                                                      -
 //- finished, optimized and tested by Lupus                   -
 //-------------------------------------------------------------
-//- Vers√£o Atual:                                             -
+//- Vers„o Atual:                                             -
 //- 1.4                                                       -
 //-------------------------------------------------------------
-//- Compat√≠vel Com:                                           -
+//- CompatÌvel Com:                                           -
 //- Cronus                                                    -
 //-------------------------------------------------------------
-//- Descri√ß√£o:                                                -
+//- DescriÁ„o:                                                -
 //= Advance Class jobchanger after kRO Normals.               -
 //-------------------------------------------------------------
-//- Coment√°rios Adicionais:                                   -
+//- Coment·rios Adicionais:                                   -
 //- 1.1 Made all into functions,additional checks,etc.[Lupus] -
 //- 1.2 Made numbers into constants. [Vicious]                -
 //- 1.3 Now saves/restores all the quest skills [Lupus]       -        
 //- 1.3a Corrected a Little Typo error. [Samuray22]           -
 //-     Thanks to Myllena.                                    -
-//- 1.4 Aplicada Tradu√ß√£o (PT-BR). [SkyHD]                    -
+//- 1.4 Aplicada TraduÁ„o (PT-BR). [SkyHD] NAO TRADUZIU NADA  -
 //-------------------------------------------------------------
 
 valkyrie,53,54,3	script	Menestrel#Valkyrie	2_M_BARD_ORIENT,{
