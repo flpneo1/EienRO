@@ -101,7 +101,7 @@ prtg_cas03,165,201,4	duplicate(InsideFlagsPR3)	Brynhildr#14	GUILD_FLAG
 
 // Bandeiras do Clã (Cidade)
 //-------------------------------------------------------------
-prontera,143,203,2	duplicate(InsideFlagsPR3)	Brynhildr#15	GUILD_FLAG
+//prontera,143,203,2	duplicate(InsideFlagsPR3)	Brynhildr#15	GUILD_FLAG
 
 // Funcionária Kafra
 //-------------------------------------------------------------

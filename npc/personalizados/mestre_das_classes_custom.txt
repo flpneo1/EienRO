@@ -19,17 +19,43 @@ prontera,165,197,6	script	Simon	743,{
 function Job_Menu; function A_An;
 
 	mes "[Mestre das Classes]";
-	//set contallskill,0;
 	if ((JobLevel>=150)&&(contallskill==0)) {
 		mes "Parabéns! Você chegou ao nivel máximo de classe!";
-		mes "Irei te recompensar com todas as suas habilidades no nível máximo!";
+		mes "Um pequeno presente para sua jornada...";
+		next;
+		getitem 547,50;
+		next;
+		mes "E para finalizar deixarei todas suas habilidades no nível máximo!";
 		atcommand "@allskill";
 		atcommand "@effect "+8;
+		next;
 		set contallskill,1;
+		mes "Até logo...";
+		mes "Tenha uma boa aventura!";
 		close;
 	}
+	if (resetallskill==1) {
+		mes "Vejo que resetou seus pontos de habilidades com a Eureka.";
+		next;
+		mes "Posso lhe devolver todas habilidades novamente.";
+		mes "Deseja fazer isso?";
+		menu "Sim",sim,"Não",nao;
+		close;
+		sim:
+			mes "Tudo pronto!";
+			set resetallskill,2;
+			atcommand "@allskill";
+			atcommand "@effect "+8;
+			next;
+		nao:
+			mes "Tudo bem...";
+			next;
+	}
 	if (Class > 4049) {
-		mes "Não existem mais expansões para sua classe!";
+		mes "Não existem mais expansões para sua classe.";
+		if (JobLevel<150) {
+			mes "Porém quando chegar ao nível máximo de classe te darei uma recompensa!";
+		}
 		close;
 	}
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
@@ -93,6 +119,9 @@ function Job_Menu; function A_An;
 	if (.@eac&EAJL_2)
 		if (.@eac&(EAJL_UPPER|EAJL_BABY) || roclass(.@eac|EAJL_UPPER) == -1) {
 			mes "Não existem mais expansões para sua classe.";
+			if (JobLevel<150) {
+				mes "Porém quando chegar ao nível máximo de classe te darei uma recompensa!";
+			}
 			close;
 		}
 	if ((.@eac&EAJ_BASEMASK) == EAJ_NOVICE) {

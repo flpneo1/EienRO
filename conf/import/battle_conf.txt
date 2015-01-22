@@ -1,9 +1,9 @@
 //exp.conf------------------------
-base_exp_rate: 10000
-job_exp_rate: 10000
+base_exp_rate: 100000
+job_exp_rate: 100000
 multi_level_up: yes
-exp_bonus_attacker: 100
-mvp_exp_rate: 500
+exp_bonus_attacker: 1000
+mvp_exp_rate: 5000
 
 //drops.conf----------------------
 item_rate_common: 1000
@@ -45,7 +45,7 @@ max_hair_color: 263
 min_cloth_color: 0 
 max_cloth_color: 553
 
-max_lv: 99
+max_lv: 200
 
 display_version: no
 area_size: 24
@@ -67,7 +67,7 @@ mail_show_status: 2
 //monster.conf--------------------
 mob_count_rate: 150
 show_mob_info: 5
-ksprotection: 0
+ksprotection: 5000
 mob_slave_keep_target: no
 
 //party.conf----------------------
@@ -85,11 +85,11 @@ natural_heal_skill_interval: 5000
 max_aspd: 193
 max_third_aspd: 193
 max_walk_speed: 350
-max_hp: 2000000
-max_sp: 2000000
-max_parameter: 99
+max_hp: 1000000
+max_sp: 1000000
+max_parameter: 200
 max_third_parameter: 130
-max_baby_parameter: 80
+max_baby_parameter: 180
 max_baby_third_parameter: 108
 max_def: 99
 over_def_bonus: 100

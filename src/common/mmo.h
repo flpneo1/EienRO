@@ -40,7 +40,7 @@
 #include "../common/db.h"
 
 #ifndef PACKETVER
-	#define PACKETVER 20120410//20131223
+	#define PACKETVER 20140305//20120410//20131223
 #endif // PACKETVER
 
 //Uncomment the following line if your client is ragexeRE instead of ragexe (required because of conflicting packets in ragexe vs ragexeRE).
@@ -96,7 +96,7 @@
 //Official Limit: 2.1b ( the var that stores the money doesn't go much higher than this by default )
 #define MAX_BANK_ZENY 2100000000
 
-#define MAX_LEVEL 175
+#define MAX_LEVEL 300
 #define MAX_FAME 1000000000
 #define MAX_CART 100
 #define MAX_SKILL 1478

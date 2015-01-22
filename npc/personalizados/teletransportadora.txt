@@ -189,8 +189,8 @@ wgef:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"geffen";set ultx,119; set ulty,66;}
 		warp "geffen",		119,	 66;	end;
 wgon:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"gonryun";set ultx,150; set ulty,130;}
-		warp "gonryun",		150,	130;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"gonryun";set ultx,159; set ulty,117;}
+		warp "gonryun",		159,	117;	end;
 whug:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"hugel";set ultx,96; set ulty,145;}
 		warp "hugel",		 96,	145;	end;
@@ -219,8 +219,8 @@ wnif:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"niflheim";set ultx,35; set ulty,161;}
 		warp "niflheim",	 35,	161;	end;
 wpay:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"payon";set ultx,152; set ulty,75;}
-		warp "payon",		152,	 75;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"payon";set ultx,174; set ulty,100;}
+		warp "payon",		174,	 100;	end;
 wprt:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"prontera";set ultx,156; set ulty,191;}
 		warp "prontera",	156,	191;	end;
@@ -228,8 +228,8 @@ wrach:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"rachel";set ultx,130; set ulty,25;}
 		warp "rachel",		130,	 25;	end;
 wumb:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"umbala";set ultx,130; set ulty,130;}
-		warp "umbala",		130,	130;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"umbala";set ultx,93; set ulty,153;}
+		warp "umbala",		93,	153;	end;
 wvalk:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"valkyrie";set ultx,50; set ulty,36;}
 		warp "valkyrie",	 50,	 36;	end;
@@ -2560,23 +2560,23 @@ L_CONF15:
 //Cidades
 prontera,158,193,4	duplicate(Teleportadora)	Teleportadora#0	423
 morocc,158,97,4	duplicate(Teleportadora)	Teleportadora#1	423
-geffen,115,66,4	duplicate(Teleportadora)	Teleportadora#2	423
-payon,178,104,4	duplicate(Teleportadora)	Teleportadora#3	423
+geffen,113,64,5	duplicate(Teleportadora)	Teleportadora#2	423
+payon,183,103,4	duplicate(Teleportadora)	Teleportadora#3	423
 alberta,39,240,4	duplicate(Teleportadora)	Teleportadora#4	423
-izlude,131,116,4	duplicate(Teleportadora)	Teleportadora#5	423
+izlude,127,118,4	duplicate(Teleportadora)	Teleportadora#5	423
 aldebaran,145,118,4	duplicate(Teleportadora)	Teleportadora#6	423
 xmas,150,136,4	duplicate(Teleportadora)	Teleportadora#7	423
 comodo,194,158,4	duplicate(Teleportadora)	Teleportadora#8	423
-yuno,137,162,4	duplicate(Teleportadora)	Teleportadora#9	423
+yuno,167,187,4	duplicate(Teleportadora)	Teleportadora#9	423
 amatsu,192,81,1	duplicate(Teleportadora)	Teleportadora#10	423
-gonryun,156,129,4	duplicate(Teleportadora)	Teleportadora#11	423
-umbala,132,130,4	duplicate(Teleportadora)	Teleportadora#12	423
+gonryun,162,122,3	duplicate(Teleportadora)	Teleportadora#11	423
+umbala,94,161,5	duplicate(Teleportadora)	Teleportadora#12	423
 niflheim,32,161,4	duplicate(Teleportadora)	Teleportadora#13	423
 louyang,210,106,4	duplicate(Teleportadora)	Teleportadora#14	423
 jawaii,175,173,4	duplicate(Teleportadora)	Teleportadora#17	423
 ayothaya,147,121,4	duplicate(Teleportadora)	Teleportadora#18	423
 einbroch,59,205,4	duplicate(Teleportadora)	Teleportadora#19	423
-lighthalzen,164,101,4	duplicate(Teleportadora)	Teleportadora#20	423
+lighthalzen,166,100,4	duplicate(Teleportadora)	Teleportadora#20	423
 einbech,135,249,4	duplicate(Teleportadora)	Teleportadora#21	423
 hugel,87,164,4	duplicate(Teleportadora)	Teleportadora#22	423
 rachel,133,21,4	duplicate(Teleportadora)	Teleportadora#23	423

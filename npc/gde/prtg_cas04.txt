@@ -101,7 +101,7 @@ prtg_cas04,263,27,4	duplicate(InsideFlagsPR4)	Skoegul#14	GUILD_FLAG
 
 // Bandeiras do Clã (Cidade)
 //-------------------------------------------------------------
-prontera,167,203,6	duplicate(InsideFlagsPR4)	Skoegul#15	GUILD_FLAG
+//prontera,167,203,6	duplicate(InsideFlagsPR4)	Skoegul#15	GUILD_FLAG
 
 // Funcionária Kafra
 //-------------------------------------------------------------

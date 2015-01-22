@@ -14,14 +14,16 @@ next;
 switch (select("Quero ir para PvP","Quero sair, obrigado"))
 {
 	case 1:
-		mes "[Gus]";
-		mes "Nós temos ["+getmapusers("pvp_n_5-5")+"] jogadores na arena PvP";
-		next;
-		if(!@pontos)
-			set @pontos,0;
-		dispbottom "Seus pontos são: "+@pontos;
-		warp "pvp_n_5-5",0,0;
-		announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
+		if ($@partymembercount > 1) {
+			if(!@pontos)
+				set @pontos,0;
+			dispbottom "Seus pontos são: "+@pontos;
+			warp "pvp_n_5-5",0,0;
+			announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
+		} else {
+			mes "[Gus]";
+			mes  "Você precisa sair do seu grupo";
+		}
 		close;
 	
 	case 2:

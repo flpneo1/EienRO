@@ -1,25 +1,28 @@
 prontera,128,214,6	script	Plagiador	711,{
 
+mes "[Homem Estranho]";
 mes "Olá, ^339966"+strcharinfo(0)+"!!^000000 ";
-mes "Sou o ^FF0000plagiador de magias para stalker^000000";
-
+mes "Sou o ^FF0000plagiador de magias.^000000";
 next;
-mes "Deixa eu explicar melhor";
-mes "Tenho uma lista com varias magias que podem ser ^FF0000 copiadas ^000000";
-mes "basta escolher uma magia que eu plagio para você.";
-mes "Mais primeiro deixar eu ver se você é ^FF0000Arruaceiro/Desordeiro^000000...";
+mes "[Homem Estranho]";
+mes "Deixe-me explicar melhor...";
+mes "Possuo uma lista de varias habilidades que podem ser copiadas";
+mes "basta escolher uma e em seguida estará com ela.";
 next;
-
+mes "[Homem Estranho]";
+mes "Mas para isso você deve ter a habilidade ^FF0000Plagio^000000 e ser um Arruaceiro ou Desordeiro...";
+next;
 
 if(Class != 4018 && Class != 17 ){
-mes "Você não pode Plagiar!!";
-mes "Apenas ^FF0000Rogues/Stalkers^000000 podem usar o plagiador";
+mes "[Homem Estranho]";
+mes "Você não pode Plagiar.";
+mes "Apenas ^FF0000Arruaceiros/Desordeiros^000000 podem plagiar habilidades!";
 close;
 }
 
-
 Plagio:
-mes "Por favor, escolha a habilidade que deseja plagiar.";
+mes "[Homem Estranho]";
+mes "Por favor, escolha a habilidade que deseja copiar.";
 
 menu "Esfera d'Água",es,"Fogo Grego",fo,"Grande Floco de Neve",ne,"Impacto de Tyr",ty,"Lamina de Vento",la,"Laminas Congelantes",co,"Pétalas de Flamejantes",pe,"Terror Ácido",ad,"Nada Talvez mais tarde...",na;
 close;

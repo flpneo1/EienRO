@@ -103,7 +103,7 @@ prtg_cas02,162,161,4	duplicate(InsideFlagsPR2)	Hrist#16	GUILD_FLAG
 
 // Bandeiras do Clã (Cidade)
 //-------------------------------------------------------------
-prontera,146,194,3	duplicate(InsideFlagsPR2)	Hrist#17	GUILD_FLAG
+//prontera,146,194,3	duplicate(InsideFlagsPR2)	Hrist#17	GUILD_FLAG
 
 // Funcionária Kafra
 //-------------------------------------------------------------

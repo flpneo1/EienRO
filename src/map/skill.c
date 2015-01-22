@@ -3719,10 +3719,12 @@ int skill_castend_damage_id(struct block_list* src, struct block_list *bl, uint1
 				short x, y, i = 2; // Move 2 cells for Issen(from target)
 				struct block_list *mbl = bl;
 				short dir = 0;
-				
+				int speed;// add linha
+				struct unit_data *ud = unit->bl2ud(src);// add linha
 				skill->attack(BF_WEAPON,src,src,bl,skill_id,skill_lv,tick,flag);
 
 				if( skill_id == MO_EXTREMITYFIST ) {
+					clif->specialeffect(&sd->bl, 328, SELF);// add linha
 					mbl = src;
 					i = 3; // for Asura(from caster)
 					status->set_sp(src, 0, 0);
@@ -3747,10 +3749,24 @@ int skill_castend_damage_id(struct block_list* src, struct block_list *bl, uint1
 				if( dir > 2 && dir < 6 ) y = -i;
 				else if( dir == 7 || dir < 2 ) y = i;
 				else y = 0;
-				if( (mbl == src || (!map_flag_gvg2(src->m) && !map->list[src->m].flag.battleground) ) // only NJ_ISSEN don't have slide effect in GVG
-				 && unit->movepos(src, mbl->x+x, mbl->y+y, 1, 1)
-				) {
-					clif->slide(src, src->x, src->y);
+//				if( (mbl == src || (!map_flag_gvg2(src->m) && !map->list[src->m].flag.battleground) ) // only NJ_ISSEN don't have slide effect in GVG
+//				 && unit->movepos(src, mbl->x+x, mbl->y+y, 1, 1)
+//				) {
+				if (skill_id == MO_EXTREMITYFIST && unit->walktoxy(src, mbl->x + x, mbl->y + y, 2) && ud) {
+						//Increase can't walk delay to not alter your walk path
+						ud->canmove_tick = tick;
+						speed = status->get_speed(src);
+						for (i = 0; i < ud->walkpath.path_len; i ++)
+						{
+								if(ud->walkpath.path[i]&1)
+										ud->canmove_tick += 7*speed/5;
+								else
+										ud->canmove_tick += speed;
+						}
+				} else if ((mbl == src || (!map_flag_gvg2(src->m) && !map->list[src->m].flag.battleground)) // only NJ_ISSEN don't have slide effect in GVG
+                                 && unit->movepos(src, mbl->x+x, mbl->y+y, 1, 1))
+				{
+					clif->slide(src, src->x, src->y);// anterior add
 					clif->fixpos(src);
 					clif->spiritball(src);
 				}

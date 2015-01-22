@@ -3,7 +3,12 @@
 //=============================================
 -	script	PointsTimer	-1,{
 	end;
- 
+
+//	OnHit:
+//		set Zeny, Zeny+5;
+//		dispbottom "Você hitou!";
+//	end;
+	
 	OnPCLoginEvent:
 		//if( .modo )
 		//{

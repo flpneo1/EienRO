@@ -101,7 +101,7 @@ prtg_cas01,45,46,4	duplicate(InsideFlagsPR1)	Kriemhild#14	GUILD_FLAG
 
 // Bandeiras do Clã (Cidade)
 //-------------------------------------------------------------
-prontera,155,190,4	duplicate(InsideFlagsPR1)	Kriemhild#15	GUILD_FLAG
+//prontera,155,190,4	duplicate(InsideFlagsPR1)	Kriemhild#15	GUILD_FLAG
 
 // Funcionária Kafra
 //-------------------------------------------------------------

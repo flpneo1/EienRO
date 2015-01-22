@@ -40,7 +40,7 @@
 //- 1.7 Aplicada tradução para português(pt_BR). [Cainho]     -
 //-------------------------------------------------------------
 
-prontera,154,187,4	script	Guia#prt::PrtGuide	8W_SOLDIER,{
+prontera,282,208,2	script	Guia#prt::PrtGuide	8W_SOLDIER,{
 	cutin "prt_soldier",2;
 	mes "[Guia de Prontera]";
 	mes "Bem-vindo a Prontera, capital de Midgard.";
@@ -188,7 +188,7 @@ prontera,154,187,4	script	Guia#prt::PrtGuide	8W_SOLDIER,{
 	end;
 }
 
-prontera,282,208,2	duplicate(PrtGuide)	Guia#prt2	8W_SOLDIER
+prontera,157,198,4	duplicate(PrtGuide)	Guia#prt2	8W_SOLDIER
 
 prontera,29,200,6	duplicate(PrtGuide)	Guia#prt3	8W_SOLDIER
 
