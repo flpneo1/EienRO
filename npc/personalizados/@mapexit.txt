@@ -1,14 +1,14 @@
 -	script	mapexit	-1,{
 
 	OnInit:
-		if (getgmlevel(99)){
 			bindatcmd "mexit",strnpcinfo(3)+"::OnAtcommand";//@mexit irá reiniciar o servidor dentro de 3 minutos
-		}
 	end;
 
 	OnAtcommand:
-		initnpctimer;
-		announce "ATENÇÃO!", bc_all;
+		if (getgmlevel(99)){
+			initnpctimer;
+			announce "ATENÇÃO!", bc_all;
+		}
 	end;
 	OnTimer3000:
 		announce "O servidor será reiniciado dentro de 3 minutos devido a manutenções. Por favor, aguarde alguns instantes para logar novamente.", bc_all;

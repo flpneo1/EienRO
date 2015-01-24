@@ -1,14 +1,14 @@
 -	script	reloadscript	-1,{
 
 	OnInit:
-		if (getgmlevel(99)){
 			bindatcmd "rscript",strnpcinfo(3)+"::OnAtcommand";
-		}
 	end;
 
 	OnAtcommand:
-		initnpctimer;
-		announce "O servidor irá recarregar os scripts em 15 segundos. Por favor, vá para um local seguro devido ao atraso que irá ocorrer.", bc_all;
+		if (getgmlevel(99)){
+			initnpctimer;
+			announce "O servidor irá recarregar os scripts em 15 segundos. Por favor, vá para um local seguro devido ao atraso que irá ocorrer.", bc_all;
+		}
 	end;
 	
 	OnTimer10000:
