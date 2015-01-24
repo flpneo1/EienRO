@@ -2,7 +2,7 @@ userid: user123
 passwd: pass123
 server_name: EienRO
 wisp_server_name: Bem vindo ao EienRO
-login_ip: neo.redirectme.net
+login_ip: 127.0.0.1
 char_ip: neo.redirectme.net
 start_point: prontera,150,150
 start_zeny: 200

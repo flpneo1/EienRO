@@ -1,4 +1,4 @@
 userid: user123
 passwd: pass123
-char_ip: neo.redirectme.net
+char_ip: 127.0.0.1
 map_ip: neo.redirectme.net
