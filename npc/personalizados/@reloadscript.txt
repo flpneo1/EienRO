@@ -5,7 +5,7 @@
 	end;
 
 	OnAtcommand:
-		if (getgmlevel(99)){
+		if (getgmlevel()==99){
 			initnpctimer;
 			announce "O servidor irá recarregar os scripts em 15 segundos. Por favor, vá para um local seguro devido ao atraso que irá ocorrer.", bc_all;
 		}

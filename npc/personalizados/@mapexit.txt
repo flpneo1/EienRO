@@ -5,7 +5,7 @@
 	end;
 
 	OnAtcommand:
-		if (getgmlevel(99)){
+		if (getgmlevel()==99){
 			initnpctimer;
 			announce "ATENÇÃO!", bc_all;
 		}
