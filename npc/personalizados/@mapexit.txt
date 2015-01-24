@@ -1,7 +1,9 @@
 -	script	mapexit	-1,{
 
-	OnInit:	
-		bindatcmd "mexit",strnpcinfo(3)+"::OnAtcommand";//@mexit irá reiniciar o servidor dentro de 3 minutos
+	OnInit:
+		if (getgmlevel(99)){
+			bindatcmd "mexit",strnpcinfo(3)+"::OnAtcommand";//@mexit irá reiniciar o servidor dentro de 3 minutos
+		}
 	end;
 
 	OnAtcommand:

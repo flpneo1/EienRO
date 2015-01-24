@@ -1,7 +1,9 @@
 -	script	reloadscript	-1,{
 
-	OnInit:	
-		bindatcmd "rscript",strnpcinfo(3)+"::OnAtcommand";
+	OnInit:
+		if (getgmlevel(99)){
+			bindatcmd "rscript",strnpcinfo(3)+"::OnAtcommand";
+		}
 	end;
 
 	OnAtcommand:
