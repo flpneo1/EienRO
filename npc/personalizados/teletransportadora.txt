@@ -174,8 +174,8 @@ wama:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"amatsu";set ultx,197; set ulty,86;}
 		warp "amatsu",		197,	 86;	end;
 wayo:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"ayothaya";set ultx,149; set ulty,118;}
-		warp "ayothaya",	149,	118;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"ayothaya";set ultx,207; set ulty,165;}
+		warp "ayothaya",	207,	165;	end;
 wcom:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"comodo";set ultx,188; set ulty,161;}
 		warp "comodo",		188,	161;	end;
@@ -183,8 +183,8 @@ weinbr:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"einbroch";set ultx,64; set ulty,200;}
 		warp "einbroch",	 64,	200;	end;
 weinb:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"einbech";set ultx,138; set ulty,245;}
-		warp "einbech",		138,	245;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"einbech";set ultx,178; set ulty,129;}
+		warp "einbech",		178,	129;	end;
 wgef:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"geffen";set ultx,119; set ulty,66;}
 		warp "geffen",		119,	 66;	end;
@@ -198,14 +198,14 @@ wizl:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"izlude";set ultx,128; set ulty,111;}
 		warp "izlude",		128,	111;	end;
 wjaw:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"jawaii";set ultx,175; set ulty,170;}
-		warp "jawaii",		175,	170;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"jawaii";set ultx,249; set ulty,127;}
+		warp "jawaii",		249,	127;	end;
 wjupe:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"jupe_gate";set ultx,49; set ulty,26;}
 		warp "jupe_gate",	 49,	 26;	end;
 wlhz:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"lighthalzen";set ultx,163; set ulty,99;}
-		warp "lighthalzen",	163,	 99;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"lighthalzen";set ultx,159; set ulty,95;}
+		warp "lighthalzen",	159,	 95;	end;
 wlou:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"louyang";set ultx,210; set ulty,108;}
 		warp "louyang",		210,	108;	end;
@@ -225,8 +225,8 @@ wprt:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"prontera";set ultx,156; set ulty,191;}
 		warp "prontera",	156,	191;	end;
 wrach:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"rachel";set ultx,130; set ulty,25;}
-		warp "rachel",		130,	 25;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"rachel";set ultx,129; set ulty,110;}
+		warp "rachel",		129,	 110;	end;
 wumb:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"umbala";set ultx,93; set ulty,153;}
 		warp "umbala",		93,	153;	end;
@@ -234,8 +234,8 @@ wvalk:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"valkyrie";set ultx,50; set ulty,36;}
 		warp "valkyrie",	 50,	 36;	end;
 wvei:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
-		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"veins";set ultx,196; set ulty,239;}
-		warp "veins",		196,	239;	end;
+		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"veins";set ultx,214; set ulty,124;}
+		warp "veins",		214,	124;	end;
 wyu:	callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
 		if (getgmlevel() >= $CONF11){set maptip,0; set ultimomapa$,"yuno";set ultx,160; set ulty,168;}
 		warp "yuno",		160,	168;	end;
@@ -2573,14 +2573,14 @@ gonryun,162,122,3	duplicate(Teleportadora)	Teleportadora#11	423
 umbala,94,161,5	duplicate(Teleportadora)	Teleportadora#12	423
 niflheim,32,161,4	duplicate(Teleportadora)	Teleportadora#13	423
 louyang,210,106,4	duplicate(Teleportadora)	Teleportadora#14	423
-jawaii,175,173,4	duplicate(Teleportadora)	Teleportadora#17	423
-ayothaya,147,121,4	duplicate(Teleportadora)	Teleportadora#18	423
+jawaii,252,138,3	duplicate(Teleportadora)	Teleportadora#17	423
+ayothaya,209,169,4	duplicate(Teleportadora)	Teleportadora#18	423
 einbroch,59,205,4	duplicate(Teleportadora)	Teleportadora#19	423
 lighthalzen,166,100,4	duplicate(Teleportadora)	Teleportadora#20	423
-einbech,135,249,4	duplicate(Teleportadora)	Teleportadora#21	423
+einbech,181,129,2	duplicate(Teleportadora)	Teleportadora#21	423
 hugel,87,164,4	duplicate(Teleportadora)	Teleportadora#22	423
-rachel,133,21,4	duplicate(Teleportadora)	Teleportadora#23	423
-veins,201,237,4	duplicate(Teleportadora)	Teleportadora#24	423
+rachel,130,117,4	duplicate(Teleportadora)	Teleportadora#23	423
+veins,214,128,4	duplicate(Teleportadora)	Teleportadora#24	423
 moscovia,225,186,4	duplicate(Teleportadora)	Teleportadora#25	423
 brasilis,200,223,4	duplicate(Teleportadora)	Teleportadora#26	423
 mid_camp,206,235,4	duplicate(Teleportadora)	Teleportadora#27	423
