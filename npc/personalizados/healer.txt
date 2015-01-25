@@ -17,9 +17,12 @@
 
 	set .@Price,0;	// Zeny required for heal
 	set .@Buffs,1;	// Also buff players? (1: yes / 0: no)
-	set .@Delay,3;	// Heal delay, in seconds
+	set .@Delay,180;	// Heal delay, in seconds
 
-	if (@HD > gettimetick(2)) end;
+	if (@HD > gettimetick(2)) {
+		message strcharinfo(0), "Você precisa esperar "+ (@HD - gettimetick(2)) +" segundos.";
+		end;
+	}
 	if (.@Price) {
 		message strcharinfo(0),"Healing costs "+.@Price+" Zeny.";
 		if (Zeny < .@Price) end;
@@ -27,8 +30,8 @@
 		set Zeny, Zeny-.@Price;
 	}
 	if (.@Buffs) {
-		specialeffect2 EF_INCAGILITY; sc_start SC_INC_AGI,240000,10;
-		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,240000,10;
+		specialeffect2 EF_INCAGILITY; sc_start SC_INC_AGI,300000,10;
+		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,300000,10;
 	}
 	specialeffect2 EF_HEAL2; percentheal 100,100;
 	if (.@Delay) set @HD, gettimetick(2)+.@Delay;

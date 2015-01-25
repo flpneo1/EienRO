@@ -6,10 +6,10 @@
 		.sp = 100;		// Percentual de cura do SP
 
 		// Addons
-		.price = 1000; 	// Preço por uso (em Zeny)
+		.price = 10000; 	// Preço por uso (em Zeny)
 		.buff = 1;		// Buff players as well? (0: no, 1: yes)
 		.repair = 0;	// Reparar equipamentos quebrados? (0: no, 1: yes)
-		.delay = 600;		// Delay para uso (em segundos)
+		.delay = 360;		// Delay para uso (em segundos)
 		
 		bindatcmd "buff",strnpcinfo(3)+"::OnAtcommand";
 	end;
@@ -20,7 +20,7 @@
 		end;
 	}
 
-	if (BaseLevel > 70) .price = .price+9000;
+	if (BaseLevel > 70) .price = .price+90000;
 	if (.price) {
 		if (Zeny < .price) {
 			message strcharinfo(0), "Você não tem Zeny suficiente, O serviço custa "+ .price +"z.";
@@ -30,7 +30,7 @@
 		Zeny -= .price;
 	}
 
-	specialeffect2 EF_HEAL; percentheal .hp, .sp;
+//	specialeffect2 EF_HEAL; percentheal .hp, .sp; //cura
 
 	if (.buff) {
 		// Acolyte Class Buffs
@@ -38,10 +38,10 @@
 		specialeffect2 EF_INCAGILITY; sc_start SC_INC_AGI, 300000, 10;
 		specialeffect2 EF_ANGELUS; sc_start SC_ANGELUS, 300000, 10;
 		//specialeffect2 EF_GLORIA; sc_start SC_GLORIA, 360000, 5;
-		//specialeffect2 EF_MAGNIFICAT; sc_start SC_MAGNIFICAT, 360000, 5;
-		////specialeffect2 EF_ASSUMPTIO; sc_start SC_ASSUMPTIO, 360000, 5;
-		//specialeffect2 EF_IMPOSITIO; sc_start SC_IMPOSITIO, 360000, 5;
-		//specialeffect2 EF_SUFFRAGIUM; sc_start SC_SUFFRAGIUM, 360000, 3;
+		specialeffect2 EF_MAGNIFICAT; sc_start SC_MAGNIFICAT, 300000, 5;
+		//specialeffect2 EF_ASSUMPTIO; sc_start SC_ASSUMPTIO, 360000, 5;
+		specialeffect2 EF_IMPOSITIO; sc_start SC_IMPOSITIO, 300000, 5;
+		specialeffect2 EF_SUFFRAGIUM; sc_start SC_SUFFRAGIUM, 300000, 3;
 
 		// Archer Class Buffs
 		//specialeffect2 EF_TRUESIGHT; sc_start SC_TRUESIGHT, 360000, 5;

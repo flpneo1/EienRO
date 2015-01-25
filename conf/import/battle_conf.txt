@@ -65,8 +65,8 @@ duel_only_on_same_map: no
 mail_show_status: 2
 
 //monster.conf--------------------
-mob_count_rate: 150
-show_mob_info: 5
+mob_count_rate: 100
+show_mob_info: 7
 ksprotection: 5000
 mob_slave_keep_target: no
 
