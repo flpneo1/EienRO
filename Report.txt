@@ -244,3 +244,6 @@ Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
 
 Ponteiro nulo. Data/Hora: 01/25/15 01:53:08 
 Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
+
+Ponteiro nulo. Data/Hora: 01/26/15 18:03:37 
+Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
