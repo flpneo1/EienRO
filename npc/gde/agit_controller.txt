@@ -43,7 +43,7 @@ OnAgitInit:
 	   (gettime(4)==4) && (gettime(3)>=21 && gettime(3)<23) ||
 	   (gettime(4)==6) && (gettime(3)>=16 && gettime(3)<18)) {
 		if (!agitcheck()) {
-			agitstart;
+//			agitstart;
 			callsub S_DisplayOwners;
 		}
 		end;

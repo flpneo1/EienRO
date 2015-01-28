@@ -3,6 +3,6 @@ client_hash_check: on
 // Hashes MD5 do client
 // Um jogador por logar com um hash do client de seu grupo ou grupos inferiores.
 // Formato: id_do_grupo, hash
-client_hash: 0, CA4A17D30B282534BCB3B64E4167FF7A
-client_hash: 99, cb1ea78023d337c38e8ba5124e2338ae
+client_hash: 0, CC637D9ED1FBFF0B9957967D55FE648C
+client_hash: 99, CC637D9ED1FBFF0B9957967D55FE648C
 client_hash: 99, enabled
