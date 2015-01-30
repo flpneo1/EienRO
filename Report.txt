@@ -247,3 +247,11 @@ Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
 
 Ponteiro nulo. Data/Hora: 01/26/15 18:03:37 
 Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
+
+Ponteiro nulo. Data/Hora: 01/28/15 23:43:23 
+Arquivo: skill.c | Linha: 15879 | Proc: skill_unit_timer_sub_onplace
+
+Ponteiro nulo. Data/Hora: 01/29/15 12:03:04 
+Arquivo: unit.c | Linha: 1862 | Proc: unit_attack_timer_sub
+
+ QUEDA FATAL!!!. Data/Hora: 01/29/15 21:46:37
