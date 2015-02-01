@@ -1,0 +1,9 @@
+-	script	coin	-1,{
+	OnInit:
+		bindatcmd "coin",strnpcinfo(3)+"::OnAtcommand";
+	end;
+
+	OnAtcommand:
+		dispbottom "[Você tem "+#CASHPOINTS+" Coins]";
+	end;
+}

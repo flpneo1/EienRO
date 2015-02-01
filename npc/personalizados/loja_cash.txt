@@ -1,0 +1,45 @@
+prontera,150,150,5	script	Vendedor de Itens ROPS	843,{
+set $@nome_npc$,"^000080Vendedor de Rops^000000"; //Nome do NPC aqui!
+mes $@nome_npc$;
+mes "Olá "+strcharinfo(0);
+mes "Seja bem-vindo!";
+mes "Deseja comprar algum item?";
+next;
+if(select("Sim:Não")==2){
+mes $@nome_npc$;
+mes "Caso mude de idéia estarei aqui!";
+close;
+}
+next;
+switch(select("- Elmos:- Asas:- Midles:- Equipamentos:- Armas:- Sair")){
+case 1:
+close2;
+callshop "elmos",1;
+end;
+case 2:
+close2;
+callshop "asas",1;
+end;
+case 3:
+close2;
+callshop "midles",1;
+end;
+case 4:
+close2;
+callshop "equips",1;
+end;
+case 5:
+close2;
+callshop "armas",1;
+end;
+case 6:close;
+}
+}
+// Lojas
+// Para adicionar um item coloque o id do "ITEM" depois o preço
+// Ex: id:preco,id:preco / 512:100,535:100
+-	cashshop	elmos	-1,512:100//Loja de Elmos
+-	cashshop	asas	-1,512:100//Loja de Asas
+-	cashshop	midles	-1,512:100//Loja de Midles
+-	cashshop	equips	-1,512:100//Loja de Equipamentos
+-	cashshop	armas	-1,512:100//Loja de Armas

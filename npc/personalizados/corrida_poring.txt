@@ -1,12 +1,16 @@
 // Capuche cleaning Base on the poring race by Zell_ff8, xianz, Neko, for fun
 
-prontera,146,205,3	script	Corrida Poring	882,{
-
+prontera,146,205,3	script	Corrida Poring	91,{
+cutin "katsua01",2;
 	if( .access_Prace == 0 ) {
 		mes "[Corrida Poring]";
 		mes "A corrida já terminou.";
 		mes "Espera até a próxima vez para participar.";
-		close;
+		mes "Horário de abertura a cada 1 hora.";
+		mes "Iniciando em 10:20, 11:20, 12:20...";
+		close2;
+		cutin "",255;
+		end;
 	}
 	mes "[Corrida Poring]";
 	mes "Gostaria de participar da Corrida Poring?";
@@ -33,8 +37,8 @@ OnMinute20:
 	if( gettime(3)%2 ) end;
 	set .access_Prace, 1;
 	announce "A Corrida Poring está aberta!",0,0xFFAB54;
-	setnpctimer 100000,"Bidder#prace0";
-	startnpctimer "Bidder#prace0";
+	setnpctimer 100000,"Licitante#prace0";
+	startnpctimer "Licitante#prace0";
 	end;
 OnPraceEnd:
 	set .access_Prace, 0;
@@ -43,10 +47,10 @@ OnPraceEnd:
 }
 
 
-p_track01,58,41,3	script	Bidder#prace0	877,{
+p_track01,58,41,3	script	Licitante#prace0	877,{
 function checkevent;
 
-	mes "[Bidder]";
+	mes "[Licitante]";
 	if( getstrlen( @prace_winner$ ) ) {
 		mes "You have choose ^00bb00"+ @prace_winner$ +"^000000";
 		close;
@@ -60,7 +64,7 @@ function checkevent;
 		close;
 	}
 	mes "Faça sua aposta:";
-	mes "Irá custar "+ .zeny_req +" zeny.";
+//	mes "Irá custar "+ .zeny_req +" zenys.";
 
 	.@s = select( .menu_$ );
 	if( .@s == 7 ) {
@@ -94,7 +98,7 @@ function checkevent;
 	mes "[Licitante]";
 	mes "Eu tenho "+ .prace_bets +" apostas.";
 	initnpctimer;
-	npctalk "Eu tenho "+ strcharinfo(0) +" apostas!";
+	npctalk ""+ strcharinfo(0) +" fez a sua aposta!";
 	close;
 OnTimer60000:
 	npctalk "Eu tenho "+ .prace_bets +" apostas. Alguém mais?";
@@ -153,7 +157,7 @@ L_WinRace:
 OnChequeo:
 	for( .@i = 0 ; .@i < getarraysize( .prace_bidders ); .@i++ ) {
 		if( attachrid( .prace_bidders[.@i] ) && getstrlen( @prace_winner$ ) ) {
-			dispbottom "O vencedor é"+ .prace_winner$ +" and you have bet for "+ @prace_winner$ +".";
+			dispbottom "O vencedor é "+ .prace_winner$ +" e você apostou em "+ @prace_winner$ +".";
 			if( @prace_winner$ == .prace_winner$ ) {
 				dispbottom "Você venceu!";
 				mapannounce "p_track01"," Parabéns! "+ strcharinfo(0) +" venceu!",1,0xFFAB54;
@@ -161,7 +165,7 @@ OnChequeo:
 				emotion 21,1;
 			}
 			else {
-				dispbottom "You have lost.";
+				dispbottom "Você perdeu.";
 				emotion 28,1;
 			}
 			@prace_winner$ = "";
@@ -173,7 +177,7 @@ OnInit:
 	.zeny_req = 0;
 	.item_gained = 607;
 	.item_num_gain = 25;
-	setarray .monst_$,"Poring","Angeling","Metaling","Deviling","Santa Poring","Poporing","None";
+	setarray .monst_$,"Poring","Angeling","Metaling","Deviling","Santa Poring","Poporing","Nenhum";
 	.menu_$ = implode( .monst_$, ":" );
 	end;
 
@@ -211,9 +215,9 @@ OnTimer1100:
 	.@r = rand( .prace_random2 );
 	if ( .@x -1 == 29 ) {
 		while( strnpcinfo(1) != .monst$[ .@i ] ) .@i++;
-		set getvariableofnpc( .prace_winner$, "Bidder#prace0" ), .monst$[ .@i ];
+		set getvariableofnpc( .prace_winner$, "Licitante#prace0" ), .monst$[ .@i ];
 		emotion 29;
-		donpcevent "Bidder#prace0::OnStopRace";
+		donpcevent "Licitante#prace0::OnStopRace";
 		end;
 	}
 	stopnpctimer;

@@ -1,0 +1,92 @@
+//////////////////////////////////////////////////////////////////////////////////
+//-------------------____------ -_---- -_----_____----------_-------------------//
+//-----------------/++++++\----|+|   /+/--|++++++\+\-------|/|------------------//
+//----------------/+/----\+\---|+|  /+/---|+|-----|+|------|/|------------------//
+//----------------|+|____------|+|_/+/----|+|_____|+|------|/|------------------//
+//-----------------\++++++\ ---|+|_+|-----|++++++++/-------|/|------------------//
+//----------------__-----\+\---|+| \+\----|+|--------------|/|------------------//
+//----------------\+\____/+/---|+|  \+\---|+|-----------------------------------//
+//-----------------\++++++/----|+|   \+\--|+|--------------|.|------------------//
+//------------------------------------------------------------------------------//
+//////////////////////////////////////////////////////////////////////////////////
+//-------------------------------[SQL] CashControl------------------------------//
+//////////////////////////////////////////////////////////////////////////////////
+//----------------------------------Versão 2.0----------------------------------//
+//////////////////////////////////////////////////////////////////////////////////
+//----------------------------------Changelog-----------------------------------//
+// * 1.0 - Script Iniciado [Carlos H]-------------------------------------------//
+// * 1.1 - Alterado para funcionar com o login e não mais pelo id.[Carlos H]----//
+// * 1.2 - Adicionado função de mostrar que foi adicionado x créditos na conta--//
+//       do player[Carlos H]----------------------------------------------------//
+// * 2.0 - Script reformulado, controle com o comando @cash2 [Carlos H]---------//
+//////////////////////////////////////////////////////////////////////////////////
+//----------------------------------Créditos------------------------------------//
+//---------- Desenvolvido por carlos#skp ! Não remova os créditos !-------------//
+//==============================================================================//
+//* Instruções:-----------------------------------------------------------------//
+// - Digite o comando @cash2 e o npc te orientará-------------------------------//
+//////////////////////////////////////////////////////////////////////////////////
+-	script	cash_control	-1,{
+OnAtcommand:
+set .@OldPoints, 0;
+set .@accId, 0;
+set .@Account, 0;
+if(getgroupid() == 99){
+	if(select("Adicionar Coins:Remover Coins") == 1){
+		message strcharinfo(0),"[Gerenciador de Coins] Digite a quantidade de coins.";
+			input .@valor;
+		message strcharinfo(0),"[Gerenciador de Coins] Digite o login da conta.";
+			input .@input$;
+			query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@input$+"'",.@accId;
+			if(!.@accId){
+				message strcharinfo(0),"[Gerenciador de Coins] Conta não encontrada.";
+				close;
+			}
+			query_sql "SELECT `account_id`,`value` FROM `acc_reg_num_db` WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'", .@Account,.@OldPoints;
+		if(.@Account){
+			if(.@OldPoints) message strcharinfo(0),"[Gerenciador de Coins] A acc "+.@input$+" já possui "+.@OldPoints+" coins.";
+			query_sql "UPDATE `acc_reg_num_db` SET `value`=`value`+'"+.@valor+"' WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'";
+		}else{
+			query_sql "INSERT INTO `acc_reg_num_db` (`value`,`type`,`key`,`account_id`) values ('"+.@valor+"','2','#CASHPOINTS','"+.@accId+"')";
+		}
+		query_sql "SELECT `value` FROM `acc_reg_num_db` WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'", .@TotalPoints;
+		message strcharinfo(0),"[Gerenciador de Coins] A acc - "+.@input$+" - agora tem "+.@TotalPoints+" coins.";
+		close;
+	}else{
+		message strcharinfo(0),"[Gerenciador de Coins] Digite a quantidade de coin à ser removida.";
+			input .@valor;
+		message strcharinfo(0),"[Gerenciador de Coins] Digite o login da conta.";
+			input .@input$;
+			query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@input$+"'",.@accId;
+			query_sql "SELECT `account_id`,`value` FROM `acc_reg_num_db` WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'", .@Account,.@OldPoints;
+		if(.@Account && .@OldPoints){
+			message strcharinfo(0),"[Gerenciador de Coins] A acc "+.@input$+" possui "+.@OldPoints+" coins.";
+			if(.@OldPoints < .@valor){
+				message strcharinfo(0),"[Gerenciador de Coins] A acc tem menos coin do que você quer remover.";
+				message strcharinfo(0),"[Gerenciador de Coins] Remover assim mesmo? (Ficará com 0).";
+				if(select("Sim.:Não.")==2){end;}
+				query_sql "UPDATE `acc_reg_num_db` SET `value`='0' WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'";
+			}else{
+				query_sql "UPDATE `acc_reg_num_db` SET `value`=`value`-'"+.@valor+"' WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'";
+			}
+			query_sql "SELECT `value` FROM `acc_reg_num_db` WHERE `key`='#CASHPOINTS' AND `account_id`='"+.@accId+"'", .@TotalPoints;
+			message strcharinfo(0),"[Gerenciador de Coins] A acc - "+.@input$+" - agora tem "+.@TotalPoints+" coins.";
+		}else{
+			message strcharinfo(0),"[Gerenciador de Coins] A acc - "+.@input$+" - não possui coin ou não existe.";
+		}
+		close;
+	}
+}else{
+	message strcharinfo(0),"Acesso negado!";
+	close;
+}
+OnPCLoginEvent:
+if(#CASHPOINTS >= 1){
+	message strcharinfo(0),"Você possui "+#CASHPOINTS+" Coins.";
+	close;
+}
+end;
+OnInit:
+	bindatcmd "coin2",strnpcinfo(3)+"::OnAtcommand";
+end;
+}

@@ -30,7 +30,7 @@ prontera,165,205,6	script	Sortudo	869,{
 	                mes "Esse é um evento aonde exige muita sorte e astúcia.";
 	                next;
 	                mes @npc$;
-	                mes "Nós abrimos todos os dias a cada 03h, começando da 00h.";
+	                mes "Nós abrimos todos os dias a cada 1h, começando da 00h.";
 	                next;
 	                mes @npc$;
 	                mes "Após o início do evento, você precisará sobreviver à 5 minutos de PvP.";
@@ -45,7 +45,7 @@ prontera,165,205,6	script	Sortudo	869,{
 	                mes "Prêmio em Zeny: ^777777"+$quantity_zeny+"z^000000";
 	                close;
 	                case 3:
-	                mes "O que o senhor deseja fazer?";
+	                mes "O que deseja fazer?";
 	                switch(select("Iniciar o evento:Alterar prêmios:Sair"))
 	                {
 	                        next;  
@@ -108,10 +108,7 @@ prontera,165,205,6	script	Sortudo	869,{
 	                mes "Até mais!";
 	                close;
 	        }
-	OnClock0000: OnClock1200:
-	OnClock0300: OnClock1500:
-	OnClock0600: OnClock1800:
-	OnClock0900: OnClock2100:
+	OnMinute00:
 	evento_start:
 	        set $evento,1;
 	        killmonsterall "quiz_02";
@@ -134,21 +131,21 @@ prontera,165,205,6	script	Sortudo	869,{
 	        pvpoff "quiz_02";
 	        setmapflag "quiz_02",mf_noskill;
 	        mapannounce "quiz_02","Evento da Sorte : Os baús aparecerão!",bc_blue|bc_all;
-	        monster "quiz_02",34,69, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",39,60, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",51,69, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",46,60, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",58,69, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",63,60, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",75,69, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",70,60, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",316,51, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",321,42, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",333,51, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",328,42, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",340,51, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-//	        monster "quiz_02",345,42, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
-	        monster "quiz_02",357,51, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",34,69, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",39,60, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",51,69, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",46,60, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",58,69, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",63,60, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",75,69, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",70,60, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",316,51, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",321,42, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",333,51, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",328,42, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",340,51, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+//	        monster "quiz_02",345,42, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
+	        monster "quiz_02",357,51, "Baú da Sorte",3000,1,""+strnpcinfo(1)+"::OnPrize";
 //	        monster "quiz_02",352,42, "Baú da Sorte",1354,1,""+strnpcinfo(1)+"::OnPrize";
 	        end;
 	OnPrize:

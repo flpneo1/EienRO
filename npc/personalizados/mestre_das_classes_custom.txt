@@ -16,6 +16,7 @@
 //================================================================
 
 prontera,165,197,6	script	Simon	743,{
+cutin "job_sage_kayron",2;
 function Job_Menu; function A_An;
 
 	mes "[Mestre das Classes]";

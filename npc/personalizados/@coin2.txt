@@ -1,0 +1,154 @@
+//                                                                                                 
+//                                                                                                    
+//  DDDDDDDD      D                          D       DDDDDDDDDD                                       
+// DDDDDDDDDDD  DDDD                      DDDDD      DDDDDDDDDDD                                      
+//  DDDDDDDDDD DDDDD                      DDDDD       DDDD  DDDD                                      
+//   DDDD  DDDD DD                        DDDDD       DDDD    DD                                      
+//   DDDD  DDDD    D    DD   DD     DD     DDDD       DDDD          DD       DD  D     D   D    D     
+//   DDDD  DDDD DDDD  DDDDDD DDD  DDDDDD   DDDD       DDDD  D     DDDDDD   DDDD DDD DDDD DDDD DDDDD   
+//   DDDD  DDDDDDDDD  DDDDDD DD  DDD  DD   DDDD       DDDD DD    DD  DDD  DDDDDDDDD DDDDDDDDDDDDDDD   
+//   DDDDDDDDD  DDDD   DDDDD D   DDD  DDD  DDDD       DDDDDDD    DD  DDDD  DDDDDDDD DDDDDDDDDD DDDD   
+//   DDDDDDDD   DDDD    DDDDDD  DDDDDDDDD  DDDD       DDDDDDD        DDDD  DDDD DD  DDDD  DDDD DDDD   
+//   DDDDDD     DDDD     DDDD   DDDDDDDDD  DDDD       DDDD  D     DDDDDDD  DDDD     DDDD  DDDD  DDD   
+//   DDDD       DDDD    DDDDDD  DDDD       DDDD       DDDD  D    DDD DDDD  DDDD     DDDD  DDDD  DDD   
+//   DDDD       DDDD    D DDDD   DDD       DDDD       DDDD      DDDD DDDD  DDDD     DDDD  DDDD DDDD   
+//   DDDD       DDDD   DD DDDDD  DDDD  DD  DDDD       DDDD      DDDD DDDDD DDDD     DDDD  DDDD DDDD   
+//  DDDDDD     DDDDDD DDD DDDDDD DDDDDDD  DDDDDD    DDDDDDD     DDDDDDDDD DDDDDD    DDDDDDDDDD DDDDD  
+//  DDDDDD     DDDDDDDDDD DDDDDD  DDDDD   DDDDD      DDDDDD      DDDD DDD DDDDDD   DDDDD DDDDD DDDDD  
+// ===========================================================
+//===== Cronus Script ========================================
+//= Sistema Cash
+//===== Por: =================================================
+//= Pixel Farm
+//===== Vers?o Atual: ========================================
+//= 1.0
+//===== Compatibilidade: =====================================
+//= Cronus Emulador
+//===== Descri??o: ===========================================
+// Administrador de cash com as op??es:
+// Adicionar cash.
+// Remover cash.
+// Ver cash de uma conta.
+//============================================================
+-	script	Sistema Cash	-1,{
+
+set @npc$,"[^FF7F24Sistema de Coins^000000]"; // Nome do npc
+set @lvl,99; // Level para administrar o npc
+
+OnAtcommand:
+if (getgmlevel() < @lvl){ mes @npc$; mes "Desculpe, mas apenas administradores pode falar comigo."; close; }
+mes @npc$;
+mes "O que deseja administrar no sistema de Coins?";
+switch(select("- Adicionar Coins:- Remover Coins:- Ver saldo de Coins")){
+
+case 1:
+	next;
+	mes @npc$;
+	mes "Digite o login da conta que deseja adicionar Coins.";
+	input .@cash$;
+	query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@cash$+"'",.@cont;
+	if(.@cont == 0)
+	{
+		next;
+		mes @npc$;
+		mes "Este login não existe.";
+		close;
+	}
+	next;
+	mes @npc$;
+	mes "Agora digite a quantidade de Coins que deseja adicionar a conta "+.@cash$+".";
+	input .@valor;
+	if(.@valor == 0)
+	{
+		next;
+		mes @npc$;
+		mes "O login digitado não existe.";
+		close;
+	}
+	next;
+	mes @npc$;
+	mes "Tem certeza que deseja adicionar ^00BFFF"+.@valor+"^000000 Coins na conta ^00BFFF"+.@cash$+"^000000?";
+	if (select("- Sim:- Não") == 2) close;
+	next;
+	mes @npc$;
+	mes "Os Coins foram adicionados com sucesso na conta "+@cash$+".";
+	query_sql "UPDATE `login` SET `coins` = `coins` +"+.@valor+" WHERE `userid`='"+.@cash$+"'";
+	close;
+
+case 2:
+	next;
+	mes @npc$;
+	mes "Digite o login da conta que deseja remover Coins.";
+	input .@cash$;
+	query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@cash$+"'",.@cont;
+	if(.@cont == 0)
+	{
+		next;
+		mes @npc$;
+		mes "O login digitado nao existe.";
+		close;
+	}
+	next;
+	mes @npc$;
+	mes "Agora digite a quantidade de Coins que deseja remover da conta "+.@cash$+".";
+	input .@valor;
+	if(.@valor == 0)
+	{
+		next;
+		mes @npc$;
+		mes "O login digitado não existe.";
+		close;
+	}
+	next;
+	mes @npc$;
+	mes "Tem certeza que deseja remover ^00BFFF"+.@valor+"^000000 Coins da conta ^00BFFF"+.@cash$+"^000000?";
+	if (select("- Sim:- Não") == 2) close;
+	next;
+	mes @npc$;
+	mes "Os Coins da conta "+@cash$+" foram removidos com sucesso.";
+	query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@cash$+"'",.@id;
+	query_sql "UPDATE `acc_reg_num_db` SET `value` = `value`-"+.@valor+" WHERE `account_id`='"+.@id+"'";
+	close;
+
+case 3:
+	next;
+	mes @npc$;
+	mes "Digite o login da conta que deseja ver a quantidade de Coins.";
+	input .@cash$;
+	query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@cash$+"'",.@cont;
+	if(.@cont == 0)
+	{
+		next;
+		mes @npc$;
+		mes "O login digitado não existe.";
+		close;
+	}
+	next;
+	query_sql "SELECT `account_id` FROM `login` WHERE `userid`='"+.@cash$+"'",.@id;
+	query_sql "SELECT `value` FROM `acc_reg_num_db` WHERE `account_id`='"+.@id+"'",.@saldo;
+	mes @npc$;
+	mes "A conta "+@cash$+" possui ^00BFFF"+.@saldo+"^000000 Coins. ";
+	close;
+	}
+OnInit:
+	bindatcmd "coin2",strnpcinfo(3)+"::OnAtcommand";
+end;
+}
+
+-	script	Sistema Cash#02	-1,{
+OnPCLoginEvent:
+	query_sql "SELECT `coins` FROM `login` WHERE `account_id` = '"+getcharid(3)+"'", .@cash;
+	if(.@cash == 0){ end; }
+	dispbottom "Você acaba de ganhar "+.@cash+" Coins.";
+	set #CASHPOINTS,#CASHPOINTS+.@cash;
+	query_sql "UPDATE `login` SET `coins` = `coins` =0 WHERE `account_id`='"+getcharid(3)+"'";
+	end;
+}
+
+-	script	Sistema Cash#03	-1,{
+OnPCLoginEvent:
+//	if (getgmlevel() >= 2){ end; }
+	if(#CASHPOINTS == 0){ end; }
+	dispbottom "Você possui "+#CASHPOINTS+" Coins.";
+	end;
+}
