@@ -1128,7 +1128,7 @@ OnEnable:
 OnTimer7200000:
 	stopnpctimer;
 	if (($DTS_Result == 0) || ($DTS_Result == 3)) {
-		announce "Atualmente a eleição para quem vai fornecer o serviço de teleporte para as dungeons está sendo realizado nas grandes cidades. Sua participação é importante.",bc_all,"0x70dbdb";
+//		announce "Atualmente a eleição para quem vai fornecer o serviço de teleporte para as dungeons está sendo realizado nas grandes cidades. Sua participação é importante.",bc_all,"0x70dbdb";
 	}
 	donpcevent "Associação Scrutiny#5::OnEnable";
 	end;

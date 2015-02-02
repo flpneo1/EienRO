@@ -52,7 +52,7 @@ function checkevent;
 
 	mes "[Licitante]";
 	if( getstrlen( @prace_winner$ ) ) {
-		mes "You have choose ^00bb00"+ @prace_winner$ +"^000000";
+		mes "Você escolheu ^00bb00"+ @prace_winner$ +"^000000";
 		close;
 	}
 	else if ( checkevent() || .start ) {

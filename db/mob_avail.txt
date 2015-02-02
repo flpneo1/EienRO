@@ -18,6 +18,10 @@
 // Utilize ItemID para Armamento e Escudo, não ViewID.
 //---------------------------------------------------------
 
+//------MEUS MOBS------
+2900,1946
+2901,3900
+
 // Easter Event Monsters
 //1920,1047,0
 //1921,1093,0

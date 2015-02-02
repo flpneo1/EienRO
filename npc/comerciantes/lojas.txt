@@ -1753,10 +1753,10 @@ OnInit:
 	sellitem Apple_Pudding;
 	sellitem Mystic_Stone;
 	sellitem Flavored_Alcohol;
-	sellitem Grilled_Rice_Cake;
+//	sellitem Grilled_Rice_Cake;
 	sellitem Fish_With_Blue_Back;
 	sellitem Pumpkin_Pie_;
-	sellitem Traditional_Cookie;
+//	sellitem Traditional_Cookie;
 }
 
 prontera,248,153,0	trader	Loja de Bonecos#prt	4_M_03,{
