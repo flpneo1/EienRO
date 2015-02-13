@@ -192,5 +192,7 @@ quiz_02	mapflag	nomemo
 quiz_02	mapflag	nowarp
 quiz_02	mapflag	nowarpto
 quiz_02	mapflag	noicewall
-quiz_02	mapflag	nomemo
+quiz_02	mapflag	noteleport
+quiz_02	mapflag	nosave	SavePoint
 quiz_02	mapflag	noreturn
+quiz_02	mapflag	nobranch

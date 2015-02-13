@@ -14,11 +14,11 @@ next;
 switch (select("Quero ir para PvP","Quero sair, obrigado"))
 {
 	case 1:
-		if ($@partymembercount > 1) {
+		if ((getcharid(1)==0)||(getgmlevel()>1)) {
 			if(!@pontos)
 				set @pontos,0;
 			dispbottom "Seus pontos são: "+@pontos;
-			warp "pvp_n_5-5",0,0;
+			warp "cell_game",0,0;
 			announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
 		} else {
 			mes "[Gus]";
@@ -33,14 +33,14 @@ switch (select("Quero ir para PvP","Quero sair, obrigado"))
 }
 OnPCKillEvent:
 	getmapxy @map$,@x,@y,0;
-	if(@map$ == "pvp_n_5-5") {
+	if(@map$ == "cell_game") {
 		set @pontos,@pontos+1;
 		dispbottom "Seus pontos: "+@pontos;
 	}
 	end;
 OnPCDieEvent:
 	getmapxy @map$,@x,@y,0;
-	if(@map$ == "pvp_n_5-5") {
+	if(@map$ == "cell_game") {
 		set @die, @die +1;
 		dispbottom "Mortes "+@die;
 	}
@@ -54,12 +54,12 @@ OnTouch:
 	end;
 OnPCLoadMapEvent:
 	getmapxy @map$,@x,@y,0;
-	if(@map$ == "pvp_n_5-5") {
+	if(@map$ == "cell_game") {
 		dispbottom "Você saiu do PVP";
 	}
 	end;
 OnInit:
-	waitingroom "     PvP   ["+getmapusers("pvp_n_5-5")+"]",0;
+	waitingroom "     PvP   ["+getmapusers("cell_game")+"]",0;
 end;
 }
 

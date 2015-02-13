@@ -33,7 +33,9 @@ function Job_Menu; function A_An;
 		set contallskill,1;
 		mes "Até logo...";
 		mes "Tenha uma boa aventura!";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if (resetallskill==1) {
 		mes "Vejo que resetou seus pontos de habilidades com a Eureka.";
@@ -41,7 +43,9 @@ function Job_Menu; function A_An;
 		mes "Posso lhe devolver todas habilidades novamente.";
 		mes "Deseja fazer isso?";
 		menu "Sim",sim,"Não",nao;
-		close;
+		close2;
+		cutin "",255;
+		end;
 		sim:
 			mes "Tudo pronto!";
 			set resetallskill,2;
@@ -57,11 +61,15 @@ function Job_Menu; function A_An;
 		if (JobLevel<150) {
 			mes "Porém quando chegar ao nível máximo de classe te darei uma recompensa!";
 		}
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
 		mes "Por favor remova seu "+((checkfalcon())?"falcão":"")+((checkcart())?"carrinho":"")+((checkriding())?"Peco":"")+((ismounting())?"montaria":"")+" para continuar.";
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if (.SkillPointCheck && SkillPoint) {
 		mes "Por favor use todos os seus pontos de habilidade para continuar.";
@@ -72,7 +80,9 @@ function Job_Menu; function A_An;
 			set SkillPoint,0;
 			mes "Seus pontos foram removidos.";
 		}
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	
 
@@ -82,20 +92,28 @@ function Job_Menu; function A_An;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .Rebirth[1]) {
 			set .@blvl, .Rebirth[0]-BaseLevel; set .@jlvl, .Rebirth[1]-JobLevel;
 			mes "Você precisa de mais "+((.@blvl>0)?.@blvl+" níveis de base e de mais "+((.@jlvl>0)?"/ ":""):"")+((.@jlvl>0)?.@jlvl+" níveis de classe ":"")+"para continuar.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 		if (Class > 21) {
 			mes "Avançar para a Terceira Classe?";
 			next;
 			Job_Menu(roclass(.@eac|EAJL_THIRD));
 			resetstatus;
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 		while(1) {
 			mes "Selecione uma opção.";
 			next;
 			set .@i, select(" ~ ^0055FFRenascer^000000:"+((.ThirdClass)?" ~ ^FF0000Terceira Classe^000000":"")+": ~ ^777777Sair^000000");
-			if (.@i==3) close;
+			if (.@i==3) {
+				close2;
+				cutin "",255;
+				end;
+			}
 			mes "[Mestre das Classes]";
 			mes "Você tem certeza?";
 			next;
@@ -110,12 +128,16 @@ function Job_Menu; function A_An;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .@exp[1]) {
 			set .@blvl, .Rebirth[0]-BaseLevel; set .@jlvl, .@exp[1]-JobLevel;
 			mes "Você precisa de mais "+((.@blvl>0)?.@blvl+" níveis de base e de mais "+((.@jlvl>0)?"/ ":""):"")+((.@jlvl>0)?.@jlvl+" níveis de classe ":"")+"para continuar.";
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 		mes "Mudar para "+jobname(.@exp[0])+"?";
 		next;
 		Job_Menu(.@exp[0]);
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if (.@eac&EAJL_2)
 		if (.@eac&(EAJL_UPPER|EAJL_BABY) || roclass(.@eac|EAJL_UPPER) == -1) {
@@ -123,7 +145,9 @@ function Job_Menu; function A_An;
 			if (JobLevel<150) {
 				mes "Porém quando chegar ao nível máximo de classe te darei uma recompensa!";
 			}
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 	if ((.@eac&EAJ_BASEMASK) == EAJ_NOVICE) {
 		if (JobLevel < .JobReq[0])
@@ -138,7 +162,9 @@ function Job_Menu; function A_An;
 			case 4023: Job_Menu(4024,4025,4026,4027,4028,4029,4045);
 			default: mes "Ocorreu um erro."; break;
 		}
-		close;
+		close2;
+		cutin "",255;
+		end;
 	}
 	if (roclass(.@eac|EAJL_2_1) == -1 || roclass(.@eac|EAJL_2_2) == -1)
 		mes "No more jobs are available.";
@@ -150,7 +176,9 @@ function Job_Menu; function A_An;
 		Job_Menu(lastJob+4001);
 	} else
 		Job_Menu(.@j1,.@j2);
-	close;
+	close2;
+	cutin "",255;
+	end;
 
 function Job_Menu {
 	while(1) {
@@ -162,11 +190,17 @@ function Job_Menu {
 			set .@menu$, .@menu$+" ~ ^777777Cancel^000000";
 			next;
 			set .@i, getarg(select(.@menu$)-1,0);
-			if (!.@i) close;
+			if (!.@i) {
+				close2;
+				cutin "",255;
+				end;
+			}
 			if ((.@i == 23 || .@i == 4045) && BaseLevel < .SNovice) {
 				mes "[Mestre das Classes]";
 				mes "É necessário possuir nível de classe "+.SNovice+" para tornar-se "+(Sex?"Um":"Uma")+" "+jobname(.@i)+".";
-				close;
+				close2;
+				cutin "",255;
+				end;
 			}
 			mes "[Mestre das Classes]";
 			mes "Tem certeza?";
@@ -182,7 +216,9 @@ function Job_Menu {
 			if (.@i==4001 || .@i==4023) resetlvl(1);
 			specialeffect2 338; specialeffect2 432;
 			if (.Platinum) callsub Get_Platinum;
-			close;
+			close2;
+			cutin "",255;
+			end;
 		}
 		if (getargcount() == 1) return;
 		mes "[Mestre das Classes]";

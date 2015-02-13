@@ -39,7 +39,7 @@ rare_drop_announce: 100
 
 //client.conf---------------------
 min_hair_style: 0
-max_hair_style: 50
+max_hair_style: 80
 min_hair_color: 0
 max_hair_color: 251
 min_cloth_color: 0 

@@ -1,0 +1,46 @@
+//== Autor: ===================================
+//== Neo
+//=============================================
+-	script	BauPerdido	-1,{
+
+OnInit:
+	set .bauperdido,1;
+	bindatcmd "bau",strnpcinfo(3)+"::OnAtcommand";
+	end;
+
+OnAtcommand:
+	if(getgroupid() == 99){
+		monster	"prontera",0,0,	"Baú Perdido",2900,1,""+strnpcinfo(1)+"::OnGanhou";
+		dispbottom "Baú perdido lançado em prontera!";
+	}
+	end;
+
+OnMinute40:
+	if (.bauperdido==1) {
+		monster	"prontera",0,0,	"Baú Perdido",2900,1,""+strnpcinfo(1)+"::OnGanhou";
+		announce "Atenção, foi lançado um baú em algum lugar da cidade de Prontera!",0,0xFFFF00;
+		set .bauperdido,0;
+	}
+	end;
+
+OnGanhou:
+	set .bauperdido,1;
+	set @randpremio, rand(1,3);
+	if (@randpremio==1) {
+		set @randitem, rand(10,50);
+		getitem 607,@randitem;
+		dispbottom "Você ganhou ^ff0000"+@randitem+"^000000 Frutos de Yggdrasil!";
+	}
+	if (@randpremio==2) {
+		set @randcoin, rand(1,100);
+		set #CASHPOINTS,#CASHPOINTS+@randcoin;
+		dispbottom "Como prêmio por ter quebrado o baú receba mais ^ff0000"+@randcoin+"^000000 Coins!";
+	}
+	if (@randpremio==3) {
+		set Zeny, Zeny+5000000;
+		dispbottom "Você ganhou 5 milhões de zenys!";
+	}
+	announce "["+strcharinfo(0)+"] quebrou o baú perdido em Prontera!",0,0xFFFF00;
+	end;
+
+}

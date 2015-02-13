@@ -1009,5 +1009,11 @@ c_tower3_
 //======================================================================================
 //Example:
 //
-//mymap	1250
-//mymap-2
+sky_quest	1250
+cell_game
+Biarmaland
+celestiaj
+moonhaven
+neko_isle
+para_benzen
+wolfmap1
