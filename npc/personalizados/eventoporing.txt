@@ -125,7 +125,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 			mes "Após o Rei Poring morrer ou 10 minutos se passarem desde o inicio do 1º round o evento é finalizado.";
 			next;
 			mes .nome$;
-			mes "Os pontos adquiridos no evento podem ser trocados por prêmios no próprio NPC Poring da Sorte.";
+			mes "Os pontos adquiridos no evento podem ser trocados por prêmios no próprio NPC Caçada Poring.";
 			close;
 		case 4:
 			next;
