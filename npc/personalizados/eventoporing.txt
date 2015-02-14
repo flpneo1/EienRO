@@ -1,10 +1,10 @@
 //|==========================================================================================|\\
 //|         *************************Evento poring da sorte*************************         |\\
 //|==========================================================================================|\\
-prontera,130,215,6	script	Poring da Sorte	508,{
+prontera,130,215,6	script	Caçada Poring	508,{
 	if(getgmlevel()==99)
 		set .@m$,"Manipular evento";
-	set .nome$,"[^FF9A00Poring da Sorte^000000]";//Nome do NPC
+	set .nome$,"[^FF9A00Caçada Poring^000000]";//Nome do NPC
 	mes .nome$;
 	mes "Olá ^FF4500"+strcharinfo(0)+"^000000!";
 	mes "O que deseja fazer?";
@@ -14,7 +14,7 @@ prontera,130,215,6	script	Poring da Sorte	508,{
 	{
 		case 1:
 			next;
-			if($poringsorte == 1){
+			if($eventoaberto == 1){
 				mes .nome$;
 				mes "^ff6600Boa sorte!^000000";
 				next;
@@ -105,14 +105,24 @@ prontera,130,215,6	script	Poring da Sorte	508,{
 			mes "Os jogadores precisam matar todos os porings para avançar para o próximo round.";
 			next;
 			mes .nome$;
-			mes "Cada poring da sorte vale uma quantidade de pontos de acordo com sua cor:";
-			mes "Poring ^FF8DDCROSA^000000 = 1 ponto.";
-			mes "Poring ^0000FFAZUL^000000 = 2 pontos.";
-			mes "Poring ^03CF00VERDE^000000 = 10 pontos.";
+			mes "Cada poring da sorte vale uma quantidade de pontos de acordo com seu tipo:";
 			next;
 			mes .nome$;
-			mes "No 3º e último round é invocado um único poring que vale 500 pontos.";
-			mes "Após o último poring morrer ou 10 minutos se passarem desde o inicio do 1º round o evento é finalizado.";
+			mes "Poring ^FF8DDCROSA^000000= 1 ponto";
+			mes "Poring ^FFAB00LARANJA^000000= 2 pontos";
+			mes "Poring ^1DC400VERDE^000000= 3 pontos";
+			mes "Poring ^0000FFAZUL^000000= 4 pontos";
+			mes "Poring ^9500FFROXO^000000= 5 pontos";
+			mes "Poring ^944C00TERRA^000000= 10 pontos";
+			mes "Poring ^EB2B00FOGO^000000= 20 pontos";
+			mes "Poring ^00CDFFAGUA^000000= 30 pontos.";
+			mes "Poring ^B4BAFFANJO^000000= 50 pontos.";
+			mes "Poring ^909090PRINCIPE^000000= 100 pontos.";
+			mes "	^000000REI^000000= 1000 pontos.";
+			next;
+			mes .nome$;
+			mes "No 3º e último round é invocado o Rei Poring que vale 1000 pontos.";
+			mes "Após o Rei Poring morrer ou 10 minutos se passarem desde o inicio do 1º round o evento é finalizado.";
 			next;
 			mes .nome$;
 			mes "Os pontos adquiridos no evento podem ser trocados por prêmios no próprio NPC Poring da Sorte.";
@@ -172,27 +182,23 @@ prontera,130,215,6	script	Poring da Sorte	508,{
 			}
 	}
 
-//}
-//-	script	SorteHide	-1,{
-//	set Ponto,0;
-
 	OnInit:
-		bindatcmd "poringsorte",strnpcinfo(3)+"::OnAtcommand";
+		bindatcmd "poring",strnpcinfo(3)+"::OnAtcommand";
 		end;
 
 	OnAtcommand:
 		if(getgroupid() == 99){
-			mes "[^FF0000Evento Poring da Sorte^000000]";
+			mes "[^FF9A00Caçada Poring^000000]";
 			mes "O que deseja fazer?";
 			switch (select("Iniciar Evento","Finalizar Evento"))
 			{
 				case 1:
 					close2;
-					dispbottom "[Poring da Sorte] Evento iniciado";
+					dispbottom "[Caçada Poring] Evento iniciado";
 					goto IniciarEvento;
 				case 2:
 					close2;
-					dispbottom "[Poring da Sorte] Evento finalizado";
+					dispbottom "[Caçada Poring] Evento finalizado";
 					goto FinalizarEvento;
 			}
 		}
@@ -202,95 +208,140 @@ prontera,130,215,6	script	Poring da Sorte	508,{
 		goto IniciarEvento;
 
 	IniciarEvento:
-		announce "O Evento [Poring da Sorte] está aberto, você tem 5 minutos para entrar!",8;
+		announce "O Evento [Caçada Poring] está aberto, você tem 5 minutos para entrar!",8;
 		initnpctimer;
-		set $poringsorte,1;
+		set $eventoaberto,1;
 		end;
 
 	OnTimer240000:
-		announce "O Evento [Poring da Sorte] vai iniciar em 1 minuto!",8;
+		announce "O Evento [Caçada Poring] vai iniciar em 1 minuto!",8;
 		end;
 
-//	OnTimer300000:
-	OnTimer5000:
-		set $poringsorte,0;
+	OnTimer300000:
+		set $eventoaberto,0;
+		announce "O Evento [Caçada Poring] fechou!",8;
 		set $round,1;
 		goto ProximoRound;
 
 	OnTimer840000:
-		mapannounce "moonhaven","O evento terminará em 1 minuto",8;
+		mapannounce "moonhaven","A caçada vai terminar em 1 minuto.",8;
 		end;
 
 	OnTimer900000:
+		if (round==3) {
+			mapannounce "moonhaven","O tempo acabou! O Rei Poring sobreviveu...",8;
+		} else {
+			mapannounce "moonhaven","O tempo acabou! Restaram "+$mob+" porings para o próximo round",8;
+		}
 		goto FinalizarEvento;
 
 	ProximoRound:
 		if ($round==1) {
 			mapannounce "moonhaven","1º round começou!",8;
-			set $mob,250;
-			monster "moonhaven",0,0,"Poring da Sorte",2902,200,""+strnpcinfo(1)+"::OnPoringMorreu";
-			monster "moonhaven",0,0,"Poring da Sorte",2903,50,""+strnpcinfo(1)+"::OnAzulMorreu";
+			set $mob,510;
+			monster "moonhaven",0,0,"Poring Rosa",2909,200,""+strnpcinfo(1)+"::OnMorreuRosa";
+			monster "moonhaven",0,0,"Poring Laranja",2911,150,""+strnpcinfo(1)+"::OnMorreuLaranja";
+			monster "moonhaven",0,0,"Poring Verde",2910,100,""+strnpcinfo(1)+"::OnMorreuVerde";
+			monster "moonhaven",0,0,"Poring Azul",2912,50,""+strnpcinfo(1)+"::OnMorreuAzul";
+			monster "moonhaven",0,0,"Poring Roxo",2904,10,""+strnpcinfo(1)+"::OnMorreuRoxo";
 		}
 		if ($round==2) {
-			set $mob,260;
+			set $mob,68;
 			mapannounce "moonhaven","2º round começou!",8;
-			monster "moonhaven",0,0,"Poring da Sorte",2902,100,""+strnpcinfo(1)+"::OnPoringMorreu";
-			monster "moonhaven",0,0,"Poring da Sorte",2903,100,""+strnpcinfo(1)+"::OnAzulMorreu";
-			monster "moonhaven",0,0,"Poring da Sorte",2904,10,""+strnpcinfo(1)+"::OnVerdeMorreu";
+			monster "moonhaven",0,0,"Poring da Terra",2907,50,""+strnpcinfo(1)+"::OnMorreuTerra";
+			monster "moonhaven",0,0,"Poring do Fogo",2906,10,""+strnpcinfo(1)+"::OnMorreuFogo";
+			monster "moonhaven",0,0,"Poring da Agua",2903,5,""+strnpcinfo(1)+"::OnMorreuAgua";
+			monster "moonhaven",0,0,"Poring Anjo",2905,2,""+strnpcinfo(1)+"::OnMorreuAnjo";
+			monster "moonhaven",0,0,"Principe Poring",2908,1,""+strnpcinfo(1)+"::OnMorreuPrincipe";
 		}
 		if ($round==3) {
 			set $mob,1;
 			mapannounce "moonhaven","3º round começou!",8;
-			monster "moonhaven",0,0,"Baú da Sorte",2900,1,""+strnpcinfo(1)+"::OnBau";
+			monster "moonhaven",0,0,"Rei Poring",2902,1,""+strnpcinfo(1)+"::OnRei";
 		}
 		end;
 
-	OnVerdeMorreu:
-		set Ponto,Ponto+10;
-		goto MobMorreu;
-
-	OnAzulMorreu:
-		set Ponto,Ponto+2;
-		goto MobMorreu;
-
-	OnPoringMorreu:
+	OnMorreuRosa:
 		set Ponto,Ponto+1;
 		goto MobMorreu;
 
-	OnBau:
-		set Ponto,Ponto+500;
+	OnMorreuLaranja:
+		set Ponto,Ponto+2;
+		goto MobMorreu;
+
+	OnMorreuVerde:
+		set Ponto,Ponto+3;
+		goto MobMorreu;
+
+	OnMorreuAzul:
+		set Ponto,Ponto+4;
+		goto MobMorreu;
+
+	OnMorreuRoxo:
+		set Ponto,Ponto+5;
+		goto MobMorreu;
+
+	OnMorreuTerra:
+		set Ponto,Ponto+10;
+		goto MobMorreu;
+
+	OnMorreuFogo:
+		set Ponto,Ponto+20;
+		goto MobMorreu;
+
+	OnMorreuAgua:
+		set Ponto,Ponto+30;
+		goto MobMorreu;
+
+	OnMorreuAnjo:
+		set Ponto,Ponto+50;
+		goto MobMorreu;
+
+	OnMorreuPrincipe:
+		set Ponto,Ponto+100;
+		goto MobMorreu;
+
+	OnRei:
+		mapannounce "moonhaven","Parabéns "+strcharinfo(0)+"! você exterminou o Rei Poring!",8;
+		set Ponto,Ponto+1000;
+		sleep 3000;
 		goto MobMorreu;
 
 	MobMorreu:
 		set $mob,$mob-1;
 		if($mob == 50) mapannounce "moonhaven","Faltam 50 porings",8;
 		if($mob == 10) mapannounce "moonhaven","Faltam 10 porings",8;
+		if($mob == 1) mapannounce "moonhaven","Falta 1 poring",8;
 		if($mob == 0) {
 			mapannounce "moonhaven","Todos os porings foram mortos.",8;
 			sleep 3000;
 			if ($round==1) {
 				set $round,2;
+				killmonsterall "moonhaven";
 				goto ProximoRound;
 			}
 			if ($round==2) {
 				set $round,3;
+				killmonsterall "moonhaven";
 				goto ProximoRound;
 			}
 			if ($round==3) {
-				mapannounce "moonhaven","O evento Terminou...",8;
+				mapannounce "moonhaven","A caçada poring terminou...",8;
+				sleep 3000;
 				goto FinalizarEvento;
 			}
 		}
 		end;
 
 	FinalizarEvento:
-		sleep 2000;
 		mapwarp "moonhaven","prontera",156,182;
 		sleep 1000;
 		killmonsterall "moonhaven";
 		set $round,0;
-		set $poringsorte,0;
+		set $eventoaberto,0;
 		set $mob,0;
+		initnpctimer;
+		stopnpctimer;
 		end;
 
 	end;
@@ -305,3 +356,4 @@ moonhaven	mapflag	nobranch
 moonhaven	mapflag	nopenalty
 moonhaven	mapflag	monster_noteleport
 moonhaven	mapflag	noreturn
+moonhaven	mapflag	noskill
