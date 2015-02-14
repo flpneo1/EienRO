@@ -228,7 +228,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		end;
 
 	OnTimer900000:
-		if (round==3) {
+		if ($round==3) {
 			mapannounce "moonhaven","O tempo acabou! O Rei Poring sobreviveu...",8;
 		} else {
 			mapannounce "moonhaven","O tempo acabou! Restaram "+$mob+" porings para o próximo round",8;
