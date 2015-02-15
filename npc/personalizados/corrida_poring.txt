@@ -44,6 +44,9 @@ OnPraceEnd:
 	set .access_Prace, 0;
 	announce "A Corrida Poring fechou!",bc_all,0x00FFFF;
 	end;
+OnInit:
+	waitingroom "Corrida Poring",0;
+	end;
 }
 
 
@@ -174,7 +177,6 @@ OnChequeo:
 	deletearray .prace_bidders;
 	end;
 OnInit:
-	waitingroom "Corrida Poring",0;
 	.zeny_req = 0;
 	.item_gained = 29000;
 	.item_num_gain = 1;
