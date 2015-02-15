@@ -8,13 +8,12 @@ prontera,130,215,6	script	Caçada Poring	508,{
 	mes .nome$;
 	mes "Olá ^FF4500"+strcharinfo(0)+"^000000!";
 	mes "O que deseja fazer?";
-	mes "Seu saldo de pontos é:";
-	mes "^0000FF"+Ponto+"^000000";
+	mes "Seu saldo de pontos é: ^0000FF"+Ponto+"^000000";
 	switch(select("Entrar no Evento","Trocar pontos","Informações",.@m$))
 	{
 		case 1:
 			next;
-			if($eventoaberto == 1){
+			if($eventocacada == 1){
 				mes .nome$;
 				mes "^ff6600Boa sorte!^000000";
 				next;
@@ -135,7 +134,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 			mes "^6495ED"+getitemname($Item1)+"^000000 = "+$Pontos1+" Pontos";
 			mes "^6495ED"+getitemname($Item2)+"^000000 = "+$Pontos2+" Pontos";
 			mes "^6495ED"+getitemname($Item3)+"^000000 = "+$Pontos3+" Pontos";
-			switch(select("Mudar Premio","Iniciar Evento","Finalizar Evento"))
+			switch(select("Mudar Premio","Abrir Evento","Finalizar Evento"))
 			{
 				case 1:
 					next;
@@ -155,7 +154,6 @@ prontera,130,215,6	script	Caçada Poring	508,{
 					mes "Informe a quantidade de pontos para trocar pelo item.";
 					input $Pontos2;
 					next;
-					next;
 					mes .nome$;
 					mes "Informe o ID do terceiro item para ser o Prêmio.";
 					input $Item3;
@@ -170,36 +168,52 @@ prontera,130,215,6	script	Caçada Poring	508,{
 					mes .nome$;
 					mes "O evento será iniciado.";
 					close2;
-					dispbottom "[Poring da Sorte] Evento iniciado";
+					dispbottom "[Caçada Poring] Evento aberto";
 					goto IniciarEvento;
 				case 3:
 					next;
 					mes .nome$;
 					mes "O evento será finalizado.";
 					close2;
-					dispbottom "[Poring da Sorte] Evento finalizado";
+					announce "O Evento [Caçada Poring] finalizou!",bc_all,0x00FFFF;
+					dispbottom "[Caçada Poring] Evento finalizado";
 					goto FinalizarEvento;
 			}
 	}
 
 	OnInit:
 		bindatcmd "poring",strnpcinfo(3)+"::OnAtcommand";
+		waitingroom "Caçada Poring",0;
 		end;
 
 	OnAtcommand:
 		if(getgroupid() == 99){
 			mes "[^FF9A00Caçada Poring^000000]";
-			mes "O que deseja fazer?";
-			switch (select("Iniciar Evento","Finalizar Evento"))
+			mes "O que deseja fazer ^FF4500"+strcharinfo(0)+"^000000?";
+			switch (select("Abrir Evento","Finalizar Evento","Próximo Round","Iniciar Agora!"))
 			{
 				case 1:
 					close2;
-					dispbottom "[Caçada Poring] Evento iniciado";
+					dispbottom "[Caçada Poring] Evento aberto";
 					goto IniciarEvento;
 				case 2:
 					close2;
+					announce "O Evento [Caçada Poring] finalizou!",bc_all,0x00FFFF;
 					dispbottom "[Caçada Poring] Evento finalizado";
 					goto FinalizarEvento;
+				case 3:
+					close2;
+					dispbottom "[Caçada Poring] Precisa estar no 1º ou 2º round.";
+					if ($round==1||$round==2) {
+						set $mob,1;
+						goto MobMorreu;
+					}
+				case 4:
+					close2;
+					dispbottom "[Caçada Poring] O evento precisa estar aberto.";
+					if ($eventocacada==1) {
+						setnpctimer 119999,"Caçada Poring";
+					}
 			}
 		}
 		end;
@@ -208,36 +222,36 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		goto IniciarEvento;
 
 	IniciarEvento:
-		announce "O Evento [Caçada Poring] está aberto, você tem 5 minutos para entrar!",8;
+		announce "O Evento [Caçada Poring] está aberto, você tem 2 minutos para entrar!",bc_all,0x00FFFF;
 		initnpctimer;
-		set $eventoaberto,1;
+		set $eventocacada,1;
 		end;
 
-	OnTimer240000:
-		announce "O Evento [Caçada Poring] vai iniciar em 1 minuto!",8;
+	OnTimer60000:
+		announce "O Evento [Caçada Poring] vai iniciar em 1 minuto!",bc_all,0x00FFFF;
 		end;
 
-	OnTimer300000:
-		set $eventoaberto,0;
-		announce "O Evento [Caçada Poring] fechou!",8;
+	OnTimer120000:
+		set $eventocacada,0;
+		announce "O Evento [Caçada Poring] fechou!",bc_all,0x00FFFF;
 		set $round,1;
 		goto ProximoRound;
 
-	OnTimer840000:
-		mapannounce "moonhaven","A caçada vai terminar em 1 minuto.",8;
+	OnTimer540000:
+		mapannounce "moonhaven","A caçada vai terminar em 1 minuto.",bc_all,0xAAFF00;
 		end;
 
-	OnTimer900000:
+	OnTimer600000:
 		if ($round==3) {
-			mapannounce "moonhaven","O tempo acabou! O Rei Poring sobreviveu...",8;
+			mapannounce "moonhaven","O tempo acabou! O Rei Poring sobreviveu...",bc_all,0xAAFF00;
 		} else {
-			mapannounce "moonhaven","O tempo acabou! Restaram "+$mob+" porings para o próximo round",8;
+			mapannounce "moonhaven","O tempo acabou! Restaram "+$mob+" porings para o próximo round",bc_all,0xAAFF00;
 		}
 		goto FinalizarEvento;
 
 	ProximoRound:
 		if ($round==1) {
-			mapannounce "moonhaven","1º round começou!",8;
+			mapannounce "moonhaven","1º round começou!",bc_all,0xAAFF00;
 			set $mob,510;
 			monster "moonhaven",0,0,"Poring Rosa",2909,200,""+strnpcinfo(1)+"::OnMorreuRosa";
 			monster "moonhaven",0,0,"Poring Laranja",2911,150,""+strnpcinfo(1)+"::OnMorreuLaranja";
@@ -247,7 +261,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		}
 		if ($round==2) {
 			set $mob,68;
-			mapannounce "moonhaven","2º round começou!",8;
+			mapannounce "moonhaven","2º round começou!",bc_all,0xAAFF00;
 			monster "moonhaven",0,0,"Poring da Terra",2907,50,""+strnpcinfo(1)+"::OnMorreuTerra";
 			monster "moonhaven",0,0,"Poring do Fogo",2906,10,""+strnpcinfo(1)+"::OnMorreuFogo";
 			monster "moonhaven",0,0,"Poring da Agua",2903,5,""+strnpcinfo(1)+"::OnMorreuAgua";
@@ -256,7 +270,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		}
 		if ($round==3) {
 			set $mob,1;
-			mapannounce "moonhaven","3º round começou!",8;
+			mapannounce "moonhaven","3º round começou!",bc_all,0xAAFF00;
 			monster "moonhaven",0,0,"Rei Poring",2902,1,""+strnpcinfo(1)+"::OnRei";
 		}
 		end;
@@ -302,31 +316,35 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		goto MobMorreu;
 
 	OnRei:
-		mapannounce "moonhaven","Parabéns "+strcharinfo(0)+"! você exterminou o Rei Poring!",8;
 		set Ponto,Ponto+1000;
+		set @randcoin, rand(50,100);
+		set #CASHPOINTS,#CASHPOINTS+@randcoin;
+		announce "[Caçada Poring] O Rei Poring foi morto por "+strcharinfo(0)+"! Sua recompensa é: 1000 pontos + "+@randcoin+" Coins!",bc_all,0xFF70FF;
+//		mapannounce "moonhaven","Parabéns "+strcharinfo(0)+"! você exterminou o Rei Poring!",bc_all,0xAAFF00;
+//		dispbottom "Sua recompensa é: 1000 pontos + ^ff0000"+@randcoin+"^000000 Coins!";
 		sleep 3000;
 		goto MobMorreu;
 
 	MobMorreu:
 		set $mob,$mob-1;
-		if($mob == 50) mapannounce "moonhaven","Faltam 50 porings",8;
-		if($mob == 10) mapannounce "moonhaven","Faltam 10 porings",8;
-		if($mob == 1) mapannounce "moonhaven","Falta 1 poring",8;
+		if($mob == 200) mapannounce "moonhaven","Faltam 200 porings",bc_all,0xAAFF00;
+		if($mob == 50) mapannounce "moonhaven","Faltam 50 porings",bc_all,0xAAFF00;
+		if($mob == 10) mapannounce "moonhaven","Faltam 10 porings",bc_all,0xAAFF00;
+		if($mob == 1) mapannounce "moonhaven","Falta 1 poring",bc_all,0xAAFF00;
 		if($mob == 0) {
-			mapannounce "moonhaven","Todos os porings foram mortos.",8;
+			mapannounce "moonhaven","Todos os porings foram mortos.",bc_all,0xAAFF00;
+			killmonsterall "moonhaven";
 			sleep 3000;
 			if ($round==1) {
 				set $round,2;
-				killmonsterall "moonhaven";
 				goto ProximoRound;
 			}
 			if ($round==2) {
 				set $round,3;
-				killmonsterall "moonhaven";
 				goto ProximoRound;
 			}
 			if ($round==3) {
-				mapannounce "moonhaven","A caçada poring terminou...",8;
+				mapannounce "moonhaven","A caçada poring terminou...",bc_all,0xAAFF00;
 				sleep 3000;
 				goto FinalizarEvento;
 			}
@@ -338,7 +356,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		sleep 1000;
 		killmonsterall "moonhaven";
 		set $round,0;
-		set $eventoaberto,0;
+		set $eventocacada,0;
 		set $mob,0;
 		initnpctimer;
 		stopnpctimer;

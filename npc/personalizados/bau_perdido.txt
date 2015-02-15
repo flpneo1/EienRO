@@ -18,7 +18,7 @@ OnAtcommand:
 OnMinute40:
 	if (.bauperdido==1) {
 		monster	"prontera",0,0,	"Baú Perdido",2900,1,""+strnpcinfo(1)+"::OnGanhou";
-		announce "Atenção, foi lançado um baú em algum lugar da cidade de Prontera!",0,0xFFFF00;
+		announce "Atenção, foi lançado um baú em algum lugar da cidade de Prontera!",bc_all,0x00FFFF;
 		set .bauperdido,0;
 	}
 	end;
@@ -40,7 +40,7 @@ OnGanhou:
 		set Zeny, Zeny+5000000;
 		dispbottom "Você ganhou 5 milhões de zenys!";
 	}
-	announce "["+strcharinfo(0)+"] quebrou o baú perdido em Prontera!",0,0xFFFF00;
+	announce "["+strcharinfo(0)+"] quebrou o baú perdido em Prontera!",bc_all,0x00FFFF;
 	end;
 
 }

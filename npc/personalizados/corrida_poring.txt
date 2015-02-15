@@ -36,13 +36,13 @@ cutin "katsua01",2;
 OnMinute20:
 	if( gettime(3)%2 ) end;
 	set .access_Prace, 1;
-	announce "A Corrida Poring está aberta!",0,0xFFAB54;
+	announce "A Corrida Poring está aberta!",bc_all,0x00FFFF;
 	setnpctimer 100000,"Licitante#prace0";
 	startnpctimer "Licitante#prace0";
 	end;
 OnPraceEnd:
 	set .access_Prace, 0;
-	announce "A Corrida Poring acabou!",0,0xFFAB54;
+	announce "A Corrida Poring fechou!",bc_all,0x00FFFF;
 	end;
 }
 
@@ -138,7 +138,7 @@ L_label:
 	donpcevent "Poring#prace1::"+ getarg(0);
 	donpcevent "Poporing#prace6::"+ getarg(0);
 	donpcevent "Angeling#prace2::"+ getarg(0);
-	donpcevent "Santa Poring#prace5::"+ getarg(0);
+	donpcevent "Poring Noel#prace5::"+ getarg(0);
 	donpcevent "Deviling#prace4::"+ getarg(0);
 	if( getarg(0) == "OnStop" && .prace_winner$ != "" )
 		callsub L_WinRace;
@@ -174,10 +174,11 @@ OnChequeo:
 	deletearray .prace_bidders;
 	end;
 OnInit:
+	waitingroom "Corrida Poring",0;
 	.zeny_req = 0;
-	.item_gained = 607;
-	.item_num_gain = 25;
-	setarray .monst_$,"Poring","Angeling","Metaling","Deviling","Santa Poring","Poporing","Nenhum";
+	.item_gained = 29000;
+	.item_num_gain = 1;
+	setarray .monst_$,"Poring","Angeling","Metaling","Deviling","Poring Noel","Poporing","Nenhum";
 	.menu_$ = implode( .monst_$, ":" );
 	end;
 
@@ -186,7 +187,7 @@ function checkevent {
 	getmapxy .@mapname$, .@x2, .@y, 1, "Angeling#prace2";
 	getmapxy .@mapname$, .@x3, .@y, 1, "Metaling#prace3";
 	getmapxy .@mapname$, .@x4, .@y, 1, "Deviling#prace4";
-	getmapxy .@mapname$, .@x5, .@y, 1, "Santa Poring#prace5";
+	getmapxy .@mapname$, .@x5, .@y, 1, "Poring Noel#prace5";
 	getmapxy .@mapname$, .@x6, .@y, 1, "Poporing#prace6";
 	.@t = ( .@x1 + .@x2 + .@x3 + .@x4 + .@x5 + .@x6 ) != 58 * 6;
 	return .@t;
@@ -228,7 +229,7 @@ OnInit:
 	deletearray .walk_t;
 	deletearray .monst$;
 	setarray .walk_t, 38, 36, 34, 32, 30, 28;
-	setarray .monst$, "Poring", "Angeling", "Metaling", "Deviling", "Santa Poring", "Poporing";
+	setarray .monst$, "Poring", "Angeling", "Metaling", "Deviling", "Poring Noel", "Poporing";
 	.prace_random = 70;
 	.prace_random2 = 600;
 	end;
@@ -238,7 +239,7 @@ p_track01,58,38,2	duplicate(pori_race)	Poring#prace1	1002
 p_track01,58,36,2	duplicate(pori_race)	Angeling#prace2	1096
 p_track01,58,34,2	duplicate(pori_race)	Metaling#prace3	1613
 p_track01,58,32,2	duplicate(pori_race)	Deviling#prace4	1582
-p_track01,58,30,2	duplicate(pori_race)	Santa Poring#prace5	1062
+p_track01,58,30,2	duplicate(pori_race)	Poring Noel#prace5	1062
 p_track01,58,28,2	duplicate(pori_race)	Poporing#prace6	1031
 
 p_track01,78,42,0	warp	p_track002	1,3,prontera,142,170

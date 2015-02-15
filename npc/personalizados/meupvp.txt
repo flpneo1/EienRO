@@ -19,7 +19,7 @@ switch (select("Quero ir para PvP","Quero sair, obrigado"))
 				set @pontos,0;
 			dispbottom "Seus pontos são: "+@pontos;
 			warp "cell_game",0,0;
-			announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
+//			announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
 		} else {
 			mes "[Gus]";
 			mes  "Você precisa sair do seu grupo";

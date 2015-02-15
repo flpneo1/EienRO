@@ -1,0 +1,202 @@
+//===== Cronus Script ========================================
+//= MvP Rank
+//===== Creditos: ===========================================
+//= Created by : Deviant
+//= Re-Edit  : Linne Ribeiro
+//===== Versao Atual: =====================================
+//= 2.0
+//===== Compatibilidade: =====================================
+//= Cronus , Eathena , Brathena
+//===== Descriçao: =========================================
+//= Npc cuja funçao atual e contabilizar todos os jogadores
+//= Que matam os MvPs setados na script,
+//= Criando uma especie de Ranking MvP.
+//===== Additional Comments: =================================
+
+-	script	Rank MvP	-1,{
+OnInit: // Configuraçoes
+setarray .mobid[0],1511,1647,1785,1630,1399,1039,1874,2068,1272,1719,1046,1389,1112,1115,1957,1418,1871,1252,1768,1086,1688,1646,
+				1373,1147,1059,1150,1956,2022,1087,1190,1038,1157,1159,1502,1623,1650,1583,1708,1312,1751,1685,1648,1917,1658; // MvP Ids
+set .a, 0; // Transmitir mensagem global ao matar MVP para o Mapa? [0 Off - 1 On]
+set $@top, 5; // Maximo de players que mostrara no Ranking.
+end;
+
+OnNPCKillEvent: // Script
+for (set .@c, 0; .@c < getarraysize(.mobid); set .@c, .@c + 1)
+	if (killedrid == .mobid[.@c])
+		set .@s, 1; // If a MvP
+if (!.@s) end;
+if (.a) // Anuncio Global
+	announce "O Jogador [" +strcharinfo(0) +"] matou o MVP [" +getmonsterinfo(killedrid,0) +"] no mapa de [" +strcharinfo(3) +"]",bc_blue|bc_all;
+set MvP, MvP + 1;
+set MvPPontos, MvPPontos + 1;
+callfunc ("MvPRank",MvP,strcharinfo(0));
+end;
+} // Final da script
+
+prontera,171,181,2	script	Ranking MvP	857,{ // NPC 
+mes "[^FF0000MvP ^000000Rank ^000000Top ^FF0000" +$@top +"^000000]";
+for (set .@c, 0; .@c < $@top; set .@c, .@c + 1)
+	mes "Top ^FF0000" +(.@c + 1) +"^000000 ^0000FF" +getd("$topmvp" +.@c +"$") +"^000000 com ^FF0000" +getd("$topmvp" +.@c) +"^000000 MvPs Mortos.";
+close;
+OnInit:
+	bindatcmd "mvp",strnpcinfo(3)+"::OnAtcommand";
+	waitingroom "MvP Rank",0;
+	end;
+OnAtcommand:
+	if(getgmlevel()==99)
+	{
+		set .@m$,"Resetar Rank";
+		set .@m2$,"Mudar prêmios";
+	}
+	mes "[MvP Rank]";
+	mes "O que deseja fazer?";
+	mes "Você matou ^FF0000"+MvP+"^000000 MvP's e possui ^0000FF"+MvPPontos+"^000000 pontos de MvP";
+	switch (select("Trocar pontos",.@m$,.@m2$,"Sair"))
+	{
+		next;
+		mes "[MvP Rank]";
+		case 1:
+			mes "Você deseja troca seus pontos de MvP por algum destes itens?";
+			mes "^6495ED"+getitemname($ItemMVP1)+"^000000 = "+$PontosMVP1+" Pontos";
+			mes "^6495ED"+getitemname($ItemMVP2)+"^000000 = "+$PontosMVP2+" Pontos";
+			mes "^6495ED"+getitemname($ItemMVP3)+"^000000 = "+$PontosMVP3+" Pontos";
+			next;
+			if(select("Sim","Não")==2)
+				close;
+			mes .nome$;
+			mes "Esolha o que você deseja.";
+			switch(select(getitemname($ItemMVP1),getitemname($ItemMVP2),getitemname($ItemMVP3)))
+			{
+				case 1:
+					next;
+					mes .nome$;
+					mes "Digite a quantidade de ^6495ED"+getitemname($ItemMVP1)+"^000000 que você deseja.";
+					input @Quantia;
+					if (@Quantia==0) close;
+					if(MvPPontos < $PontosMVP1*@Quantia){
+						next;
+						mes .nome$;
+						mes "Você não tem pontos para retirar essa quantia de ^6495ED"+getitemname($ItemMVP1)+"^000000.";
+						close;
+					}
+					next;
+					mes .nome$;
+					mes "Muito bem aqui está seu premio!";
+					set MvPPontos,MvPPontos-$PontosMVP1*@Quantia;
+					getitem $ItemMVP1,@Quantia;
+					close;
+				case 2:
+					next;
+					mes .nome$;
+					mes "Digite a quantidade de ^6495ED"+getitemname($ItemMVP2)+"^000000 que você deseja.";
+					input @Quantia;
+					if (@Quantia==0) close;
+					if(MvPPontos < $PontosMVP2*@Quantia){
+						next;
+						mes .nome$;
+						mes "Você não tem pontos para retirar essa quantia de ^6495ED"+getitemname($ItemMVP2)+"^000000.";
+						close;
+					}
+					next;
+					mes .nome$;
+					mes "Muito bem aqui está seu premio!";
+					set MvPPontos,MvPPontos-$PontosMVP2*@Quantia;
+					getitem $ItemMVP2,@Quantia;
+					close;
+				case 3:
+					next;
+					mes .nome$;
+					mes "Digite a quantidade de ^6495ED"+getitemname($ItemMVP3)+"^000000 que você deseja.";
+					input @Quantia;
+					if (@Quantia==0) close;
+					if(MvPPontos < $PontosMVP3*@Quantia){
+						next;
+						mes .nome$;
+						mes "Você não tem pontos para retirar essa quantia de ^6495ED"+getitemname($ItemMVP3)+"^000000.";
+						close;
+					}
+					next;
+					mes .nome$;
+					mes "Muito bem aqui está seu premio!";
+					set MvPPontos,MvPPontos-$PontosMVP3*@Quantia;
+					getitem $ItemMVP3,@Quantia;
+					close;
+			}
+			close;
+		case 2:
+			mes "Deseja resetar o rank?";
+			switch (select("Sim","Não"))
+			{
+				case 1:
+					close2;
+					for(set .@c, 0; .@c < $@top; set .@c, .@c+1) {
+						setd "$topmvp" + .@c, 0;
+						setd "$topmvp" + .@c + "$", "";
+						set MvP,0;
+					}
+					dispbottom "MvP Rank resetado.";
+					end;
+				case 2:
+					mes "Até logo!";
+					close;
+			}
+			end;
+		case 3:
+			mes "Informe o ID do primeiro item para ser o Prêmio.";
+			input $ItemMVP1;
+			next;
+			mes "[MvP Rank]";
+			mes "Informe a quantidade de pontos para trocar pelo item.";
+			input $PontosMVP1;
+			next;
+			mes "[MvP Rank]";
+			mes "Informe o ID do segundo item para ser o Prêmio.";
+			input $ItemMVP2;
+			next;
+			mes "[MvP Rank]";
+			mes "Informe a quantidade de pontos para trocar pelo item.";
+			input $PontosMVP2;
+			next;
+			mes "[MvP Rank]";
+			mes "Informe o ID do terceiro item para ser o Prêmio.";
+			input $ItemMVP3;
+			next;
+			mes "[MvP Rank]";
+			mes "Informe a quantidade de pontos para trocar pelo item.";
+			input $PontosMVP3;
+			mes "Feito.";
+			close;
+		case 4:
+			mes "Até logo!";
+			close;
+	}
+	end;
+} // End if
+
+function	script	MvPRank	{
+set @mvptotal, getarg(0);
+set @nomb$, getarg(1);
+for (set .@c, 0; .@c < $@top; set .@c, .@c + 1) {
+	if (@mvptotal >= getd("$topmvp" +.@c)) {
+		if (strcharinfo(0) == getd("$topmvp" +.@c +"$")) {
+			setd "$topmvp" +.@c, @mvptotal;
+			setd "$topmvp" +.@c +"$", @nomb$;
+			return;
+		} else {
+			if (getd("$topmvp" +(.@c + 1) +"$") == "") {
+				setd "$topmvp" +.@c, @mvptotal;
+				setd "$topmvp" +.@c +"$", @nomb$;
+				return;
+			} else {
+				setd "$topmvp" +(.@c + 1), getd("$topmvp" +.@c);
+				setd "$topmvp" +(.@c + 1) +"$", getd("$topmvp$" +.@c);
+				setd "$topmvp" +.@c, @mvptotal;
+				setd "$topmvp" +.@c +"$", @nomb$;
+				return;
+			} // End if
+		} // End if
+	} // End if
+} // End loop
+return;
+} // End function

@@ -54,7 +54,7 @@ L_PRIN:
 	if(Sex==1)mes "Bem-vindo ao serviço de Teletransporte ^0000CD"+strcharinfo(0)+"^000000!";
 	if(Sex==0)mes "Bem-vinda ao serviço de Teletransporte ^FF69B4"+strcharinfo(0)+"^000000!";
 	mes "Posso te teletransportar para qualquer um dos lugares disponíveis.";
-	mes "O custo para o serviço é 1 Vale-Teletransporte ou 2.000 zenys";
+//	mes "O custo para o serviço é 1 Vale-Teletransporte ou 2.000 zenys";
 	mes "Por favor selecione o lugar:";
 //	next;
 	if (false){
@@ -2626,10 +2626,21 @@ tha_scene01,138,201,4	duplicate(Teleportadora)	Teleportadora#80	423
 
 
 function	script	F_checar_zenny	{
-if (getgmlevel() >= getarg(0) )return;
-if ( countitem(getarg(2)) >= 1 ) {delitem getarg(2),1; return;}
-if ( Zeny >= getarg(1) ) {set Zeny,Zeny-getarg(1); return;}
-mes "Você não tem o dinheiro necessário!";
-mes "O teleporte custa "+getarg(1)+"z ou 1 Vale-Teletransporte";
-close;}
+	return;//serviço gratuito
+	if (getgmlevel() >= getarg(0) )
+		return;
+	if ( countitem(getarg(2)) >= 1 )
+	{
+		delitem getarg(2),1;
+		return;
+	}
+	if ( Zeny >= getarg(1) )
+	{
+		set Zeny,Zeny-getarg(1);
+		return;
+	}
+	mes "Você não tem o dinheiro necessário!";
+	mes "O teleporte custa "+getarg(1)+"z ou 1 Vale-Teletransporte";
+	close;
+}
 //callfunc "F_checar_zenny",$CONF8,$CONF9,$CONF10;
