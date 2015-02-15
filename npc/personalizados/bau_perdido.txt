@@ -15,7 +15,7 @@ OnAtcommand:
 	}
 	end;
 
-OnMinute40:
+OnMinute50:
 	if (.bauperdido==1) {
 		monster	"prontera",0,0,	"Baú Perdido",2900,1,""+strnpcinfo(1)+"::OnGanhou";
 		announce "Atenção, foi lançado um baú em algum lugar da cidade de Prontera!",bc_all,0x00FFFF;

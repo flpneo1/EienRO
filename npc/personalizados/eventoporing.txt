@@ -7,6 +7,8 @@ prontera,130,215,6	script	Caçada Poring	508,{
 	set .nome$,"[^FF9A00Caçada Poring^000000]";//Nome do NPC
 	mes .nome$;
 	mes "Olá ^FF4500"+strcharinfo(0)+"^000000!";
+	mes "Horário de abertura a cada 1 hora.";
+	mes "Iniciando em 10:35, 11:35, 12:35...";
 	mes "O que deseja fazer?";
 	mes "Seu saldo de pontos é: ^0000FF"+Ponto+"^000000";
 	switch(select("Entrar no Evento","Trocar pontos","Informações",.@m$))
@@ -218,7 +220,7 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		}
 		end;
 
-	OnMinute30:
+	OnMinute35:
 		goto IniciarEvento;
 
 	IniciarEvento:
@@ -237,11 +239,11 @@ prontera,130,215,6	script	Caçada Poring	508,{
 		set $round,1;
 		goto ProximoRound;
 
-	OnTimer540000:
+	OnTimer660000:
 		mapannounce "moonhaven","A caçada vai terminar em 1 minuto.",bc_all,0xAAFF00;
 		end;
 
-	OnTimer600000:
+	OnTimer720000:
 		if ($round==3) {
 			mapannounce "moonhaven","O tempo acabou! O Rei Poring sobreviveu...",bc_all,0xAAFF00;
 		} else {
