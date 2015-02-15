@@ -2,9 +2,11 @@ prontera,165,205,6	script	Sortudo	869,{
 	set @npc$,"[^ff0000Sortudo^000000]";
 	set @lvlgm,99;
 	mes @npc$;
-	mes "Bem vind"+(Sex?"o":"a")+" ao evento da sorte.";
+	mes "Bem vind"+(Sex?"o":"a")+" ao evento sortudo.";
 //	if(Sex==2) mes "Mulher";
 //	mes ""+strsex("o","a")+"";
+	mes "Horário de abertura a cada 1 hora.";
+	mes "Iniciando em 10:00, 11:00, 12:00...";
 	mes "O que deseja fazer?";
 	if(getgmlevel() >= @lvlgm) set .@m$,"Manipular evento";
 	switch(select("Entrar no evento","Informações",.@m$,"Sair"))

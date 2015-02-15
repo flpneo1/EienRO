@@ -44,18 +44,19 @@ OnInit:
 	waitingroom "MvP Rank",0;
 	end;
 OnAtcommand:
+	set .nome$,"[^FF9A00MvP Rank^000000]";//Nome do NPC
 	if(getgmlevel()==99)
 	{
 		set .@m$,"Resetar Rank";
 		set .@m2$,"Mudar prêmios";
 	}
-	mes "[MvP Rank]";
+	mes .nome$;
 	mes "O que deseja fazer?";
 	mes "Você matou ^FF0000"+MvP+"^000000 MvP's e possui ^0000FF"+MvPPontos+"^000000 pontos de MvP";
 	switch (select("Trocar pontos",.@m$,.@m2$,"Sair"))
 	{
 		next;
-		mes "[MvP Rank]";
+		mes .nome$;
 		case 1:
 			mes "Você deseja troca seus pontos de MvP por algum destes itens?";
 			mes "^6495ED"+getitemname($ItemMVP1)+"^000000 = "+$PontosMVP1+" Pontos";
@@ -138,6 +139,7 @@ OnAtcommand:
 					dispbottom "MvP Rank resetado.";
 					end;
 				case 2:
+					mes .nome$;
 					mes "Até logo!";
 					close;
 			}
@@ -146,23 +148,23 @@ OnAtcommand:
 			mes "Informe o ID do primeiro item para ser o Prêmio.";
 			input $ItemMVP1;
 			next;
-			mes "[MvP Rank]";
+			mes .nome$;
 			mes "Informe a quantidade de pontos para trocar pelo item.";
 			input $PontosMVP1;
 			next;
-			mes "[MvP Rank]";
+			mes .nome$;
 			mes "Informe o ID do segundo item para ser o Prêmio.";
 			input $ItemMVP2;
 			next;
-			mes "[MvP Rank]";
+			mes .nome$;
 			mes "Informe a quantidade de pontos para trocar pelo item.";
 			input $PontosMVP2;
 			next;
-			mes "[MvP Rank]";
+			mes .nome$;
 			mes "Informe o ID do terceiro item para ser o Prêmio.";
 			input $ItemMVP3;
 			next;
-			mes "[MvP Rank]";
+			mes .nome$;
 			mes "Informe a quantidade de pontos para trocar pelo item.";
 			input $PontosMVP3;
 			mes "Feito.";
