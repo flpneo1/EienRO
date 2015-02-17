@@ -61,7 +61,8 @@ item_use_interval: 100
 gtb_sc_immunity: 100
 
 //misc.conf-----------------------
-duel_only_on_same_map: no
+duel_time_interval: 0
+duel_only_on_same_map: yes
 mail_show_status: 2
 
 //monster.conf--------------------

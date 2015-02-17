@@ -1017,3 +1017,5 @@ moonhaven
 neko_isle
 para_benzen
 wolfmap1
+arena
+ygg_village

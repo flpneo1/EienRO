@@ -28,6 +28,7 @@ function Job_Menu; function A_An;
 		next;
 		mes "E para finalizar deixarei todas suas habilidades no nível máximo!";
 		atcommand "@allskill";
+		if (.Platinum) callsub Get_Platinum;
 		atcommand "@effect "+8;
 		next;
 		set contallskill,1;

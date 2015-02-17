@@ -1,4 +1,4 @@
-prontera,154,198,4	script	Gus::Arena PVP	734,2,2,{
+prontera,128,194,7	script	Gus::Arena PVP	734,2,2,{
 //dispbottom "São "+gettime(3)+":"+gettime(2)+" horas";
 //dispbottom ""+gettimestr("%H:%M:%S",21);
 if (getgmlevel()){mes "Você é GM!";}
@@ -17,9 +17,8 @@ switch (select("Quero ir para PvP","Quero sair, obrigado"))
 		if ((getcharid(1)==0)||(getgmlevel()>1)) {
 			if(!@pontos)
 				set @pontos,0;
-			dispbottom "Seus pontos são: "+@pontos;
+//			dispbottom "Seus pontos são: "+@pontos;
 			warp "cell_game",0,0;
-//			announce " "+strcharinfo(0)+" acabou de entrar na pvp arena",bc_yellow;
 		} else {
 			mes "[Gus]";
 			mes  "Você precisa sair do seu grupo";
@@ -35,7 +34,7 @@ OnPCKillEvent:
 	getmapxy @map$,@x,@y,0;
 	if(@map$ == "cell_game") {
 		set @pontos,@pontos+1;
-		dispbottom "Seus pontos: "+@pontos;
+		dispbottom "Você matou: "+@pontos+" vezes";
 	}
 	end;
 OnPCDieEvent:
@@ -60,8 +59,291 @@ OnPCLoadMapEvent:
 	end;
 OnInit:
 	waitingroom "     PvP   ["+getmapusers("cell_game")+"]",0;
+	end;
 end;
 }
+
+prontera,154,198,5	script	Duelista::Arenax1	666,1,1,{
+	set .nome$,"[^FF0000Duelista^000000]";//Nome do NPC
+	mes .nome$;
+	mes  "Olá "+strcharinfo(0)+" quer entrar na arena de duelos?";
+	next;
+	if(select("Sim","Não")==2){
+		mes .nome$;
+		mes "Ok, volte quando quiser.";
+		close;
+	}
+	if ((getcharid(1)==0)||(getgmlevel()>1)) {
+		if(!@pontos)
+			set @pontos,0;
+		dispbottom "Seus pontos são: "+@pontos;
+		warp "arena",33,50;
+	} else {
+		mes .nome$;
+		mes  "Você precisa sair do seu grupo";
+	}
+	close;
+	mes .nome$;
+	mes "Ok, volte quando quiser.";
+	close;
+	OnTimer1000:
+		initnpctimer;
+		delwaitingroom "Arenax1";
+		waitingroom "    Arena   ["+getmapusers("arena")+"]",0;
+		if(getareausers("arena",35,62,64,35)>2){
+			mapannounce "arena","Atenção! Mais de duas pessoas na arena de duelo! Todos serão retirados...",bc_all,0xAAFF00;
+			donpcevent "AssistenteDuel::FimDuel";
+		}
+		end;
+	OnInit:
+		initnpctimer;
+		waitingroom "    Arena   ["+getmapusers("arena")+"]",0;
+		end;
+}
+
+arena,29,63,6	script	Organizadora de Duelos::AssistenteDuel	655,{
+	set .nome$,"[^FF0000Organizadora de Duelos^000000]";//Nome do NPC
+//	if(.duelando1!=getcharid(0)&&.duelando2!=getcharid(0)) set @duelando,0;
+	if(getareausers("arena",35,62,64,35)==0) set @duelando,0;
+	if(@duelando==1){
+		if(getareausers("arena",35,62,64,35)==1){
+			mes .nome$;
+			mes "Quer sair do duelo?";
+			if(select("Sim","Não")==2) close;
+			if(getareausers("arena",35,62,64,35)==1){
+				set .duelando1,0;
+				set .duelando2,0;
+				warp "arena",33,50;
+				sleep2 500;
+				mapannounce "arena",""+strcharinfo(0)+" cansou de esperar e saiu da arena de duelo...",bc_all,0xAAFF00;
+				end;
+			}
+			mes "Tarde demais!";
+			close;
+		}
+		if(getareausers("arena",35,62,64,35)==2){
+			mes .nome$;
+			mes "Quer entregar o duelo?";
+			if(select("Sim","Não")==2) close;
+			if(@duelando==0){
+				mes "Tarde demais!";
+				close;
+			}
+			mapannounce "arena",""+strcharinfo(0)+" perdeu! não aguentou e entregou o duelo...",bc_all,0xAAFF00;
+			goto FimDuel;
+		}
+		end;
+	}
+	mes .nome$;
+	if(.proximo1!=0&&.proximo2!=0){
+		mes "Os próximos a duelarem são: ^FF0000[^000000 "+.proximo1$+" ^FF0000]^000000 vs ^FF0000[^000000 "+.proximo2$+" ^FF0000]^000000";
+		if(.proximo1==getcharid(0)||.proximo2==getcharid(0)){
+			mes "Você é o próximo, quer desistir?";
+			if(select("Sim","Não")==2) close;
+			if(.proximo1==getcharid(0)||.proximo2==getcharid(0)){
+				mes .nome$;
+				mes "Ok...";
+				if(.proximo1==getcharid(0)){
+					set .proximo1,0;
+				}
+				if(.proximo2==getcharid(0)){
+					set .proximo2,0;
+				}
+				close2;
+				npctalk ""+strcharinfo(0)+" desistiu de ser o próximo a duelar!";
+				end;
+			}
+		}
+		close;
+	}
+	mes "Deseja Duelar?";
+	if(select("Sim","Não")==2) close;
+	if(getareausers("arena",35,62,64,35)>1){
+		mes .nome$;
+		mes "Já existe um duelo em andamento, deseja ser o próximo?";
+		if(select("Sim","Não")==2) close;
+		if(getareausers("arena",35,62,64,35)>1){
+			if(.proximo1==0){
+				set .proximo1,getcharid(0);
+				set .proximo1$,strcharinfo(0);
+				mes "Ok! você é o próximo.";
+				npctalk ""+strcharinfo(0)+" será o próximo a duelar!";
+				close;
+			}
+			if(.proximo2==0){
+				set .proximo2,getcharid(0);
+				set .proximo2$,strcharinfo(0);
+				mes "Ok! você é o próximo.";
+				npctalk ""+strcharinfo(0)+" será o próximo a duelar!";
+				close;
+			}
+			mes "Os próximos a duelarem são: "+.proximo1$+" vs "+.proximo2$+"";
+			close;
+		}
+	}
+	if(.duelando1==0){
+		set .duelando1,getcharid(0);
+		set .duelando1$,strcharinfo(0);
+		goto Duelar;
+	}
+	if(.duelando2==0){
+		set .duelando2,getcharid(0);
+		set .duelando2$,strcharinfo(0);
+		goto Duelar;
+	}
+	close;
+	Duelar:
+		set @duelando,1;
+		if(.duelando1==getcharid(0)) warp "arena",45,50;
+		if(.duelando2==getcharid(0)) warp "arena",54,50;
+		if(getareausers("arena",35,62,64,35)==2) initnpctimer;
+		sleep2 2000;
+		areaannounce "arena",35,62,64,35,"Atenção, se ficar 2 minutos sem se mover de lugar é considerado AFK e será deslogado",bc_all,0xAAFF00;
+		end;
+	OnTimer3000:
+		mapannounce "arena","Começa agora a batalha entre "+.duelando1$+" e "+.duelando2$+"",bc_all,0xAAFF00;
+		end;
+	OnTimer5000:
+		areaannounce "arena",35,62,64,35,"Atenção, se ficar 2 minutos sem se mover de lugar é considerado AFK e será deslogado",bc_all,0xAAFF00;
+        end;
+	OnTimer540000:
+		mapannounce "arena","Atenção! falta 1 minuto para encerrar o duelo...",bc_all,0xAAFF00;
+        end;
+	OnTimer600000:
+		if(getareausers("arena",35,62,64,35)==2){
+			mapannounce "arena","Atenção! O tempo do duelo acabou! Todos serão retirados...",bc_all,0xAAFF00;
+			goto FimDuel;
+		}
+		end;
+	OnPCKillEvent:
+		getmapxy @map$,@x,@y,0;
+		if(@map$ == "arena") {
+			mapannounce "arena",""+strcharinfo(0)+" venceu o duelo!",bc_all,0xAAFF00;
+			dispbottom "Parabéns! você venceu o duelo.";
+			sleep2 3000;
+			goto FimDuel;
+		}
+		end;
+	OnPCDieEvent:
+		getmapxy @map$,@x,@y,0;
+		if(@map$ == "arena") {
+			dispbottom "Você perdeu o duelo.";
+			sleep2 3500;
+			goto FimDuel;
+		}
+		end;
+	OnPCLogoutEvent:
+		if(@duelando==1) {
+			set @duelando,0;
+			mapannounce "arena",""+strcharinfo(0)+" abandonou o duelo!",bc_all,0xAAFF00;
+			sleep2 3000;
+			goto FimDuel;
+		}
+		end;
+	FimDuel:
+		areawarp "arena",35,62,64,35,"arena",33,50;
+		set .duelando1,0;
+		set .duelando2,0;
+		stopnpctimer;
+		if(.proximo1!=0&&.proximo2!=0) initnpctimer;
+		if(.proximo1!=0){
+			warpchar "arena",45,50,.proximo1;
+			set .duelando1,.proximo1;
+			set .proximo1,0;
+		}
+		if(.proximo2!=0){
+			warpchar "arena",54,50,.proximo2;
+			set .duelando2,.proximo2;
+			set .proximo2,0;
+		}
+		end;
+	OnInit:
+		set .duelando1,0;
+		set .duelando2,0;
+		waitingroom "Duelar",0;
+		setcell "arena",0,0,300,300,cell_basilica,1;
+		setcell "arena",35,62,64,35,cell_basilica,0;
+		setcell "arena",34,63,65,63,cell_walkable,0;//risco cima
+		setcell "arena",34,63,34,36,cell_walkable,0;//risco esquerda
+		setcell "arena",65,63,65,36,cell_walkable,0;//risco direita
+		setcell "arena",35,34,64,34,cell_walkable,0;//risco baixo
+		setcell "arena",34,63,65,63,cell_shootable,0;//risco cima
+		setcell "arena",34,63,34,36,cell_shootable,0;//risco esquerda
+		setcell "arena",65,63,65,36,cell_shootable,0;//risco direita
+		setcell "arena",35,34,64,34,cell_shootable,0;//risco baixo
+		
+		setcell "arena",52,28,47,28,cell_walkable,0;//arquibancada baixo
+}
+
+arena,17,50,6	script	Assistente	417,{
+	if(@duelando==1) end;
+	set .nome$,"[^FF0000Assistente^000000]";//Nome do NPC
+	mes .nome$;
+	mes "Deseja sair da Arena?";
+	if(select("Sim","Não")==2) close;
+	warp "prontera",156,187;
+	OnInit:
+		waitingroom "Sair da Arena",0;
+}
+
+arena,33,50,0	script	ChecarDuelando	-1,0,0,{
+OnTouch:
+	set @duelando,0;
+	end;
+}
+
+//portais
+arena,28,50,0	warp	arena01	2,3,arena,66,50
+arena,71,50,0	warp	arena02	2,3,arena,32,50
+
+// Map-Flags
+cell_game	mapflag	nowarp
+cell_game	mapflag	nowarpto
+cell_game	mapflag	noteleport
+cell_game	mapflag	nosave	SavePoint
+cell_game	mapflag	nomemo
+cell_game	mapflag	nobranch
+cell_game	mapflag	nopenalty
+cell_game	mapflag	monster_noteleport
+cell_game	mapflag	noreturn
+cell_game	mapflag	pvp
+cell_game	mapflag	partylock
+
+arena	mapflag	nowarp
+arena	mapflag	nowarpto
+arena	mapflag	noteleport
+arena	mapflag	nosave	SavePoint
+arena	mapflag	nomemo
+arena	mapflag	nobranch
+arena	mapflag	nopenalty
+arena	mapflag	monster_noteleport
+arena	mapflag	noreturn
+arena	mapflag	pvp
+arena	mapflag	partylock
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //-	script	Arena#PCKill	-1,{
 //OnPCKillEvent:
