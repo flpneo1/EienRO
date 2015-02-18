@@ -101,7 +101,7 @@ prontera,154,198,5	script	Duelista::Arenax1	666,1,1,{
 		end;
 }
 
-arena,29,63,6	script	Organizadora de Duelos::AssistenteDuel	655,{
+arena,28,53,6	script	Organizadora de Duelos::AssistenteDuel	655,{
 	set .nome$,"[^FF0000Organizadora de Duelos^000000]";//Nome do NPC
 //	if(.duelando1!=getcharid(0)&&.duelando2!=getcharid(0)) set @duelando,0;
 	if(getareausers("arena",35,62,64,35)==0) set @duelando,0;
@@ -283,6 +283,7 @@ arena,17,50,6	script	Assistente	417,{
 	if(select("Sim","Não")==2) close;
 	warp "prontera",156,187;
 	OnInit:
+		delwaitingroom "Assistente";
 		waitingroom "Sair da Arena",0;
 }
 

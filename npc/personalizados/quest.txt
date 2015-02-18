@@ -1,0 +1,14 @@
+prontera,140,227,6	script	Khellisia::Quests	894,{
+	set .nome$,"[^FF0000Khellisia^000000]";//Nome do NPC
+	mes .nome$;
+	mes "Olá, possuo várias quests, escolha uma:";
+	switch (select("Quest 1","Quest 2","Quest 3"))
+	{
+		case 1:
+		case 2:
+		case 3:
+	}
+	close2;
+	cutin "",255;
+	end;
+}

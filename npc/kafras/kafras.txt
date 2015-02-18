@@ -275,7 +275,7 @@ prontera,161,193,5	script	Funcionária Kafra::kaf_prontera6	721,{
 	if(Sex==1)mes "Como posso ajudá-lo?";
 	if(Sex==0)mes "Como posso ajudá-la?";
 	callfunc "F_Kafra",5,0,0,40,800;
-	savepoint "prontera",156,182;
+	savepoint "prontera",156,187;
 	callfunc "F_KafEnd",0,1,"na cidade de Prontera";
 }
 

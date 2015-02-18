@@ -4,9 +4,9 @@ server_name: EienRO
 wisp_server_name: Bem vindo ao EienRO
 login_ip: 127.0.0.1
 char_ip: neo.redirectme.net
-start_point: prontera,156,184
+start_point: prontera,156,187
 start_items: 1201,1,0,2301,1,0
-start_zeny: 500
+start_zeny: 300
 char_del_delay: 0
 char_name_letters: abcdefghijklmnopqrstuvwxyzç _ABCDEFGHIJKLMNOPQRSTUVWXYZÇ1234567890áÁéÉíÍóÓúÚâÂêÊîÎôÔûÛàÀèÈìÌòÒùÙãÃõÕüÜ
 pincode_enabled: 0

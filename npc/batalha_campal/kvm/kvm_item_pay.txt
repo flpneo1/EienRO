@@ -285,7 +285,7 @@ PurchaseItem:
 
 	mes "Você tem certeza que quer mesmo este item?";
 	next;
-	switch(select("Não, eu não vou comprá-lo.:Sim, eu vou comprá-lo.") == 1) {
+	switch(select("Não, eu não vou comprá-lo:Sim, eu vou comprá-lo.")){
 		case 1:
 		mes "[Negociante]";
 		mes "Você escolheu a opção 'Não, eu não vou comprá-lo'.";
